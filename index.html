@@ -1,0 +1,3337 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#C0392B">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2064%2064%27%3E%3Cdefs%3E%3ClinearGradient%20id%3D%27g%27%20x1%3D%270%27%20y1%3D%270%27%20x2%3D%271%27%20y2%3D%271%27%3E%3Cstop%20offset%3D%270%27%20stop-color%3D%27%23F2D79A%27%2F%3E%3Cstop%20offset%3D%271%27%20stop-color%3D%27%23DCA94F%27%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%2764%27%20height%3D%2764%27%20rx%3D%2714%27%20fill%3D%27url%28%23g%29%27%2F%3E%3Crect%20x%3D%279%27%20y%3D%2713%27%20width%3D%2746%27%20height%3D%2732%27%20rx%3D%274%27%20fill%3D%27white%27%2F%3E%3Cpath%20d%3D%27M9%2016%20L32%2033%20L55%2016%27%20fill%3D%27%23C0392B%27%2F%3E%3Cpath%20d%3D%27M20%2042%20C28%2039%2036%2039%2044%2042%27%20stroke%3D%27%23C0392B%27%20stroke-width%3D%272.2%27%20stroke-linecap%3D%27round%27%20fill%3D%27none%27%2F%3E%3Ccircle%20cx%3D%2720%27%20cy%3D%2742%27%20r%3D%273%27%20fill%3D%27%23C0392B%27%2F%3E%3Ccircle%20cx%3D%2744%27%20cy%3D%2742%27%20r%3D%273%27%20fill%3D%27%23F9D5E0%27%2F%3E%3C%2Fsvg%3E">
+<title>Todoki · 届き · 中日互译 / 留学 / 法条 / 问答 一站式服务平台</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/@tencent-ai/workbuddy-cloud-sdk@dev/lib/index.global.js"></script>
+<script src="data/laws.js?v=20261017"></script>
+<script src="data/schools.js?v=20261017"></script>
+<script src="data/glossary.js?v=20261017"></script>
+<script src="data/lawmappings.js?v=20261017"></script>
+<script src="data/study.js?v=20261017"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        primary: '#C0392B', primaryHover: '#A93226', ink: '#1F2937',
+        bg: '#F7F5F1', surface: '#FFFFFF', line: '#E5E0D8', gold: '#C9A227', info: '#1E5A8A',
+        coral: '#FF6B4A', sakura: '#F9D5E0',
+      },
+      fontFamily: { sans: ['system-ui','PingFang SC','Hiragino Sans','Noto Sans SC','Noto Sans JP','sans-serif'] },
+      boxShadow: {
+        card: '0 1px 3px rgba(0,0,0,.06), 0 4px 12px rgba(0,0,0,.05)',
+        cardHover: '0 4px 8px rgba(0,0,0,.08), 0 16px 32px rgba(0,0,0,.09)',
+      },
+    }
+  }
+}
+</script>
+<style>
+  html{scroll-behavior:smooth}
+  body{background:#F7F5F1;color:#1F2937;font-family:system-ui,'PingFang SC','Hiragino Sans','Noto Sans SC','Noto Sans JP',sans-serif;-webkit-font-smoothing:antialiased}
+  .card{background:#fff;border:1px solid #E5E0D8;border-radius:16px;box-shadow:0 1px 3px rgba(0,0,0,.05),0 4px 12px rgba(0,0,0,.04)}
+  .card-hover{transition:all .25s ease}
+  .card-hover:hover{transform:translateY(-2px);box-shadow:0 4px 8px rgba(0,0,0,.07),0 16px 32px rgba(0,0,0,.08)}
+  .transition-all{transition:all .2s ease}
+  .tab-active{background:linear-gradient(135deg,#C0392B,#A93226);color:#fff;box-shadow:0 4px 12px rgba(192,57,43,.3)}
+  .tab-inactive{background:#fff;color:#1F2937;border:1px solid #E5E0D8}
+  .tab-inactive:hover{background:#F7F5F1}
+  .subtab-active{background:#C0392B;color:#fff}
+  .subtab-inactive{background:#F7F5F1;color:#4B5563;border:1px solid #E5E0D8}
+  .subtab-inactive:hover{background:#F3E0DC}
+  .fade-in{animation:fadeIn .4s ease}
+  @keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+  .pulse-dot{animation:pulse 1.2s ease infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+  .spinner{width:16px;height:16px;border:2px solid rgba(255,255,255,.4);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  ::-webkit-scrollbar{width:8px;height:8px}
+  ::-webkit-scrollbar-thumb{background:#D5CFC5;border-radius:8px}
+  .term-tag{background:#F3E0DC;color:#A93226}
+  .jp{font-family:'Hiragino Sans','Noto Sans JP',sans-serif}
+  .hero-grad{background:linear-gradient(160deg,#ffffff 0%,#F7F5F1 60%,#F3E0DC 130%)}
+  .section-num{background:linear-gradient(135deg,#C0392B,#A93226);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .badge-dot{width:6px;height:6px;border-radius:999px;display:inline-block}
+  .typing-cursor{display:inline-block;width:2px;height:1.1em;background:#C0392B;margin-left:2px;vertical-align:-2px;animation:blink 1s step-end infinite}
+  @keyframes blink{50%{opacity:0}}
+  .grid-bg{background-image:radial-gradient(#E5E0D8 1px,transparent 1px);background-size:20px 20px}
+  .modal-backdrop{background:rgba(0,0,0,.5);backdrop-filter:blur(4px)}
+  .modal-enter{animation:modalIn .3s ease}
+  @keyframes modalIn{from{opacity:0;transform:translateY(20px) scale(.98)}to{opacity:1;transform:none}}
+  .stat-num{font-variant-numeric:tabular-nums}
+  .school-card{position:relative;overflow:hidden}
+  .school-card::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(192,57,43,.04),transparent 60%);opacity:0;transition:opacity .3s ease;pointer-events:none}
+  .school-card:hover::after{opacity:1}
+  .pros-box{border-left:3px solid #22c55e}
+  .cons-box{border-left:3px solid #f97316}
+  /* ===== 深色模式 ===== */
+  html.dark body{background:#0f141a;color:#e5e7eb}
+  html.dark .card{background:#1a212b;border-color:#2a3442;box-shadow:none}
+  html.dark .bg-white,html.dark .bg-white\/70,html.dark .bg-white\/85{background:#1a212b !important}
+  html.dark .hero-grad{background:linear-gradient(160deg,#141a22 0%,#0f141a 60%,#241a1a 130%)}
+  html.dark header{background:rgba(15,20,26,.85);border-color:#2a3442}
+  html.dark .border-line{border-color:#2a3442}
+  html.dark .bg-bg,html.dark .bg-bg\/40,html.dark .bg-bg\/50,html.dark .bg-bg\/60{background:#111820 !important}
+  html.dark .text-gray-600,html.dark .text-gray-700,html.dark .text-gray-800{color:#cbd5e1 !important}
+  html.dark .text-gray-500{color:#94a3b8 !important}
+  html.dark .text-gray-400{color:#64748b !important}
+  html.dark .text-ink{color:#e5e7eb !important}
+  html.dark .tab-inactive{background:#1a212b;color:#e5e7eb;border-color:#2a3442}
+  html.dark .tab-inactive:hover{background:#242e3a}
+  html.dark .subtab-inactive{background:#111820;color:#cbd5e1;border-color:#2a3442}
+  html.dark .term-tag{background:#3a1f1c;color:#F3B1A8}
+  html.dark select,html.dark input,html.dark textarea{background:#111820;color:#e5e7eb;border-color:#2a3442}
+  html.dark .modal-backdrop{background:rgba(0,0,0,.6)}
+  html.dark #schoolModal .bg-white,html.dark #compareModal .bg-white,html.dark #termPopover,html.dark #cmdOverlay .bg-white{background:#1a212b !important}
+  html.dark .grid-bg{background-image:radial-gradient(#2a3442 1px,transparent 1px)}
+  html.dark footer{background:#1a212b;border-color:#2a3442}
+  html.dark .term-highlight{color:#F3B1A8;border-bottom:2px solid #C0392B;cursor:pointer;transition:background .15s}
+  .term-highlight{color:#A93226;border-bottom:2px dashed #C0392B;cursor:pointer;transition:background .15s}
+  .term-highlight:hover{background:#F3E0DC}
+  html.dark .term-highlight:hover{background:#3a1f1c}
+  .ff-alert{border-left:4px solid #D9483B;background:#FBE9E7}
+  html.dark .ff-alert{background:rgba(217,72,59,.14);border-left-color:#F87171}
+  .cmd-item{cursor:pointer;transition:background .15s}
+  .cmd-item:hover,.cmd-item.active{background:#F7F5F1}
+  html.dark .cmd-item:hover,html.dark .cmd-item.active{background:#242e3a}
+  /* 问答气泡与结构化排版 */
+  .qa-bubble p{margin:0 0 4px}
+  .qa-bubble p:last-child{margin-bottom:0}
+  .qa-bubble .qa-list{margin:2px 0 6px;padding-left:2px;list-style:none;display:flex;flex-direction:column;gap:3px}
+  .qa-bubble .qa-list li{padding-left:18px;position:relative}
+  .qa-bubble .qa-list li::before{content:'';position:absolute;left:2px;top:9px;width:6px;height:6px;border-radius:50%;background:#C0392B}
+  .qa-bubble .qa-head{font-weight:600;color:#1F2937;margin:6px 0 2px;font-size:13px}
+  html.dark .qa-bubble{background:#1a212b;border-color:#2a3442;color:#cbd5e1}
+  html.dark .qa-bubble .qa-head{color:#e5e7eb}
+  /* 折叠面板 */
+  .fold-card{border:1px solid var(--line,#ECE7DE);border-radius:16px;background:#fff;overflow:hidden}
+  .fold-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:18px 20px;cursor:pointer;user-select:none;transition:background .15s}
+  .fold-head:hover{background:#F7F5F1}
+  html.dark .fold-card{background:#161d27;border-color:#2a3442}
+  html.dark .fold-head:hover{background:#1a212b}
+  .fold-arrow{width:28px;height:28px;border-radius:8px;background:#F1EDE5;display:flex;align-items:center;justify-content:center;color:#8A8172;transition:transform .25s;flex:none}
+  html.dark .fold-arrow{background:#242e3a;color:#8ea0b5}
+  .fold-card.open .fold-arrow{transform:rotate(180deg);background:#F3E0DC;color:#C0392B}
+  html.dark .fold-card.open .fold-arrow{background:#3a1f1c;color:#F3B1A8}
+  .fold-body{display:none;padding:0 20px 20px;border-top:1px solid var(--line,#ECE7DE)}
+  .fold-card.open .fold-body{display:block}
+  html.dark .fold-body{border-color:#2a3442}
+  .fold-badge{font-size:11px;color:#9A9080}
+  html.dark .fold-badge{color:#7d8a99}
+  /* 结果卡片（润色/词典）结构化排版 */
+  .polish-optimized{background:#FBF7F2;border:1px solid #F1E4D8;border-radius:14px;padding:14px 16px}
+  html.dark .polish-optimized{background:#1a212b;border-color:#2a3442}
+  .polish-points ul{list-style:none;margin:0;padding:0}
+  .dict-card{background:#fff;border:1px solid var(--line,#ECE7DE);border-radius:14px;padding:16px}
+  html.dark .dict-card{background:#1a212b;border-color:#2a3442}
+  .dict-sec{margin-bottom:14px}
+  .dict-sec:last-child{margin-bottom:0}
+  .dict-label{font-size:11px;color:#9A9080;margin-bottom:4px;font-weight:600}
+  html.dark .dict-label{color:#7d8a99}
+  /* 法条背诵闪卡翻转 */
+  .mem-card{width:100%;max-width:420px;height:240px;perspective:1000px}
+  .mem-card-inner{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
+  .mem-card.flipped .mem-card-inner{transform:rotateY(180deg)}
+  .mem-card-face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:16px;padding:20px;display:flex;flex-direction:column;justify-content:center;overflow:auto}
+  .mem-card-front{background:#FBF7F2;border:1.5px solid #F1E4D8}
+  html.dark .mem-card-front{background:#1a212b;border-color:#2a3442}
+  .mem-card-back{background:linear-gradient(135deg,#EEF4FF,#EAF1F8);border:1.5px solid #D7E3F0;transform:rotateY(180deg)}
+  html.dark .mem-card-back{background:linear-gradient(135deg,#1e2835,#1a2430);border-color:#2a3442}
+  .mem-mode-btn.active{border-color:#C0392B;background:#F3E0DC;color:#C0392B}
+  html.dark .mem-mode-btn.active{background:#3a1f1c;border-color:#F3B1A8;color:#F3B1A8}
+  .mem-opt{border:1.5px solid #ECE7DE;border-radius:12px;padding:12px 14px;cursor:pointer;transition:all .15s;text-align:left;width:100%}
+  .mem-opt:hover{border-color:#C0392B40;background:#FBF7F2}
+  html.dark .mem-opt{border-color:#2a3442}
+  html.dark .mem-opt:hover{background:#1a212b}
+  .mem-opt.correct{border-color:#16a34a;background:#f0fdf4}
+  .mem-opt.wrong{border-color:#dc2626;background:#fef2f2}
+
+</style>
+<script>
+// 主题预置：避免首屏闪烁
+(function(){
+  try{
+    var t = localStorage.getItem('ncb-theme');
+    if(t === 'dark') document.documentElement.classList.add('dark');
+  }catch(e){}
+})();
+</script>
+</head>
+<body class="min-h-screen flex flex-col">
+
+<!-- ===== 顶部导航 ===== -->
+<header class="sticky top-0 z-50 bg-white/85 backdrop-blur-xl border-b border-line">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between h-16">
+    <div class="flex items-center gap-3">
+      <div class="w-11 h-11 rounded-xl shadow-lg shadow-primary/15 flex items-center justify-center overflow-hidden">
+        <svg viewBox="0 0 64 64" width="44" height="44" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="lgA" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#F4DCA0"/>
+              <stop offset="1" stop-color="#D9A64E"/>
+            </linearGradient>
+            <linearGradient id="lgTxt" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#A8281F"/>
+              <stop offset="1" stop-color="#C0392B"/>
+            </linearGradient>
+          </defs>
+          <rect width="64" height="64" rx="16" fill="url(#lgA)"/>
+          <rect x="8" y="4" width="48" height="26" rx="4" fill="#FFFFFF"/>
+          <path d="M8 7 L32 21 L56 7" fill="#C0392B"/>
+          <path d="M20 27 C28 24 36 24 44 27" stroke="#C0392B" stroke-width="2" stroke-linecap="round" fill="none"/>
+          <circle cx="20" cy="27" r="2.2" fill="#C0392B"/>
+          <circle cx="44" cy="27" r="2.2" fill="#F3C7D2"/>
+          <text x="32" y="49" text-anchor="middle" font-family="Georgia,'Palatino Linotype','Times New Roman',serif" font-size="10.5" font-weight="700" font-style="italic" fill="url(#lgTxt)" letter-spacing="1.2">todoki</text>
+        </svg>
+      </div>
+      <div>
+        <div class="font-bold text-lg leading-tight tracking-wide bg-gradient-to-r from-[#DCA94F] to-[#C0392B] bg-clip-text text-transparent">todoki</div>
+        <div class="text-[11px] text-gray-500 -mt-0.5 tracking-widest">届き · 传递 · 通达</div>
+      </div>
+    </div>
+    <nav class="hidden md:flex items-center gap-1.5">
+      <button data-tab="translate" class="tab-btn tab-active px-4 py-2 rounded-full text-sm font-medium flex items-center gap-1.5">🌐 翻译</button>
+      <button data-tab="study" class="tab-btn tab-inactive px-4 py-2 rounded-full text-sm font-medium flex items-center gap-1.5">🎓 留学建议</button>
+      <button data-tab="law" class="tab-btn tab-inactive px-4 py-2 rounded-full text-sm font-medium flex items-center gap-1.5">⚖️ 法条对比</button>
+      <button data-tab="glossary" class="tab-btn tab-inactive px-4 py-2 rounded-full text-sm font-medium flex items-center gap-1.5">📖 术语库</button>
+      <button data-tab="qa" class="tab-btn tab-inactive px-4 py-2 rounded-full text-sm font-medium flex items-center gap-1.5">💬 智能问答</button>
+    </nav>
+    <div class="flex items-center gap-2">
+      <button id="cmdTrigger" class="hidden md:flex items-center gap-2 text-xs text-gray-500 px-3 py-1.5 rounded-full bg-bg border border-line hover:border-primary/40 transition-all">
+        <span>🔍</span> 搜索
+        <kbd class="text-[10px] px-1.5 py-0.5 rounded bg-white border border-line">Ctrl K</kbd>
+      </button>
+      <button id="favBtn" class="relative flex items-center justify-center w-8 h-8 rounded-full bg-bg border border-line hover:border-primary/40 transition-all text-sm" title="我的收藏">🔖</button>
+      <button id="themeBtn" class="flex items-center justify-center w-8 h-8 rounded-full bg-bg border border-line hover:border-primary/40 transition-all text-sm" title="切换深色/浅色模式">🌙</button>
+      <div id="modelSwitchWrap" class="relative hidden md:block">
+        <button id="modelSwitchBtn" class="flex items-center gap-1.5 text-xs text-gray-600 px-3 py-1.5 rounded-full bg-bg border border-line hover:border-primary/40 transition-all" title="切换 AI 模型">
+          <span>🧠</span><span id="modelSwitchLabel" class="max-w-[110px] truncate">模型</span><span class="text-gray-400">▾</span>
+        </button>
+        <div id="modelSwitchMenu" class="hidden absolute right-0 mt-1.5 w-64 max-h-72 overflow-auto rounded-xl bg-white border border-line shadow-xl shadow-black/5 z-50 py-1"></div>
+      </div>
+      <span id="aiStatus" class="hidden md:flex items-center gap-1.5 text-xs text-gray-500 px-3 py-1.5 rounded-full bg-bg border border-line">
+        <span class="badge-dot bg-green-500 pulse-dot"></span> 服务已就绪
+      </span>
+    </div>
+  </div>
+  <div class="md:hidden flex gap-1.5 px-4 pb-2 overflow-x-auto">
+    <button data-tab="translate" class="tab-btn tab-active px-3 py-1.5 rounded-full text-xs font-medium whitespace-nowrap">🌐 翻译</button>
+    <button data-tab="study" class="tab-btn tab-inactive px-3 py-1.5 rounded-full text-xs font-medium whitespace-nowrap">🎓 留学</button>
+    <button data-tab="law" class="tab-btn tab-inactive px-3 py-1.5 rounded-full text-xs font-medium whitespace-nowrap">⚖️ 法条</button>
+    <button data-tab="glossary" class="tab-btn tab-inactive px-3 py-1.5 rounded-full text-xs font-medium whitespace-nowrap">📖 术语</button>
+    <button data-tab="qa" class="tab-btn tab-inactive px-3 py-1.5 rounded-full text-xs font-medium whitespace-nowrap">💬 问答</button>
+  </div>
+</header>
+
+<!-- ===== Hero ===== -->
+<section class="hero-grad border-b border-line">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 pt-14 pb-10 text-center relative overflow-hidden">
+    <div class="grid-bg absolute inset-0 opacity-40 pointer-events-none"></div>
+    <div class="relative">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-medium term-tag mb-5 shadow-sm">
+        <span>🇨🇳 ↔ 🇯🇵</span> 语言 · 留学 · 法律 · 一站式服务
+      </div>
+      <h1 class="text-4xl sm:text-6xl font-bold leading-tight tracking-tight">
+        赴日不必<br class="sm:hidden"><span class="section-num">一人求索</span>
+      </h1>
+      <div class="mt-7 flex flex-wrap justify-center gap-3">
+        <button data-tab="translate" class="tab-btn bg-gradient-to-r from-primary to-primaryHover hover:opacity-90 text-white px-7 py-3.5 rounded-full font-semibold shadow-lg shadow-primary/25 transition-all">立即翻译</button>
+        <button data-tab="law" class="tab-btn bg-white border border-line hover:bg-bg px-7 py-3.5 rounded-full font-semibold transition-all">检索法条</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<main class="max-w-7xl mx-auto px-4 sm:px-6 py-10 flex-1">
+
+  <!-- ================= 模块1：翻译 ================= -->
+  <section id="panel-translate" class="tab-panel">
+    <div class="flex items-center justify-between mb-2">
+      <div class="flex items-center gap-3">
+        <span class="w-9 h-9 rounded-lg bg-primary/10 text-primary flex items-center justify-center font-bold">01</span>
+        <h2 class="text-2xl font-bold">中日互译</h2>
+      </div>
+      <button id="dirBtn" class="px-4 py-2 rounded-full text-sm font-medium bg-white border border-line hover:bg-bg shadow-sm transition-all flex items-center gap-1.5">中 → 日 <span class="text-gray-400">⇄</span></button>
+    </div>
+
+    <div class="flex flex-wrap gap-2 mb-2">
+      <button data-sub="translate" class="subtab-btn subtab-active px-4 py-2 rounded-full text-sm font-medium flex items-center gap-1.5">🈯 直接翻译</button>
+      <button data-sub="polish" class="subtab-btn subtab-inactive px-4 py-2 rounded-full text-sm font-medium flex items-center gap-1.5">✨ 润色优化</button>
+      <button data-sub="furigana" class="subtab-btn subtab-inactive px-4 py-2 rounded-full text-sm font-medium flex items-center gap-1.5">🔤 假名标注</button>
+      <button data-sub="dict" class="subtab-btn subtab-inactive px-4 py-2 rounded-full text-sm font-medium flex items-center gap-1.5">📖 术语词典</button>
+    </div>
+
+    <!-- 润色优化维度选择器 -->
+    <div id="polishPanel" class="hidden card p-4 mb-4 border-primary/20 bg-gradient-to-r from-primary/5 to-transparent">
+      <div class="text-xs text-gray-500 mb-2.5 flex items-center gap-1.5">🎯 选择优化方向（可输入中文或日语，均输出地道日语优化版）</div>
+      <div class="flex flex-wrap gap-2">
+        <button data-polish="general" class="polish-dim px-3 py-1.5 rounded-full text-sm font-medium bg-primary text-white shadow-sm transition-all">✨ 综合润色</button>
+        <button data-polish="keigo" class="polish-dim px-3 py-1.5 rounded-full text-sm font-medium bg-white border border-line text-gray-600 hover:border-primary/40 transition-all">🎩 敬语优化</button>
+        <button data-polish="literary" class="polish-dim px-3 py-1.5 rounded-full text-sm font-medium bg-white border border-line text-gray-600 hover:border-primary/40 transition-all">🖋️ 文采优化</button>
+        <button data-polish="business" class="polish-dim px-3 py-1.5 rounded-full text-sm font-medium bg-white border border-line text-gray-600 hover:border-primary/40 transition-all">💼 商务正式</button>
+        <button data-polish="casual" class="polish-dim px-3 py-1.5 rounded-full text-sm font-medium bg-white border border-line text-gray-600 hover:border-primary/40 transition-all">😊 口语亲切</button>
+        <button data-polish="concise" class="polish-dim px-3 py-1.5 rounded-full text-sm font-medium bg-white border border-line text-gray-600 hover:border-primary/40 transition-all">✂️ 简洁精炼</button>
+      </div>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-4">
+      <div class="card card-hover p-5 flex flex-col">
+        <div class="flex items-center justify-between mb-3">
+          <span class="text-sm font-semibold text-gray-700 flex items-center gap-2" id="srcLabel">
+            <span class="w-6 h-6 rounded-full bg-primary/10 text-primary text-xs flex items-center justify-center">中</span> 中文
+          </span>
+          <span class="text-xs text-gray-400" id="charCount">0 / 5000</span>
+        </div>
+        <textarea id="srcText" rows="8" placeholder="请输入内容…（Ctrl + Enter 快速执行）" class="w-full flex-1 resize-none p-4 rounded-xl border border-line focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary text-base bg-bg/40 transition-all"></textarea>
+        <div class="flex flex-wrap items-center justify-between mt-4 gap-2">
+          <div class="flex flex-wrap gap-1.5">
+            <span class="text-xs px-2 py-1 rounded-full bg-bg text-gray-500">示例：</span>
+            <button class="sample-btn text-xs px-2.5 py-1 rounded-full term-tag hover:opacity-80 transition-all" data-text="我想申请东京大学的研究生，请问需要准备什么材料？">留学</button>
+            <button class="sample-btn text-xs px-2.5 py-1 rounded-full bg-blue-50 text-info hover:opacity-80 transition-all" data-text="这份合同的法律效力如何？请帮我分析违约责任条款。">法律</button>
+            <button class="sample-btn text-xs px-2.5 py-1 rounded-full bg-green-50 text-green-700 hover:opacity-80 transition-all" data-text="你好，请问最近的便利店在哪里？我想买点东西。">生活</button>
+          </div>
+          <button id="translateBtn" class="px-6 py-2.5 rounded-full bg-gradient-to-r from-primary to-primaryHover hover:opacity-90 text-white font-semibold text-sm transition-all disabled:opacity-40 disabled:cursor-not-allowed shadow-md shadow-primary/20 flex items-center gap-2">
+            <span id="actionBtnText">翻译</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="card card-hover p-4 flex flex-col">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-sm font-semibold text-gray-700 flex items-center gap-2" id="dstLabel">
+            <span class="w-6 h-6 rounded-full bg-blue-100 text-info text-xs flex items-center justify-center">日</span> 日语
+          </span>
+          <div class="flex gap-2">
+            <button id="transFavBtn" class="text-xs px-3 py-1.5 rounded-full bg-bg text-gray-600 hover:bg-gray-200 transition-all disabled:opacity-40" disabled title="收藏本次翻译">☆ 收藏</button>
+            <button id="copyBtn" class="text-xs px-3 py-1.5 rounded-full bg-bg text-gray-600 hover:bg-gray-200 transition-all disabled:opacity-40" disabled>复制</button>
+            <button id="speakBtn" class="text-xs px-3 py-1.5 rounded-full bg-bg text-gray-600 hover:bg-gray-200 transition-all disabled:opacity-40" disabled>朗读</button>
+          </div>
+        </div>
+        <div id="dstBox" class="flex-1 min-h-[60px] p-2 rounded-xl border border-line bg-bg/40 overflow-auto relative">
+          <p class="text-gray-400 text-sm px-1 py-0.5" id="dstPlaceholder">结果将显示在这里</p>
+          <div id="dstText" class="hidden jp"></div>
+          <div id="translateLoading" class="hidden absolute inset-0 bg-bg/60 backdrop-blur-sm flex flex-col items-center justify-center gap-2 rounded-xl">
+            <div class="spinner" style="border-top-color:#C0392B;border-color:#C0392B33"></div>
+            <span class="text-xs text-gray-500" id="loadingText">处理中…</span>
+          </div>
+        </div>
+        <div id="ffAlertBox" class="hidden mt-4 ff-alert rounded-xl p-4"></div>
+        <div id="termHints" class="hidden mt-4">
+          <div class="text-xs text-gray-500 mb-2 flex items-center gap-1">📚 术语提示：</div>
+          <div id="termList" class="flex flex-wrap gap-1.5"></div>
+        </div>
+        <div id="qualityNote" class="hidden mt-3 text-xs text-gray-400 flex items-center gap-1">⚠️ 结果仅供参考，正式法律文书请以专业翻译为准。</div>
+      </div>
+    </div>
+
+    <div class="card p-5 mt-4">
+      <div class="flex items-center justify-between mb-4">
+        <h3 class="font-semibold text-gray-700 flex items-center gap-2">🕐 历史记录</h3>
+        <button id="clearHistory" class="text-xs text-gray-400 hover:text-primary transition-all">清空</button>
+      </div>
+      <div id="historyList" class="space-y-2 max-h-56 overflow-auto">
+        <p class="text-sm text-gray-400" id="historyEmpty">暂无历史记录</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 模块2：留学建议 ================= -->
+  <section id="panel-study" class="tab-panel hidden">
+    <div class="flex items-center justify-between mb-5">
+      <div class="flex items-center gap-3">
+        <span class="w-9 h-9 rounded-lg bg-primary/10 text-primary flex items-center justify-center font-bold">02</span>
+        <h2 class="text-2xl font-bold">日本留学建议</h2>
+      </div>
+      <span class="text-xs text-gray-400">信息仅供参考，请以官方为准</span>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-5">
+      <div class="card card-hover p-5">
+        <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-2xl mb-3">🏫</div>
+        <h3 class="font-semibold text-lg mb-1.5">语言学校</h3>
+        <p class="text-sm text-gray-600 leading-relaxed">适合日语零基础或未达 N2 者，学习周期 1–2 年，是升学的跳板。</p>
+        <div class="mt-3 text-xs px-2.5 py-1 rounded-full bg-bg text-gray-600 inline-block">约 70–80 万日元/年</div>
+      </div>
+      <div class="card card-hover p-5">
+        <div class="w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center text-2xl mb-3">🎓</div>
+        <h3 class="font-semibold text-lg mb-1.5">学部（本科）</h3>
+        <p class="text-sm text-gray-600 leading-relaxed">需 EJU 留考 + 校内考，国公私立费用差异大，适合高中毕业生。</p>
+        <div class="mt-3 text-xs px-2.5 py-1 rounded-full bg-bg text-gray-600 inline-block">国公立约 54 万日元/年</div>
+      </div>
+      <div class="card card-hover p-5">
+        <div class="w-12 h-12 rounded-xl bg-purple-100 flex items-center justify-center text-2xl mb-3">📚</div>
+        <h3 class="font-semibold text-lg mb-1.5">大学院（修士/博士）</h3>
+        <p class="text-sm text-gray-600 leading-relaxed">研究方向匹配优先，需研究计划书 + 教授内诺，套磁是关键。</p>
+        <div class="mt-3 text-xs px-2.5 py-1 rounded-full bg-bg text-gray-600 inline-block">研究型优先</div>
+      </div>
+      <div class="card card-hover p-5">
+        <div class="w-12 h-12 rounded-xl bg-green-100 flex items-center justify-center text-2xl mb-3">💼</div>
+        <h3 class="font-semibold text-lg mb-1.5">专门学校</h3>
+        <p class="text-sm text-gray-600 leading-relaxed">注重职业技能（设计、动漫、IT），2 年制，就业导向明确。</p>
+        <div class="mt-3 text-xs px-2.5 py-1 rounded-full bg-bg text-gray-600 inline-block">约 80–120 万日元/年</div>
+      </div>
+    </div>
+
+    <div class="fold-card open">
+      <div class="fold-head" onclick="toggleFold(this)">
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="text-xl">🏛️</span>
+          <h3 class="font-bold text-lg">日本名校库 <span class="text-xs font-normal text-gray-400">共 <span id="schoolTotal" class="text-primary font-medium">0</span> 所 · 点击查看详情</span></h3>
+        </div>
+        <span class="fold-arrow">⌄</span>
+      </div>
+      <div class="fold-body">
+      <div class="flex flex-col gap-4 mb-5">
+        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+          <div class="flex flex-wrap gap-2">
+            <select id="schoolTypeFilter" class="px-3 py-2 rounded-lg border border-line bg-white text-sm focus:outline-none focus:ring-2 focus:ring-primary/30">
+              <option value="all">全部类型</option>
+              <option value="国立">国立大学</option>
+              <option value="公立">公立大学</option>
+              <option value="私立">私立大学</option>
+            </select>
+            <select id="schoolRegionFilter" class="px-3 py-2 rounded-lg border border-line bg-white text-sm focus:outline-none focus:ring-2 focus:ring-primary/30">
+              <option value="all">全部地区</option>
+              <option value="关东">关东</option>
+              <option value="关西">关西</option>
+              <option value="中部">中部</option>
+              <option value="九州">九州</option>
+              <option value="北海道">北海道</option>
+              <option value="东北">东北</option>
+              <option value="中国">中国</option>
+              <option value="北陆">北陆</option>
+            </select>
+            <select id="schoolTuitionFilter" class="px-3 py-2 rounded-lg border border-line bg-white text-sm focus:outline-none focus:ring-2 focus:ring-primary/30">
+              <option value="all">全部学费</option>
+              <option value="low">60 万以下/年</option>
+              <option value="mid">60–110 万/年</option>
+              <option value="high">110 万以上/年</option>
+            </select>
+            <select id="schoolSort" class="px-3 py-2 rounded-lg border border-line bg-white text-sm focus:outline-none focus:ring-2 focus:ring-primary/30">
+              <option value="default">默认排序</option>
+              <option value="tuition-asc">学费从低到高</option>
+              <option value="tuition-desc">学费从高到低</option>
+              <option value="founded-asc">创办年份最早</option>
+              <option value="founded-desc">创办年份最新</option>
+            </select>
+            <button id="schoolReset" class="px-3 py-2 rounded-lg border border-line bg-bg text-sm text-gray-600 hover:bg-gray-200 transition-all">重置</button>
+          </div>
+        </div>
+        <div class="relative">
+          <span class="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400">🔍</span>
+          <input id="schoolSearch" type="text" placeholder="搜索学校名称、专业或关键词，如「东京」「医学」「设计」「动画」…" class="w-full pl-10 pr-3 py-3 rounded-xl border border-line bg-bg/40 focus:outline-none focus:ring-2 focus:ring-primary/30 text-sm">
+          <span class="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-gray-400">匹配 <span id="schoolMatch" class="text-primary font-medium">0</span> 所</span>
+        </div>
+      </div>
+      <div id="schoolGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4"></div>
+      <div id="schoolEmpty" class="hidden text-center py-8 text-gray-400">未找到符合条件的学校，请调整搜索或筛选条件</div>
+      </div>
+    </div>
+
+    <div class="card p-6 mt-5">
+      <h3 class="font-bold text-lg mb-5 flex items-center gap-2">🗺️ 申请流程时间线 <span class="text-xs font-normal text-gray-400">点击每个节点展开详情</span></h3>
+      <div class="grid sm:grid-cols-5 gap-3 relative">
+        <div class="hidden sm:block absolute top-4 left-0 right-0 h-0.5 bg-gradient-to-r from-primary/20 via-primary/50 to-primary/20"></div>
+        <div class="relative text-center"><div class="w-9 h-9 rounded-full bg-gradient-to-br from-primary to-primaryHover text-white flex items-center justify-center font-bold mb-3 mx-auto shadow-md shadow-primary/20 relative z-10">1</div><div class="font-semibold text-sm">择校定专业</div><p class="text-xs text-gray-500 mt-1">确定目标院校与研究方向</p>
+          <details class="group mt-2 text-left rounded-lg bg-bg/50 border border-line overflow-hidden">
+            <summary class="cursor-pointer flex items-center justify-between px-3 py-2 text-xs text-primary font-medium hover:bg-bg transition-all"><span>查看详情</span><span class="text-gray-400 group-open:rotate-90 transition-all">›</span></summary>
+            <div class="px-3 py-2.5 border-t border-line">
+              <p class="text-xs text-gray-600 leading-relaxed">①明确留学目标（学部/大学院/语言学校/专门学校）与专业方向；②结合自身条件（日语水平、成绩、经济预算）筛选 5~8 所目标校；③研究各校招生要求、出愿时间、教授研究方向。这一步决定后续所有准备的方向，务必尽早定夺。</p>
+              <a href="https://www.jasso.go.jp/ja/study_j/plan/index.html" target="_blank" rel="noopener noreferrer" class="mt-2 inline-flex items-center gap-1 text-xs text-info hover:underline">🔗 JASSO 留学规划 ↗</a>
+            </div>
+          </details>
+        </div>
+        <div class="relative text-center"><div class="w-9 h-9 rounded-full bg-gradient-to-br from-primary to-primaryHover text-white flex items-center justify-center font-bold mb-3 mx-auto shadow-md shadow-primary/20 relative z-10">2</div><div class="font-semibold text-sm">准备语言</div><p class="text-xs text-gray-500 mt-1">JLPT N2/N1 或 EJU</p>
+          <details class="group mt-2 text-left rounded-lg bg-bg/50 border border-line overflow-hidden">
+            <summary class="cursor-pointer flex items-center justify-between px-3 py-2 text-xs text-primary font-medium hover:bg-bg transition-all"><span>查看详情</span><span class="text-gray-400 group-open:rotate-90 transition-all">›</span></summary>
+            <div class="px-3 py-2.5 border-t border-line">
+              <p class="text-xs text-gray-600 leading-relaxed">①文科大学院建议 JLPT N1，理科 N2 起步；②英语项目需 TOEFL/IELTS；③JLPT 每年仅 7 月、12 月两次考试，出分有 2 个月延迟，务必提前规划考期，避免错过出愿截止。</p>
+              <a href="https://www.jlpt.jp/" target="_blank" rel="noopener noreferrer" class="mt-2 inline-flex items-center gap-1 text-xs text-info hover:underline">🔗 JLPT 官网 ↗</a>
+            </div>
+          </details>
+        </div>
+        <div class="relative text-center"><div class="w-9 h-9 rounded-full bg-gradient-to-br from-primary to-primaryHover text-white flex items-center justify-center font-bold mb-3 mx-auto shadow-md shadow-primary/20 relative z-10">3</div><div class="font-semibold text-sm">套磁/申请</div><p class="text-xs text-gray-500 mt-1">研究计划书 + 联系教授</p>
+          <details class="group mt-2 text-left rounded-lg bg-bg/50 border border-line overflow-hidden">
+            <summary class="cursor-pointer flex items-center justify-between px-3 py-2 text-xs text-primary font-medium hover:bg-bg transition-all"><span>查看详情</span><span class="text-gray-400 group-open:rotate-90 transition-all">›</span></summary>
+            <div class="px-3 py-2.5 border-t border-line">
+              <p class="text-xs text-gray-600 leading-relaxed">①撰写研究计划书（问题意识 + 先行研究 + 研究方法）；②发送套磁邮件联系教授（附计划书、CV、成绩单）；③取得内诺后按教授意见修改；④正式出愿（窗口期常仅 1~2 周，务必留出快递时间）。</p>
+              <a href="https://www.jasso.go.jp/ja/study_j/plan/graduate.html" target="_blank" rel="noopener noreferrer" class="mt-2 inline-flex items-center gap-1 text-xs text-info hover:underline">🔗 JASSO 大学院申请 ↗</a>
+            </div>
+          </details>
+        </div>
+        <div class="relative text-center"><div class="w-9 h-9 rounded-full bg-gradient-to-br from-primary to-primaryHover text-white flex items-center justify-center font-bold mb-3 mx-auto shadow-md shadow-primary/20 relative z-10">4</div><div class="font-semibold text-sm">在留资格</div><p class="text-xs text-gray-500 mt-1">COE 在留资格认定</p>
+          <details class="group mt-2 text-left rounded-lg bg-bg/50 border border-line overflow-hidden">
+            <summary class="cursor-pointer flex items-center justify-between px-3 py-2 text-xs text-primary font-medium hover:bg-bg transition-all"><span>查看详情</span><span class="text-gray-400 group-open:rotate-90 transition-all">›</span></summary>
+            <div class="px-3 py-2.5 border-t border-line">
+              <p class="text-xs text-gray-600 leading-relaxed">①合格后由学校作为代理人向入国管理局申请 COE（在留资格认定证明书）；②审查通常 1~3 个月；③COE 下发后寄给你；④COE 有效期 3 个月，务必在有效期内办理签证并入境。</p>
+              <a href="https://www.moj.go.jp/isa/applications/procedures/nyuukokukanri07_00024.html" target="_blank" rel="noopener noreferrer" class="mt-2 inline-flex items-center gap-1 text-xs text-info hover:underline">🔗 出入国在留管理厅 ↗</a>
+            </div>
+          </details>
+        </div>
+        <div class="relative text-center"><div class="w-9 h-9 rounded-full bg-gradient-to-br from-primary to-primaryHover text-white flex items-center justify-center font-bold mb-3 mx-auto shadow-md shadow-primary/20 relative z-10">5</div><div class="font-semibold text-sm">签证赴日</div><p class="text-xs text-gray-500 mt-1">办理留学签证入境</p>
+          <details class="group mt-2 text-left rounded-lg bg-bg/50 border border-line overflow-hidden">
+            <summary class="cursor-pointer flex items-center justify-between px-3 py-2 text-xs text-primary font-medium hover:bg-bg transition-all"><span>查看详情</span><span class="text-gray-400 group-open:rotate-90 transition-all">›</span></summary>
+            <div class="px-3 py-2.5 border-t border-line">
+              <p class="text-xs text-gray-600 leading-relaxed">①凭 COE 原件到日本驻华使领馆申请留学签证（通常 5~10 个工作日）；②入境时在机场领取「在留カード」；③14 天内到市区町村役所办理住民登録；④办理国民健康保险、银行开户、手机号。</p>
+              <a href="https://www.cn.emb-japan.go.jp/itpr_zh/visa.html" target="_blank" rel="noopener noreferrer" class="mt-2 inline-flex items-center gap-1 text-xs text-info hover:underline">🔗 日本驻华大使馆签证 ↗</a>
+            </div>
+          </details>
+        </div>
+      </div>
+    </div>
+
+    <div class="fold-card mt-5">
+      <div class="fold-head" onclick="toggleFold(this)">
+        <div class="flex items-center gap-2">
+          <span class="text-xl">💰</span>
+          <h3 class="font-bold text-lg">留学费用计算器 <span class="text-xs font-normal text-gray-400">含生活明细与建议</span></h3>
+        </div>
+        <span class="fold-arrow">⌄</span>
+      </div>
+      <div class="fold-body">
+      <div class="grid lg:grid-cols-2 gap-6">
+        <!-- 输入区 -->
+        <div class="space-y-4">
+          <div class="grid grid-cols-2 gap-3">
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1.5">学历层次</label>
+              <select id="costType" class="w-full p-3 rounded-xl border border-line focus:outline-none focus:ring-2 focus:ring-primary/30 bg-white">
+                <option value="language">语言学校</option>
+                <option value="undergrad">学部（国公立）</option>
+                <option value="grad">大学院（国公立）</option>
+                <option value="private">私立大学</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1.5">留学城市</label>
+              <select id="costCity" class="w-full p-3 rounded-xl border border-line focus:outline-none focus:ring-2 focus:ring-primary/30 bg-white">
+                <option value="tokyo">东京（高消费）</option>
+                <option value="osaka">大阪/京都（中高）</option>
+                <option value="regional">地方城市（中等）</option>
+                <option value="rural">小城市/郊区（低）</option>
+              </select>
+            </div>
+          </div>
+          <div class="grid grid-cols-2 gap-3">
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1.5">留学年数</label>
+              <input id="costYears" type="number" min="1" max="6" value="2" class="w-full p-3 rounded-xl border border-line focus:outline-none focus:ring-2 focus:ring-primary/30">
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1.5">住宿类型</label>
+              <select id="costDorm" class="w-full p-3 rounded-xl border border-line focus:outline-none focus:ring-2 focus:ring-primary/30 bg-white">
+                <option value="dorm">学校宿舍</option>
+                <option value="apartment">合租公寓</option>
+                <option value="single">独立公寓</option>
+              </select>
+            </div>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1.5">月伙食费（万日元）</label>
+            <input id="costFood" type="number" min="2" max="15" value="4" step="0.5" class="w-full p-3 rounded-xl border border-line focus:outline-none focus:ring-2 focus:ring-primary/30">
+          </div>
+          <div id="costHint" class="hidden flex items-start gap-2 px-3 py-2 rounded-lg bg-primary/5 border border-primary/15 text-xs text-gray-600">
+            <span class="text-primary shrink-0">✨</span>
+            <span>已根据你的「学历层次 · 城市 · 住宿类型」自动填入生活费用的建议值，可直接修改。</span>
+          </div>
+          <div class="grid grid-cols-3 gap-3">
+            <div>
+              <label class="block text-xs font-medium text-gray-700 mb-1.5">月交通</label>
+              <input id="costTransport" type="number" min="0" max="5" value="1" step="0.5" class="w-full p-3 rounded-xl border border-line focus:outline-none focus:ring-2 focus:ring-primary/30 text-sm">
+            </div>
+            <div>
+              <label class="block text-xs font-medium text-gray-700 mb-1.5">月通信</label>
+              <input id="costPhone" type="number" min="0" max="3" value="0.5" step="0.1" class="w-full p-3 rounded-xl border border-line focus:outline-none focus:ring-2 focus:ring-primary/30 text-sm">
+            </div>
+            <div>
+              <label class="block text-xs font-medium text-gray-700 mb-1.5">月保险</label>
+              <input id="costInsurance" type="number" min="0" max="3" value="0.3" step="0.1" class="w-full p-3 rounded-xl border border-line focus:outline-none focus:ring-2 focus:ring-primary/30 text-sm">
+            </div>
+          </div>
+          <div class="grid grid-cols-2 gap-3">
+            <div>
+              <label class="block text-xs font-medium text-gray-700 mb-1.5">月娱乐/其他（万日元）</label>
+              <input id="costFun" type="number" min="0" max="10" value="1.5" step="0.5" class="w-full p-3 rounded-xl border border-line focus:outline-none focus:ring-2 focus:ring-primary/30 text-sm">
+            </div>
+            <div>
+              <label class="block text-xs font-medium text-gray-700 mb-1.5">月打工收入（万日元）</label>
+              <input id="costWork" type="number" min="0" max="15" value="0" step="0.5" class="w-full p-3 rounded-xl border border-line focus:outline-none focus:ring-2 focus:ring-primary/30 text-sm">
+            </div>
+            <div>
+              <label class="block text-xs font-medium text-gray-700 mb-1.5">汇率（100 日元 = ? 元）</label>
+              <input id="costRate" type="number" min="3" max="9" value="4.8" step="0.01" class="w-full p-3 rounded-xl border border-line focus:outline-none focus:ring-2 focus:ring-primary/30 text-sm">
+              <p class="text-[11px] text-gray-400 mt-1">汇率手动填写，可参考<a href="https://www.boc.cn/sourcedb/whpj/" target="_blank" rel="noopener" class="text-info hover:underline">中国银行牌价 ↗</a></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 结果区 -->
+        <div class="flex flex-col gap-4">
+          <div class="bg-gradient-to-br from-bg to-white rounded-xl p-5 border border-line">
+            <div class="text-sm text-gray-500">预估总费用（含生活费，未抵扣打工）</div>
+            <div class="text-4xl font-bold text-primary mt-1"><span id="costTotal">0</span><span class="text-xl">万日元</span></div>
+            <div class="text-sm text-gray-500 mt-2">约合人民币 <span id="costRmb" class="font-semibold text-ink text-lg">0</span> 万元</div>
+            <div id="costNetBox" class="hidden mt-2 pt-2 border-t border-line">
+              <div class="text-sm text-gray-600">抵扣打工收入后净支出：<span id="costNet" class="font-semibold text-green-700">0</span> 万日元（约 <span id="costNetRmb" class="font-semibold text-green-700">0</span> 万元）</div>
+            </div>
+          </div>
+
+          <!-- 明细表 -->
+          <div class="rounded-xl border border-line overflow-hidden">
+            <div class="text-xs font-semibold text-gray-500 px-4 py-2 bg-bg">费用明细（年）</div>
+            <div id="costBreakdown" class="divide-y divide-line text-sm"></div>
+          </div>
+
+          <!-- 建议 -->
+          <div class="rounded-xl border border-amber-200 bg-amber-50/60 p-4">
+            <div class="text-xs font-semibold text-amber-700 mb-2 flex items-center gap-1">💡 省钱建议</div>
+            <ul id="costTips" class="text-xs text-gray-700 space-y-1.5 leading-relaxed"></ul>
+          </div>
+        </div>
+      </div>
+      <p class="text-xs text-gray-400 mt-4 flex items-center gap-1">ℹ️ 按 1 万日元 ≈ 480 元人民币估算，住宿按所选类型估算，实际以当地物价与汇率为准。</p>
+      </div>
+    </div>
+
+    <div class="fold-card mt-5">
+      <div class="fold-head" onclick="toggleFold(this)">
+        <div class="flex items-center gap-2">
+          <span class="text-xl">❓</span>
+          <h3 class="font-bold text-lg">高频问题</h3>
+        </div>
+        <span class="fold-arrow">⌄</span>
+      </div>
+      <div class="fold-body">
+      <div class="flex items-center justify-end mb-3">
+        <button id="faqShuffleBtn" class="text-xs text-primary hover:underline">换一批 ↻</button>
+      </div>
+      <div id="faqList" class="space-y-2.5"></div>
+      </div>
+    </div>
+
+    <!-- 时间轴规划器 -->
+    <div class="fold-card mt-5">
+      <div class="fold-head" onclick="toggleFold(this)">
+        <div class="flex items-center gap-2">
+          <span class="text-xl">🗓️</span>
+          <h3 class="font-bold text-lg">留学时间轴规划器 <span class="text-xs font-normal text-gray-400">按入学季倒推关键节点</span></h3>
+        </div>
+        <span class="fold-arrow">⌄</span>
+      </div>
+      <div class="fold-body">
+      <div class="grid sm:grid-cols-3 gap-4 mb-5">
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1.5">目标入学季</label>
+          <select id="tlIntake" class="w-full p-3 rounded-xl border border-line bg-white focus:outline-none focus:ring-2 focus:ring-primary/30">
+            <option value="4">4 月入学（主入学季）</option>
+            <option value="10">10 月入学（秋季/SGU）</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1.5">目标入学年份</label>
+          <select id="tlYear" class="w-full p-3 rounded-xl border border-line bg-white focus:outline-none focus:ring-2 focus:ring-primary/30"></select>
+        </div>
+        <div class="flex items-end">
+          <button id="tlGenBtn" class="w-full px-5 py-3 rounded-xl bg-gradient-to-r from-primary to-primaryHover hover:opacity-90 text-white font-semibold transition-all shadow-md shadow-primary/20">生成时间轴</button>
+        </div>
+      </div>
+      <div id="tlResult"></div>
+      </div>
+    </div>
+
+    <!-- 留学知识库 -->
+    <div class="fold-card mt-5">
+      <div class="fold-head" onclick="toggleFold(this)">
+        <div class="flex items-center gap-2">
+          <span class="text-xl">📚</span>
+          <h3 class="font-bold text-lg">留学知识库 <span class="text-xs font-normal text-gray-400">全部附官方出处与更新日期</span></h3>
+        </div>
+        <span class="fold-arrow">⌄</span>
+      </div>
+      <div class="fold-body">
+      <div class="relative mb-4">
+        <span class="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400">🔍</span>
+        <input id="studyFaqInput" type="text" placeholder="搜索留学问题，如「研究生」「打工超时」「永住」…" class="w-full pl-10 pr-3 py-3 rounded-xl border border-line bg-bg/40 focus:outline-none focus:ring-2 focus:ring-primary/30 text-sm">
+      </div>
+      <div class="flex flex-wrap gap-2 mb-4" id="studyFaqCats"></div>
+      <div class="flex items-center justify-end mb-2">
+        <button id="studyFaqShuffleBtn" class="text-xs text-primary hover:underline">换一批 ↻</button>
+      </div>
+      <div id="studyFaqList" class="space-y-2.5"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 模块3：法条检索 ================= -->
+  <section id="panel-law" class="tab-panel hidden">
+    <div class="flex items-center justify-between mb-5">
+      <div class="flex items-center gap-3">
+        <span class="w-9 h-9 rounded-lg bg-primary/10 text-primary flex items-center justify-center font-bold">03</span>
+        <h2 class="text-2xl font-bold">中日法条对比检索</h2>
+      </div>
+      <div class="flex items-center gap-2">
+        <button onclick="openMemModal()" class="px-4 py-2 rounded-xl bg-gradient-to-r from-amber-500 to-orange-500 text-white text-sm font-semibold hover:opacity-90 transition-all shadow-md shadow-amber-500/20 flex items-center gap-1.5">🧠 背诵记忆</button>
+        <span class="text-xs text-gray-400 hidden sm:flex items-center gap-1">双语对照 · 仅供学习参考</span>
+      </div>
+    </div>
+
+    <div class="card p-5">
+      <div class="flex flex-col sm:flex-row gap-3">
+        <div class="relative flex-1">
+          <span class="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400">🔍</span>
+          <input id="lawSearch" type="text" placeholder="输入关键词或法条编号，如「合同」「著作权」「劳动」…" class="w-full pl-10 pr-3 py-3 rounded-xl border border-line focus:outline-none focus:ring-2 focus:ring-primary/30 bg-bg/40">
+        </div>
+        <select id="lawCategory" class="px-3 py-3 rounded-xl border border-line bg-white focus:outline-none">
+          <option value="all">全部分类</option>
+          <option value="civil">民法</option>
+          <option value="criminal">刑法</option>
+          <option value="labor">劳动法</option>
+          <option value="ip">知识产权</option>
+          <option value="consumer">消费者法</option>
+          <option value="commercial">商法</option>
+          <option value="family">婚姻家庭</option>
+          <option value="procedure">程序法</option>
+          <option value="constitution">宪法</option>
+          <option value="administrative">行政法</option>
+          <option value="tax">税法</option>
+          <option value="tort">侵权责任</option>
+          <option value="inheritance">继承法</option>
+        </select>
+        <button id="lawSearchBtn" class="px-7 py-3 rounded-xl bg-gradient-to-r from-primary to-primaryHover hover:opacity-90 text-white font-semibold transition-all shadow-md shadow-primary/20">检索</button>
+      </div>
+      <div class="mt-3 flex flex-wrap gap-2" id="lawHotTags"></div>
+    </div>
+
+    <div class="flex items-center justify-between mt-4 mb-2 px-1">
+      <span class="text-sm text-gray-500" id="lawCount"></span>
+    </div>
+    <div id="lawResult" class="space-y-4"></div>
+    <div id="lawEmpty" class="card p-12 text-center mt-4">
+      <div class="text-5xl mb-3">📜</div>
+      <p class="text-gray-500">输入关键词开始检索中日法条对照</p>
+      <p class="text-xs text-gray-400 mt-2">示例：合同 / 著作权 / 劳动 / 诈骗 / 婚姻 / 税收</p>
+    </div>
+  </section>
+
+  <!-- ================= 模块4：术语库 ================= -->
+  <section id="panel-glossary" class="tab-panel hidden">
+    <div class="flex items-center justify-between mb-5">
+      <div class="flex items-center gap-3">
+        <span class="w-9 h-9 rounded-lg bg-primary/10 text-primary flex items-center justify-center font-bold">04</span>
+        <h2 class="text-2xl font-bold">中日术语库</h2>
+      </div>
+      <span class="text-xs text-gray-400 flex items-center gap-1">含 <span id="glFFCount" class="text-primary font-medium">0</span> 组假朋友告警</span>
+    </div>
+
+    <div class="card p-5 mb-5">
+      <div class="flex flex-col sm:flex-row gap-3">
+        <div class="relative flex-1">
+          <span class="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400">🔍</span>
+          <input id="glSearch" type="text" placeholder="搜索中日术语、假名、英文，如「研究生」「けんきゅうせい」「不可抗力」…" class="w-full pl-10 pr-3 py-3 rounded-xl border border-line focus:outline-none focus:ring-2 focus:ring-primary/30 bg-bg/40">
+        </div>
+        <div class="flex gap-2">
+          <button id="glOnlyFF" class="px-4 py-2 rounded-xl border border-line bg-white text-sm text-gray-600 hover:border-primary/40 transition-all">⚠️ 只看假朋友</button>
+          <button id="glOnlyFav" class="px-4 py-2 rounded-xl border border-line bg-white text-sm text-gray-600 hover:border-primary/40 transition-all">🔖 只看收藏</button>
+        </div>
+      </div>
+      <div class="mt-3 flex flex-wrap gap-2" id="glDomains"></div>
+    </div>
+
+    <div class="flex items-center justify-between mb-3 px-1">
+      <span class="text-sm text-gray-500" id="glCount"></span>
+      <span class="text-xs text-gray-400">术语内容随法条修订与政策变更更新，每条附最后更新日期</span>
+    </div>
+    <div id="glGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+    <div id="glEmpty" class="card p-12 text-center mt-4 hidden">
+      <div class="text-5xl mb-3">📖</div>
+      <p class="text-gray-500">没有匹配的术语，试试切换领域筛选或收藏</p>
+    </div>
+  </section>
+
+  <!-- ================= 模块5：智能问答 ================= -->
+  <section id="panel-qa" class="tab-panel hidden">
+    <div class="flex items-center justify-between mb-5">
+      <div class="flex items-center gap-3">
+        <span class="w-9 h-9 rounded-lg bg-primary/10 text-primary flex items-center justify-center font-bold">05</span>
+        <h2 class="text-2xl font-bold">智能问答</h2>
+      </div>
+      <span class="text-xs text-gray-400 flex items-center gap-1.5"><span class="badge-dot bg-green-500 pulse-dot"></span> 即时解答</span>
+    </div>
+
+    <div class="grid lg:grid-cols-3 gap-4">
+      <div class="card p-5 lg:col-span-1">
+        <h3 class="font-semibold text-gray-700 mb-3 flex items-center justify-between">⚡ 快捷提问 <button id="qaShuffleBtn" class="text-xs text-primary hover:underline font-normal" title="换一批问题">换一批 ↻</button></h3>
+        <div id="qaQuestions" class="space-y-2"></div>
+      </div>
+      <div class="card p-5 lg:col-span-2 flex flex-col">
+        <div class="text-sm font-semibold text-gray-700 mb-3 flex items-center justify-between">
+          <span class="flex items-center gap-2"><span class="w-6 h-6 rounded-full bg-primary text-white text-xs flex items-center justify-center">答</span> 解答</span>
+          <button id="qaStopBtn" class="hidden text-xs px-3 py-1 rounded-full bg-red-50 text-red-600 hover:bg-red-100 transition-all">停止</button>
+        </div>
+        <div id="qaAnswer" class="flex-1 min-h-[340px] max-h-[520px] overflow-auto p-4 rounded-xl bg-bg/40 relative">
+          <p class="text-gray-400 text-sm" id="qaPlaceholder">点击左侧问题，或输入你的问题，将为你实时解答</p>
+          <div id="qaThread" class="space-y-4"></div>
+        </div>
+        <div class="mt-4 flex gap-2">
+          <input id="qaInput" type="text" placeholder="输入你的问题，如「日本留学签证需要哪些材料？」…" class="flex-1 px-4 py-3 rounded-xl border border-line focus:outline-none focus:ring-2 focus:ring-primary/30 text-sm bg-bg/40">
+          <button id="qaAskBtn" class="px-6 py-3 rounded-xl bg-gradient-to-r from-primary to-primaryHover hover:opacity-90 text-white font-semibold text-sm transition-all shadow-md shadow-primary/20 flex items-center gap-2">提问</button>
+        </div>
+        <p class="text-xs text-gray-400 mt-3 flex items-center gap-1">🤖 由真实大模型生成回答，回答仅供参考。</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ===== 学校详情 Modal ===== -->
+<div id="schoolModal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4">
+  <div class="modal-backdrop absolute inset-0" onclick="closeSchoolModal()"></div>
+  <div class="relative bg-white rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-auto shadow-2xl modal-enter">
+    <div class="sticky top-0 bg-white border-b border-line px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <span id="modalEmoji" class="text-3xl">🏫</span>
+        <div>
+          <h3 id="modalName" class="font-bold text-xl"></h3>
+          <p id="modalSub" class="text-xs text-gray-500"></p>
+        </div>
+      </div>
+      <div class="flex items-center gap-2">
+        <button id="modalFavBtn" class="px-3 py-1.5 rounded-full bg-bg text-sm transition-all">☆ 收藏</button>
+        <button onclick="closeSchoolModal()" class="w-9 h-9 rounded-full bg-bg hover:bg-gray-200 flex items-center justify-center text-gray-500 transition-all">✕</button>
+      </div>
+    </div>
+    <div class="p-6" id="modalBody"></div>
+  </div>
+</div>
+
+<!-- ===== 术语卡浮层 ===== -->
+<div id="termPopover" class="hidden fixed z-[110] bg-white rounded-2xl shadow-2xl border border-line w-[360px] max-w-[92vw] max-h-[80vh] overflow-auto p-5 modal-enter"></div>
+
+<!-- ===== 法条对比 Modal ===== -->
+<div id="compareModal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4">
+  <div class="modal-backdrop absolute inset-0" onclick="closeCompareModal()"></div>
+  <div class="relative bg-white rounded-2xl max-w-5xl w-full max-h-[92vh] overflow-auto shadow-2xl modal-enter">
+    <div class="sticky top-0 bg-white border-b border-line px-6 py-4 flex items-center justify-between z-10">
+      <div>
+        <h3 id="compareTitle" class="font-bold text-lg"></h3>
+        <p id="compareBadge" class="text-xs text-gray-500 mt-0.5"></p>
+      </div>
+      <div class="flex gap-2">
+        <button id="compareFav" class="px-3 py-1.5 rounded-full bg-bg text-xs text-gray-600 hover:bg-gray-200 transition-all">☆ 收藏</button>
+        <button id="compareExport" class="px-3 py-1.5 rounded-full bg-bg text-xs text-gray-600 hover:bg-gray-200 transition-all">复制对照表</button>
+        <button onclick="closeCompareModal()" class="w-9 h-9 rounded-full bg-bg hover:bg-gray-200 flex items-center justify-center text-gray-500 transition-all">✕</button>
+      </div>
+    </div>
+    <div class="p-6" id="compareBody"></div>
+  </div>
+</div>
+
+<!-- ===== 法条背诵记忆 Modal ===== -->
+<div id="memModal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4">
+  <div class="modal-backdrop absolute inset-0" onclick="closeMemModal()"></div>
+  <div class="relative bg-white rounded-2xl max-w-3xl w-full max-h-[92vh] overflow-auto shadow-2xl modal-enter">
+    <div class="sticky top-0 bg-white border-b border-line px-6 py-4 z-10">
+      <div class="flex items-center justify-between mb-3">
+        <div class="flex items-center gap-2">
+          <span class="text-2xl">🧠</span>
+          <h3 class="font-bold text-lg">法条背诵记忆</h3>
+          <span id="memModeLabel" class="text-xs px-2 py-0.5 rounded-full bg-primary/10 text-primary font-medium"></span>
+        </div>
+        <button onclick="closeMemModal()" class="w-9 h-9 rounded-full bg-bg hover:bg-gray-200 flex items-center justify-center text-gray-500 transition-all">✕</button>
+      </div>
+      <!-- 进度条 -->
+      <div class="flex items-center gap-3">
+        <div class="flex-1 h-2 bg-bg rounded-full overflow-hidden">
+          <div id="memProgress" class="h-full bg-gradient-to-r from-primary to-primaryHover rounded-full transition-all duration-300" style="width:0%"></div>
+        </div>
+        <span id="memCounter" class="text-xs text-gray-500 whitespace-nowrap">0 / 0</span>
+      </div>
+    </div>
+    <div class="p-6">
+      <!-- 设置区（未开始时显示） -->
+      <div id="memSetup">
+        <p class="text-sm text-gray-600 mb-4">选择背诵范围、题型与数量，开始中日法条对照记忆。</p>
+        <div class="mb-4">
+          <div class="text-xs font-semibold text-gray-500 mb-2">📂 背诵范围</div>
+          <select id="memCategory" class="w-full p-3 rounded-xl border border-line bg-white focus:outline-none focus:ring-2 focus:ring-primary/30 text-sm">
+            <option value="all">全部法条</option>
+            <option value="civil">民法</option>
+            <option value="criminal">刑法</option>
+            <option value="labor">劳动法</option>
+            <option value="ip">知识产权</option>
+            <option value="consumer">消费者法</option>
+            <option value="commercial">商法</option>
+            <option value="family">婚姻家庭</option>
+            <option value="constitution">宪法</option>
+            <option value="administrative">行政法</option>
+            <option value="tax">税法</option>
+          </select>
+        </div>
+        <div class="mb-4">
+          <div class="text-xs font-semibold text-gray-500 mb-2">🎯 题型</div>
+          <div class="grid grid-cols-3 gap-2">
+            <button class="mem-mode-btn p-3 rounded-xl border border-line hover:border-primary/40 text-center transition-all" data-mode="flash">
+              <div class="text-xl mb-1">🃏</div><div class="text-xs font-medium">闪卡翻面</div>
+            </button>
+            <button class="mem-mode-btn p-3 rounded-xl border border-line hover:border-primary/40 text-center transition-all" data-mode="choice">
+              <div class="text-xl mb-1">✅</div><div class="text-xs font-medium">四选一</div>
+            </button>
+            <button class="mem-mode-btn p-3 rounded-xl border border-line hover:border-primary/40 text-center transition-all" data-mode="fill">
+              <div class="text-xl mb-1">✍️</div><div class="text-xs font-medium">要点填空</div>
+            </button>
+          </div>
+        </div>
+        <div class="mb-4">
+          <div class="text-xs font-semibold text-gray-500 mb-2">🔢 每次记忆数量</div>
+          <div class="grid grid-cols-4 gap-2" id="memCountGroup">
+            <button class="mem-count-btn p-2.5 rounded-xl border border-line hover:border-primary/40 text-center transition-all" data-n="5">5 条</button>
+            <button class="mem-count-btn p-2.5 rounded-xl border border-line hover:border-primary/40 text-center transition-all" data-n="10">10 条</button>
+            <button class="mem-count-btn p-2.5 rounded-xl border border-line hover:border-primary/40 text-center transition-all active" data-n="20">20 条</button>
+            <button class="mem-count-btn p-2.5 rounded-xl border border-line hover:border-primary/40 text-center transition-all" data-n="30">30 条</button>
+          </div>
+        </div>
+        <div class="mb-4">
+          <label class="flex items-center justify-between px-3.5 py-2.5 rounded-xl border border-line bg-bg/40 cursor-pointer">
+            <span class="text-sm text-gray-700">跳过已掌握的法条</span>
+            <input type="checkbox" id="memSkipKnown" class="w-4 h-4 accent-primary" checked>
+          </label>
+        </div>
+        <div class="mb-5">
+          <div class="text-xs font-semibold text-gray-500 mb-2">📈 学习统计</div>
+          <div class="flex gap-3 text-sm" id="memStats">
+            <span class="px-3 py-1.5 rounded-lg bg-green-50 text-green-700">✅ 已掌握 <b id="memKnown">0</b></span>
+            <span class="px-3 py-1.5 rounded-lg bg-amber-50 text-amber-600">🔁 需复习 <b id="memReview">0</b></span>
+            <span class="px-3 py-1.5 rounded-lg bg-bg text-gray-600">🔥 连续 <b id="memStreak">0</b> 天</span>
+          </div>
+        </div>
+        <button id="memStartBtn" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-primary to-primaryHover hover:opacity-90 text-white font-semibold transition-all shadow-md shadow-primary/20">开始背诵 →</button>
+        <button id="memReviewOldBtn" class="mt-2 w-full py-3 rounded-xl border border-amber-300 bg-amber-50 text-amber-700 font-semibold hover:bg-amber-100 transition-all">🔁 复习法条</button>
+        <button id="memResetBtn" class="mt-2 w-full py-3 rounded-xl border border-line bg-bg text-gray-600 font-semibold hover:bg-gray-100 transition-all">🔄 一键重学</button>
+      </div>
+
+      <!-- 答题区（开始时显示） -->
+      <div id="memPlay" class="hidden">
+        <!-- 闪卡模式 -->
+        <div id="memFlash" class="hidden">
+          <div class="flex justify-center mb-4">
+            <div id="memFlashCard" class="mem-card cursor-pointer select-none" onclick="flipMemCard()">
+              <div class="mem-card-inner">
+                <div class="mem-card-face mem-card-front">
+                  <div class="text-xs text-gray-400 mb-2">🇨🇳 中文法条 · 点击翻面看日文</div>
+                  <div id="memFlashQ" class="text-base leading-relaxed text-gray-800"></div>
+                </div>
+                <div class="mem-card-face mem-card-back">
+                  <div class="text-xs text-gray-400 mb-2">🇯🇵 日文对照</div>
+                  <div id="memFlashA" class="text-base leading-relaxed jp text-gray-800"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="flex gap-3 justify-center flex-wrap">
+            <button id="memFlashAgain" class="px-5 py-2.5 rounded-xl bg-amber-50 text-amber-600 font-medium hover:bg-amber-100 transition-all">😔 不熟</button>
+            <button id="memFlashKnown" class="px-5 py-2.5 rounded-xl bg-green-50 text-green-700 font-medium hover:bg-green-100 transition-all">😊 认识</button>
+            <button id="memFlashEasy" class="px-5 py-2.5 rounded-xl bg-sky-50 text-sky-600 font-medium hover:bg-sky-100 transition-all">🎉 太简单</button>
+          </div>
+          <div class="mt-3 flex items-center justify-center gap-2">
+            <button id="memFlashUndo" class="hidden text-xs text-gray-400 hover:text-primary underline">↩ 撤销上一题</button>
+          </div>
+        </div>
+
+        <!-- 四选一模式 -->
+        <div id="memChoice" class="hidden">
+          <div class="p-4 rounded-xl bg-bg/50 border border-line mb-4">
+            <div class="text-xs text-gray-400 mb-1.5">选择对应的日文法条</div>
+            <div id="memChoiceQ" class="text-base leading-relaxed text-gray-800"></div>
+          </div>
+          <div id="memChoiceOpts" class="space-y-2.5"></div>
+        </div>
+
+        <!-- 填空模式 -->
+        <div id="memFill" class="hidden">
+          <div class="p-4 rounded-xl bg-bg/50 border border-line mb-4">
+            <div class="text-xs text-gray-400 mb-1.5">补全关键词（回忆日文对应词）</div>
+            <div id="memFillQ" class="text-base leading-relaxed text-gray-800"></div>
+          </div>
+          <div class="flex gap-3 items-center">
+            <input id="memFillInput" type="text" placeholder="输入答案…" class="flex-1 px-4 py-3 rounded-xl border border-line focus:outline-none focus:ring-2 focus:ring-primary/30 text-sm">
+            <button id="memFillSubmit" class="px-6 py-3 rounded-xl bg-primary text-white font-medium hover:opacity-90 transition-all">确认</button>
+          </div>
+          <div id="memFillResult" class="mt-3 hidden"></div>
+        </div>
+
+        <!-- 答题后详情（记住/没记住/太简单都展示，可自查记忆是否出错） -->
+        <div id="memDetail" class="hidden mt-4 rounded-xl border border-primary/15 bg-bg/40 overflow-hidden">
+          <div class="flex items-center justify-between px-3.5 py-2 bg-primary/5 border-b border-primary/10">
+            <span class="text-xs font-semibold text-primary">📄 法条详情</span>
+            <span id="memDetailTag" class="text-[11px] px-2 py-0.5 rounded-full"></span>
+          </div>
+          <div class="px-3.5 py-3 space-y-2.5 text-sm">
+            <div class="flex items-start gap-2"><span class="text-xs shrink-0 mt-0.5">🇨🇳</span><span><div class="font-medium text-gray-800" id="memDetailCn"></div><div class="text-gray-600 leading-relaxed mt-1" id="memDetailCnText"></div></span></div>
+            <div class="border-t border-line"></div>
+            <div class="flex items-start gap-2"><span class="text-xs shrink-0 mt-0.5">🇯🇵</span><span><div class="font-medium text-gray-800 jp" id="memDetailJa"></div><div class="text-gray-600 leading-relaxed mt-1 jp" id="memDetailJaText"></div></span></div>
+          </div>
+        </div>
+
+        <div class="mt-5 flex items-center justify-between">
+          <button id="memQuitBtn" class="px-4 py-2 rounded-xl bg-bg text-sm text-gray-600 hover:bg-gray-200 transition-all">结束本轮</button>
+          <button id="memNextBtn" class="px-5 py-2 rounded-xl bg-primary/10 text-primary text-sm font-medium hover:bg-primary/20 transition-all">下一题 →</button>
+        </div>
+      </div>
+
+      <!-- 完成页 -->
+      <div id="memDone" class="hidden text-center py-6">
+        <div class="text-5xl mb-3">🎉</div>
+        <h4 class="font-bold text-lg mb-2">本轮背诵完成！</h4>
+        <p class="text-sm text-gray-500 mb-4" id="memDoneSummary"></p>
+        <div id="memReviewList" class="hidden text-left mb-4 max-h-56 overflow-auto rounded-xl border border-line bg-bg/40"></div>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+          <button id="memReviewBtn" class="hidden px-6 py-3 rounded-xl bg-amber-500 text-white font-semibold hover:bg-amber-600 transition-all">🔁 复习本轮不会的法条</button>
+          <button id="memRestartBtn" class="px-6 py-3 rounded-xl bg-gradient-to-r from-primary to-primaryHover text-white font-semibold hover:opacity-90 transition-all">再刷一轮</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 收藏管理 Modal ===== -->
+<div id="favModal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4">
+  <div class="modal-backdrop absolute inset-0" onclick="closeFavModal()"></div>
+  <div class="relative bg-white rounded-2xl max-w-2xl w-full max-h-[85vh] overflow-auto shadow-2xl modal-enter">
+    <div class="sticky top-0 bg-white border-b border-line px-6 py-4 flex items-center justify-between z-10">
+      <h3 class="font-bold text-lg">🔖 我的收藏 <span id="favModalCount" class="text-xs text-gray-400 font-normal ml-1"></span></h3>
+      <div class="flex gap-2">
+        <button id="favClearAll" class="px-3 py-1.5 rounded-full bg-bg text-xs text-gray-500 hover:bg-gray-200 transition-all">清空全部</button>
+        <button onclick="closeFavModal()" class="w-9 h-9 rounded-full bg-bg hover:bg-gray-200 flex items-center justify-center text-gray-500 transition-all">✕</button>
+      </div>
+    </div>
+    <div class="p-6" id="favModalBody"></div>
+  </div>
+</div>
+
+<!-- ===== 命令面板 ===== -->
+<div id="cmdOverlay" class="fixed inset-0 z-[120] hidden items-start justify-center pt-[12vh] p-4">
+  <div class="modal-backdrop absolute inset-0" onclick="closeCmd()"></div>
+  <div class="relative bg-white rounded-2xl shadow-2xl border border-line w-full max-w-xl overflow-hidden modal-enter">
+    <div class="flex items-center gap-3 px-5 py-4 border-b border-line">
+      <span class="text-gray-400">🔍</span>
+      <input id="cmdInput" type="text" placeholder="搜索术语、法条、学校、留学问题…" class="flex-1 text-base focus:outline-none bg-transparent" autocomplete="off">
+      <kbd class="text-[10px] px-1.5 py-0.5 rounded bg-bg border border-line text-gray-400">Esc</kbd>
+    </div>
+    <div id="cmdResults" class="max-h-[50vh] overflow-auto py-2"></div>
+  </div>
+</div>
+
+<!-- 页脚 -->
+<footer class="border-t border-line bg-white mt-auto">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-8">
+    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+      <div>
+        <div class="font-bold text-lg">Todoki <span class="text-xs text-gray-400 font-normal">届き · 传递 · 通达</span></div>
+        <p class="text-xs text-gray-400 mt-1">翻译 · 留学 · 法律 · 一站式服务平台</p>
+      </div>
+      <div class="text-xs text-gray-400 max-w-xl leading-relaxed">
+        <strong class="text-gray-500">免责声明：</strong>本站翻译结果、法条双语内容为学习参考，学校信息以官方发布为准，均不构成法律意见或正式依据。请勿将本站内容作为唯一决策依据。
+      </div>
+    </div>
+    <div class="text-center text-xs text-gray-400 mt-6">© 2026 Todoki · 届き · 传递 · 通达</div>
+  </div>
+</footer>
+
+<script src="config.js"></script>
+<script>
+// ============ 云服务 SDK 初始化 ============
+// endpoint 与 publishableKey 从外部 config.js（window.APP_CONFIG）读取，
+// 该文件不提交到仓库（见 config.example.js 与 README）。缺失时给出占位值并提示。
+const publicConfig = (window.APP_CONFIG && window.APP_CONFIG.endpoint && window.APP_CONFIG.publishableKey)
+  ? { endpoint: window.APP_CONFIG.endpoint, publishableKey: window.APP_CONFIG.publishableKey }
+  : { endpoint: '', publishableKey: '' };
+let cloud = null;
+let llmModelId = null;
+let allModels = [];
+const aiStatus = document.getElementById('aiStatus');
+const MODEL_STORE_KEY = 'ncb_model_id';
+
+// 模型显示名：优先 name，其次把 id 里冗余前缀去掉
+function modelLabel(m){
+  if(m && m.name && m.name.trim()) return m.name.trim();
+  const id = String(m && m.id || '');
+  return id.replace(/^(accounts\/|providers\/|openai\/|anthropic\/)/i, '').replace(/^[\/\s]+/, '');
+}
+
+async function initCloud(){
+  if(!publicConfig.endpoint || !publicConfig.publishableKey){
+    setAiStatus('未配置云服务', 'yellow');
+    console.warn('[Todoki] 未找到 config.js 或其中缺少 endpoint / publishableKey。请复制 config.example.js 为 config.js 并填入你的 WorkBuddy 云服务配置（详见 README）。');
+    return;
+  }
+  try {
+    cloud = WorkBuddyCloud.createWorkBuddyCloud({ endpoint: publicConfig.endpoint, publishableKey: publicConfig.publishableKey });
+    const models = await cloud.llm.models.list();
+    if(!models || models.length === 0){ setAiStatus('服务未就绪', 'yellow'); return; }
+    allModels = models.filter(m => !m.disabled);
+    if(allModels.length === 0) allModels = models.slice();
+    // 恢复用户上次选择的模型，否则用第一个
+    const saved = localStorage.getItem(MODEL_STORE_KEY);
+    const chosen = allModels.find(m => m.id === saved) || allModels[0];
+    llmModelId = chosen.id;
+    renderModelSwitch();
+    setAiStatus('服务已就绪', 'green');
+  } catch(e){
+    console.error('Cloud init failed:', e);
+    setAiStatus('服务连接失败', 'red');
+  }
+}
+
+// 渲染模型切换下拉；切换后立即生效并持久化
+function renderModelSwitch(){
+  const btn = document.getElementById('modelSwitchBtn');
+  const label = document.getElementById('modelSwitchLabel');
+  const menu = document.getElementById('modelSwitchMenu');
+  if(!btn || !menu) return;
+  const cur = allModels.find(m => m.id === llmModelId);
+  label.textContent = cur ? modelLabel(cur) : '模型';
+  label.title = cur ? (modelLabel(cur) + ' · ' + cur.id) : '';
+  menu.innerHTML = allModels.map(m => {
+    const active = m.id === llmModelId;
+    return `<button class="w-full text-left px-3.5 py-2 text-xs hover:bg-bg transition-all flex items-center gap-2 ${active ? 'text-primary font-semibold' : 'text-gray-600'}">
+      <span class="w-1.5 h-1.5 rounded-full shrink-0 ${active ? 'bg-primary' : 'bg-gray-200'}"></span>
+      <span class="flex-1 min-w-0">
+        <span class="block truncate">${escapeHtml(modelLabel(m))}</span>
+        <span class="block text-[10px] text-gray-400 truncate">${escapeHtml(m.id)}</span>
+      </span>
+      ${active ? '<span class="shrink-0">✓</span>' : ''}
+    </button>`;
+  }).join('');
+  menu.querySelectorAll('button').forEach((b, i) => {
+    b.addEventListener('click', () => {
+      llmModelId = allModels[i].id;
+      localStorage.setItem(MODEL_STORE_KEY, llmModelId);
+      renderModelSwitch();
+      closeModelSwitch();
+    });
+  });
+}
+function openModelSwitch(){
+  const menu = document.getElementById('modelSwitchMenu');
+  if(menu) menu.classList.remove('hidden');
+}
+function closeModelSwitch(){
+  const menu = document.getElementById('modelSwitchMenu');
+  if(menu) menu.classList.add('hidden');
+}
+document.getElementById('modelSwitchBtn').addEventListener('click', (e) => {
+  e.stopPropagation();
+  const menu = document.getElementById('modelSwitchMenu');
+  if(menu.classList.contains('hidden')) openModelSwitch(); else closeModelSwitch();
+});
+document.addEventListener('click', (e) => {
+  const wrap = document.getElementById('modelSwitchWrap');
+  if(wrap && !wrap.contains(e.target)) closeModelSwitch();
+});
+function setAiStatus(text, color){
+  const c = color==='green'?'#22c55e':color==='yellow'?'#eab308':'#ef4444';
+  aiStatus.innerHTML = `<span class="badge-dot" style="background:${c}"></span> ${text}`;
+}
+
+async function streamLLM(messages, onDelta, signal){
+  const chunks = cloud.llm.chat.completions.create({ model: llmModelId, messages, stream: true, signal });
+  for await (const chunk of chunks){
+    const delta = chunk.choices?.[0]?.delta?.content;
+    if(delta) onDelta(delta);
+  }
+}
+
+// ============ Tab 切换 ============
+const tabs = document.querySelectorAll('.tab-btn');
+const panels = {
+  translate: document.getElementById('panel-translate'),
+  study: document.getElementById('panel-study'),
+  law: document.getElementById('panel-law'),
+  glossary: document.getElementById('panel-glossary'),
+  qa: document.getElementById('panel-qa'),
+};
+function switchTab(name){
+  Object.keys(panels).forEach(k => panels[k].classList.toggle('hidden', k !== name));
+  tabs.forEach(b => {
+    const isActive = b.dataset.tab === name;
+    b.classList.toggle('tab-active', isActive);
+    b.classList.toggle('tab-inactive', !isActive);
+  });
+  panels[name].classList.add('fade-in');
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+tabs.forEach(b => b.addEventListener('click', () => switchTab(b.dataset.tab)));
+
+// ============ 折叠面板 ============
+function toggleFold(headEl){
+  const card = headEl.closest('.fold-card');
+  if(card) card.classList.toggle('open');
+}
+
+// ============ 术语库 ============
+const dict = {
+  '东京大学':'とうきょうだいがく（東京大学）','研究生':'けんきゅうせい（研究生）','合同':'けいやくしょ（契約書）',
+  '法律':'ほうりつ（法律）','申请':'しんせい（申請）','大学':'だいがく（大学）','便利':'べんり（便利）',
+  '酒店':'ホテル','违约':'いやく（違約）','著作权':'ちょさくけん（著作権）','留学':'りゅうがく（留学）',
+  '签证':'ビザ','住宿':'しゅくはく（宿泊）','费用':'ひよう（費用）','教授':'きょうじゅ（教授）',
+  '赔偿':'ばいしょう（賠償）','继承':'そうぞく（相続）','税收':'ぜいきん（税金）','商标':'しょうひょう（商標）',
+};
+
+function escapeHtml(s){return s.replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+
+// 复制到剪贴板（带兜底：优先 navigator.clipboard，失败/不可用时退回 execCommand）
+function copyToClipboard(text, onOk, onFail){
+  function fallback(){
+    try {
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.focus();
+      ta.select();
+      const ok = document.execCommand('copy');
+      document.body.removeChild(ta);
+      if(ok){ onOk && onOk(); } else { onFail && onFail(); }
+    } catch(e){ onFail && onFail(); }
+  }
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(() => { onOk && onOk(); }).catch(fallback);
+  } else {
+    fallback();
+  }
+}
+
+// 轻量提示（自动消失）
+function showToast(msg){
+  let t = document.getElementById('toastTip');
+  if(!t){
+    t = document.createElement('div');
+    t.id = 'toastTip';
+    t.style.cssText = 'position:fixed;left:50%;bottom:32px;transform:translateX(-50%) translateY(16px);z-index:10000;padding:10px 20px;border-radius:12px;background:rgba(17,24,39,0.92);color:#fff;font-size:14px;box-shadow:0 8px 24px rgba(0,0,0,0.18);transition:opacity .25s ease, transform .25s ease;opacity:0;pointer-events:none;';
+    document.body.appendChild(t);
+  }
+  t.textContent = msg;
+  requestAnimationFrame(() => { t.style.opacity = '1'; t.style.transform = 'translateX(-50%) translateY(0)'; });
+  clearTimeout(t._timer);
+  t._timer = setTimeout(() => { t.style.opacity = '0'; t.style.transform = 'translateX(-50%) translateY(16px)'; }, 1600);
+}
+
+// ============ 输出清洗：去 markdown 符号、修排版 ============
+function cleanAiOutput(text){
+  if(!text) return '';
+  let t = text;
+  // 去代码围栏与行内代码标记
+  t = t.replace(/```[a-zA-Z]*\n?/g, '').replace(/`([^`]*)`/g, '$1');
+  // 去标题符号
+  t = t.replace(/^\s{0,3}#{1,6}\s+/gm, '');
+  // 去加粗/斜体符号
+  t = t.replace(/\*\*([^*]+)\*\*/g, '$1').replace(/\*([^*]+)\*/g, '$1').replace(/_{1,3}([^_]+)_{1,3}/g, '$1');
+  // 去无序列表符号（行首 - * •，含全角）
+  t = t.replace(/^\s{0,4}[-*•·]\s+/gm, '');
+  // 去有序列表多余的编号点后空格统一
+  t = t.replace(/^\s{0,4}(\d+)[.)、]\s+/gm, '$1. ');
+  // 去引用符号
+  t = t.replace(/^\s{0,3}>\s?/gm, '');
+  // 去表格分隔行与多余竖线
+  t = t.replace(/^\s*\|?[\s:|-]+\|?\s*$/gm, '');
+  t = t.replace(/\s*\|\s*/g, '　');
+  // 去分隔线
+  t = t.replace(/^\s*[-—_*]{3,}\s*$/gm, '');
+  // 去掉常见的开场白/结尾套话
+  t = t.replace(/^(好的[，,！!]?|当然[，,！!]?|以下是|以下為|这是|这是您要的)[^\n：:]*[：:]\s*\n?/g, '');
+  t = t.replace(/\n(希望|以上|如有|若还有|祝)[^\n]{0,30}[。！!]?\s*$/g, '');
+  // 合并 3 个以上连续换行
+  t = t.replace(/\n{3,}/g, '\n\n');
+  // 去除行尾多余空格
+  t = t.replace(/[ \t]+$/gm, '');
+  return t.trim();
+}
+
+// ============ 翻译模块（含子功能） ============
+const srcText = document.getElementById('srcText');
+const charCount = document.getElementById('charCount');
+const srcLabel = document.getElementById('srcLabel');
+const dstLabel = document.getElementById('dstLabel');
+const dirBtn = document.getElementById('dirBtn');
+const dstBox = document.getElementById('dstBox');
+const dstText = document.getElementById('dstText');
+const dstPlaceholder = document.getElementById('dstPlaceholder');
+const translateBtn = document.getElementById('translateBtn');
+const actionBtnText = document.getElementById('actionBtnText');
+const translateLoading = document.getElementById('translateLoading');
+const loadingText = document.getElementById('loadingText');
+const copyBtn = document.getElementById('copyBtn');
+const speakBtn = document.getElementById('speakBtn');
+const transFavBtn = document.getElementById('transFavBtn');
+let lastTranslate = null; // { src, dst } 记录最近一次翻译结果，供收藏
+const termHints = document.getElementById('termHints');
+const termList = document.getElementById('termList');
+const qualityNote = document.getElementById('qualityNote');
+const historyList = document.getElementById('historyList');
+const historyEmpty = document.getElementById('historyEmpty');
+const clearHistory = document.getElementById('clearHistory');
+const subtabBtns = document.querySelectorAll('.subtab-btn');
+
+let isZhToJa = true;
+let currentSub = 'translate';
+let currentPolish = 'general';
+let history = JSON.parse(localStorage.getItem('ncb_history') || '[]');
+let translateAbort = null;
+let translateStreamRaf = null;
+
+const subMeta = {
+  translate: { btn:'翻译', label:'日语', placeholder:'请输入要翻译的内容…', loading:'翻译中…', sys_zh:'你是一名专业的中日翻译，精通日本留学、法律、商务领域术语。请将用户输入的中文准确、自然、地道地翻译成日语。只输出译文本身，禁止输出任何解释、注释或前后缀。禁止使用任何 Markdown 格式符号（如 *、-、#、`、表格线）。保持原文的段落与换行，不要添加序号或列表符号。', sys_ja:'あなたはプロの中日翻訳者です。日本の留学・法律・ビジネス用語と語体に精通しています。ユーザーの日本語を正確で自然な中国語に翻訳してください。訳文のみを出力し、説明・注釈・前後の言葉は一切付けないでください。Markdown記号（*、-、#、`など）は絶対に使用しないでください。原文の段落と改行を維持してください。' },
+  polish: { btn:'润色', label:'日语优化版', placeholder:'请输入要润色的文字（中文或日语均可）…', loading:'润色中…', sys_zh:'', sys_ja:'' },
+  furigana: { btn:'标注假名', label:'标注结果', placeholder:'请输入要标注假名的日语…', loading:'标注中…', sys_zh:'你是一名日语教师。请为用户输入的日语汉字标注假名（振り仮名），用括号形式标注在汉字后面，例如：日本語（にほんご）。保持原文结构，只在汉字后添加假名读音。禁止使用任何 Markdown 符号，禁止额外解释。', sys_ja:'あなたは日本語教師です。ユーザーが入力した日本語の漢字に振り仮名を付けてください。漢字の後ろに括弧書きで読み仮名を追加してください。例：日本語（にほんご）。Markdown記号は使わず、説明も不要です。' },
+  dict: { btn:'查询', label:'释义', placeholder:'请输入要查询的单词…', loading:'查询中…', sys_zh:'你是一本中日双语词典。请按以下固定格式分段输出，每段用【】标记开头：\n【释义】中文释义（一句话）\n【对应】日语对应词及假名\n【词性】词性（如：名词/动词/形容动词）\n【例句】一句例句，先日语后中文（用「」隔开）\n如果是法律或留学相关术语，请在【释义】里特别说明专业含义。禁止使用 Markdown 符号（*、-、#、表格线）。', sys_ja:'あなたは日中辞書です。以下の固定形式で分けて出力してください。各セクションは【】で始めること：\n【释义】中国語の意味（一文）\n【对应】日本語の対応語と読み仮名\n【词性】品詞\n【例句】例文（日本語→中国語、「」で区切る）\n法律・留学関連の用語は専門的な意味も説明してください。Markdown記号は使用しないでください。' },
+};
+
+// 润色维度系统提示词（无论输入中文还是日语，均输出地道日语优化版）
+const polishDimMeta = {
+  general: {
+    label:'综合润色',
+    sys:'あなたは日中の文章校正・推敲の専門家です。ユーザーが入力する文章（中国語または日本語）を、自然で洗練された日本語に書き直してください。原意を忠実に保ちつつ、語彙・文法・表現・語順を総合的に最適化します。出力形式：①【优化版】自然な日本語の推敲文 ②【要点】修正したポイントを簡潔に箇条書きで説明してください。'
+  },
+  keigo: {
+    label:'敬语优化',
+    sys:'あなたは日本語の敬語表現の専門家です。ユーザーが入力する文章（中国語または日本語）を、適切な敬語（尊敬語・謙譲語・丁寧語）を用いた日本語に書き直してください。目上の人や初対面の相手、顧客に対して失礼のない丁寧な表現にします。出力形式：①【优化版】敬語を用いた日本語 ②【要点】使用した敬語の種類と修正ポイントを簡潔に説明してください。'
+  },
+  literary: {
+    label:'文采优化',
+    sys:'あなたは日本語の文章表現の達人です。ユーザーが入力する文章（中国語または日本語）を、美しく文才に富んだ日本語に書き換えてください。比喩・四字熟語・格調高い語彙・リズム感を活かし、印象的で洗練された文章に仕上げます。原意は保持します。出力形式：①【优化版】文才豊かな日本語 ②【要点】工夫した表現技法を簡潔に説明してください。'
+  },
+  business: {
+    label:'商务正式',
+    sys:'あなたは日本のビジネス文書の専門家です。ユーザーが入力する文章（中国語または日本語）を、ビジネスシーンで通用する正式な日本語のビジネス文書に書き直してください。クッション言葉・定型表現・正確な用語を用い、簡潔かつ丁寧な文体にします。出力形式：①【优化版】正式なビジネス日本語 ②【要点】ビジネス表現上の修正ポイントを簡潔に説明してください。'
+  },
+  casual: {
+    label:'口语亲切',
+    sys:'あなたは日本語の会話表現の専門家です。ユーザーが入力する文章（中国語または日本語）を、親しみやすく自然な口語日本語に書き直してください。友達や同僚とのカジュアルな会話で違和感のない、くだけすぎず温かみのある表現にします。出力形式：①【优化版】自然な口語日本語 ②【要点】口語化したポイントを簡潔に説明してください。'
+  },
+  concise: {
+    label:'简洁精炼',
+    sys:'あなたは日本語の推敲・要約の専門家です。ユーザーが入力する文章（中国語または日本語）を、冗長な表現を削り、簡潔で要点が明確な日本語に書き直してください。一文を短くし、無駄な修飾を省きつつ、伝えたい内容は漏らしません。出力形式：①【优化版】簡潔な日本語 ②【要点】削除・短縮したポイントを簡潔に説明してください。'
+  },
+};
+
+function updateSubUI(){
+  const m = subMeta[currentSub];
+  actionBtnText.textContent = m.btn;
+  dstLabel.innerHTML = `<span class="w-6 h-6 rounded-full bg-blue-100 text-info text-xs flex items-center justify-center">${m.label==='日语'?'日':'改'}</span> ${m.label}`;
+  srcText.placeholder = m.placeholder;
+  // 润色面板仅在 polish 子功能下显示
+  const polishPanel = document.getElementById('polishPanel');
+  if(currentSub === 'polish'){
+    polishPanel.classList.remove('hidden');
+    dirBtn.classList.add('hidden');
+    srcLabel.innerHTML = '<span class="w-6 h-6 rounded-full bg-primary/10 text-primary text-xs flex items-center justify-center">中/日</span> 输入（中文或日语皆可）';
+  } else {
+    polishPanel.classList.add('hidden');
+    if(currentSub === 'dict' || currentSub === 'furigana'){
+      dirBtn.classList.add('hidden');
+    } else {
+      dirBtn.classList.remove('hidden');
+    }
+    srcLabel.innerHTML = isZhToJa ? '<span class="w-6 h-6 rounded-full bg-primary/10 text-primary text-xs flex items-center justify-center">中</span> 中文' : '<span class="w-6 h-6 rounded-full bg-blue-100 text-info text-xs flex items-center justify-center">日</span> 日语';
+  }
+  subtabBtns.forEach(b => {
+    const active = b.dataset.sub === currentSub;
+    b.classList.toggle('subtab-active', active);
+    b.classList.toggle('subtab-inactive', !active);
+  });
+  resetResult();
+}
+
+subtabBtns.forEach(b => {
+  b.addEventListener('click', () => { currentSub = b.dataset.sub; updateSubUI(); });
+});
+
+// 润色维度选择
+document.querySelectorAll('.polish-dim').forEach(b => {
+  b.addEventListener('click', () => {
+    currentPolish = b.dataset.polish;
+    document.querySelectorAll('.polish-dim').forEach(x => {
+      const active = x.dataset.polish === currentPolish;
+      x.classList.toggle('bg-primary', active);
+      x.classList.toggle('text-white', active);
+      x.classList.toggle('shadow-sm', active);
+      x.classList.toggle('bg-white', !active);
+      x.classList.toggle('border', !active);
+      x.classList.toggle('border-line', !active);
+      x.classList.toggle('text-gray-600', !active);
+      x.classList.toggle('hover:border-primary/40', !active);
+    });
+  });
+});
+
+function renderHistory(){
+  if(history.length === 0){
+    historyEmpty.classList.remove('hidden');
+    historyList.querySelectorAll('.history-item').forEach(e=>e.remove());
+    return;
+  }
+  historyEmpty.classList.add('hidden');
+  historyList.querySelectorAll('.history-item').forEach(e=>e.remove());
+  history.slice().reverse().forEach(h => {
+    const div = document.createElement('div');
+    div.className = 'history-item p-3.5 rounded-xl bg-bg/50 border border-line';
+    const modeMeta = {translate:{l:'翻译',c:'bg-primary/10 text-primary'},polish:{l:'润色',c:'bg-purple-50 text-purple-600'},furigana:{l:'假名',c:'bg-blue-50 text-info'},dict:{l:'词典',c:'bg-green-50 text-green-700'}}[h.mode] || {l:'翻译',c:'bg-primary/10 text-primary'};
+    div.innerHTML = `
+      <div class="flex items-center justify-between mb-2">
+        <span class="text-[10px] px-2 py-0.5 rounded-full ${modeMeta.c} font-medium">${modeMeta.l}</span>
+        <span class="text-[10px] text-gray-300">${h.t ? formatTime(h.t) : ''}</span>
+      </div>
+      <div class="text-xs text-gray-400 leading-relaxed mb-2 whitespace-pre-wrap">${escapeHtml(h.src)}</div>
+      <div class="text-sm text-gray-800 leading-relaxed jp border-l-2 border-primary/30 pl-3 whitespace-pre-wrap">${escapeHtml(h.dst).replace(/(?=[①②③④⑤⑥⑦⑧⑨⑩⑪⑫⑬⑭⑮])/g, '\n').replace(/(?=[（(][一二三四五六七八九十]+[)）])/g, '\n')}</div>
+      <button class="hf-fill mt-2 text-[11px] text-primary hover:underline" data-src="${escapeHtml(h.src)}">↩ 回填</button>`;
+    div.querySelector('.hf-fill').addEventListener('click', () => {
+      srcText.value = h.src;
+      srcText.dispatchEvent(new Event('input'));
+      switchTab('translate');
+      window.scrollTo({top:0, behavior:'smooth'});
+    });
+    historyList.appendChild(div);
+  });
+}
+function formatTime(ts){
+  if(!ts) return '';
+  const d = new Date(ts);
+  return `${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}`;
+}
+
+srcText.addEventListener('input', () => {
+  const len = srcText.value.length;
+  charCount.textContent = len + ' / 5000';
+  translateBtn.disabled = len === 0;
+  if(len > 5000){ charCount.classList.add('text-red-500'); } else { charCount.classList.remove('text-red-500'); }
+});
+
+dirBtn.addEventListener('click', () => {
+  isZhToJa = !isZhToJa;
+  srcLabel.innerHTML = isZhToJa ? '<span class="w-6 h-6 rounded-full bg-primary/10 text-primary text-xs flex items-center justify-center">中</span> 中文' : '<span class="w-6 h-6 rounded-full bg-blue-100 text-info text-xs flex items-center justify-center">日</span> 日语';
+  if(currentSub === 'translate'){
+    dstLabel.innerHTML = isZhToJa ? '<span class="w-6 h-6 rounded-full bg-blue-100 text-info text-xs flex items-center justify-center">日</span> 日语' : '<span class="w-6 h-6 rounded-full bg-primary/10 text-primary text-xs flex items-center justify-center">中</span> 中文';
+  }
+  dirBtn.innerHTML = isZhToJa ? '中 → 日 <span class="text-gray-400">⇄</span>' : '日 → 中 <span class="text-gray-400">⇄</span>';
+  srcText.placeholder = currentSub === 'translate' ? (isZhToJa ? '请输入要翻译的中文…' : '日本語を入力してください…') : subMeta[currentSub].placeholder;
+  resetResult();
+});
+
+function resetResult(){
+  dstPlaceholder.classList.remove('hidden');
+  dstText.classList.add('hidden');
+  dstText.textContent = '';
+  copyBtn.disabled = true;
+  speakBtn.disabled = true;
+  qualityNote.classList.add('hidden');
+  termHints.classList.add('hidden');
+  const ffBox = document.getElementById('ffAlertBox');
+  if(ffBox) ffBox.classList.add('hidden');
+}
+
+async function doAction(){
+  const src = srcText.value.trim();
+  if(!src){ return; }
+  if(src.length > 5000){
+    dstPlaceholder.textContent = '⚠️ 单次最多 5000 字，请精简内容。';
+    dstPlaceholder.classList.remove('hidden');
+    dstText.classList.add('hidden');
+    return;
+  }
+  if(!cloud || !llmModelId){ alert('服务尚未就绪，请稍后重试'); return; }
+
+  const m = subMeta[currentSub];
+  translateLoading.classList.remove('hidden');
+  loadingText.textContent = m.loading;
+  translateBtn.disabled = true;
+  dstPlaceholder.classList.add('hidden');
+  dstText.classList.remove('hidden');
+  dstText.textContent = '';
+  dstText.innerHTML = '<span class="typing-cursor"></span>';
+  copyBtn.disabled = true;
+  speakBtn.disabled = true;
+  qualityNote.classList.add('hidden');
+  termHints.classList.add('hidden');
+
+  translateAbort = new AbortController();
+  let full = '';
+  try {
+    // 润色功能：无论输入语言，均使用日语优化提示词
+    let sysPrompt;
+    if(currentSub === 'polish'){
+      sysPrompt = polishDimMeta[currentPolish].sys + ' 出力はプレーンテキストとし、Markdown記号（*、-、#、`、表）は一切使用しないでください。②【要点】の修正ポイントは中国語で簡潔に説明してください。各要点は改行で区切り、番号（一、二、三 や (1)(2)(3) など）や箇条書き記号は付けないでください。';
+    } else {
+      sysPrompt = isZhToJa ? m.sys_zh : m.sys_ja;
+    }
+    await streamLLM([{ role: 'system', content: sysPrompt }, { role: 'user', content: src }], (delta) => {
+      full += delta;
+      // rAF 节流：最多每帧刷新一次，避免高频增量导致的重排卡顿
+      if(!translateStreamRaf){
+        translateStreamRaf = requestAnimationFrame(() => {
+          translateStreamRaf = null;
+          dstText.textContent = full;
+          dstBox.scrollTop = dstBox.scrollHeight;
+        });
+      }
+    }, translateAbort.signal);
+
+    // 输出清洗：去除 markdown 符号与排版噪音
+    full = cleanAiOutput(full);
+    // 翻译模式：术语高亮；润色模式：结构化卡片；词典模式：词条卡片；其他：纯文本
+    if(currentSub === 'translate'){
+      dstText.innerHTML = renderTranslateResult(full);
+    } else if(currentSub === 'polish'){
+      dstText.innerHTML = renderPolishResult(full);
+    } else if(currentSub === 'dict'){
+      dstText.innerHTML = renderDictResult(src, full);
+    } else {
+      dstText.textContent = full;
+    }
+    copyBtn.disabled = false;
+    speakBtn.disabled = false;
+    if(currentSub === 'translate'){
+      lastTranslate = { src, dst: full };
+      transFavBtn.disabled = false;
+      paintTransFav();
+    } else {
+      lastTranslate = null;
+      transFavBtn.disabled = true;
+    }
+    qualityNote.classList.remove('hidden');
+
+    if(currentSub === 'translate'){
+      // 假朋友告警：检测源文本中的同形异义词（日→中方向）
+      if(!isZhToJa){
+        const ffHits = glossary.filter(t => t.ff && TERM_KEYS.some(k => TERM_IDX[k] === t && src.includes(k)));
+        if(ffHits.length){
+          const ffBox = document.getElementById('ffAlertBox');
+          ffBox.classList.remove('hidden');
+          ffBox.innerHTML = ffHits.map(t => `
+            <div class="flex items-start gap-2 py-1.5">
+              <span class="text-red-500 shrink-0">⚠️</span>
+              <div class="text-sm">
+                <span class="font-semibold text-red-700">「${t.ja}」是同形异义词</span>
+                <span class="text-gray-600">——${t.brief}。 <button class="text-primary underline" onclick="openTerm('${t.id}')">查看详情</button></span>
+              </div>
+            </div>`).join('');
+        } else {
+          document.getElementById('ffAlertBox').classList.add('hidden');
+        }
+      } else {
+        document.getElementById('ffAlertBox').classList.add('hidden');
+      }
+      // 术语提示
+      const hits = Object.keys(dict).filter(k => src.includes(k));
+      if(hits.length){
+        termHints.classList.remove('hidden');
+        termList.innerHTML = hits.map(k => `<span class="text-xs px-2.5 py-1 rounded-full term-tag">${k} → ${dict[k]}</span>`).join('');
+      }
+    }
+    history.push({src, dst: full, mode: currentSub, t: Date.now()});
+    if(history.length > 50) history.shift();
+    localStorage.setItem('ncb_history', JSON.stringify(history));
+    renderHistory();
+  } catch(e){
+    if(e.name === 'AbortError'){
+      dstText.textContent = full ? cleanAiOutput(full) : '（已中断）';
+    } else {
+      dstText.textContent = '⚠️ 处理失败：' + (e.error?.message || e.message || '网络错误，请重试');
+    }
+    copyBtn.disabled = full ? false : true;
+  } finally {
+    translateLoading.classList.add('hidden');
+    translateBtn.disabled = srcText.value.length === 0;
+    translateAbort = null;
+  }
+}
+translateBtn.addEventListener('click', doAction);
+srcText.addEventListener('keydown', e => { if((e.ctrlKey||e.metaKey) && e.key==='Enter') doAction(); });
+
+copyBtn.addEventListener('click', () => {
+  copyToClipboard(dstText.textContent, ()=>{ copyBtn.textContent = '已复制 ✓'; setTimeout(()=>copyBtn.textContent='复制', 1500); });
+});
+speakBtn.addEventListener('click', () => {
+  const u = new SpeechSynthesisUtterance(dstText.textContent);
+  u.lang = (currentSub === 'polish') ? 'ja-JP' : (isZhToJa ? 'ja-JP' : 'zh-CN');
+  speechSynthesis.speak(u);
+});
+
+// 翻译收藏：以「源文本摘要」作为唯一 id，label 存译文，sub 存原文
+function paintTransFav(){
+  if(!transFavBtn) return;
+  if(!lastTranslate){ transFavBtn.disabled = true; transFavBtn.textContent = '☆ 收藏'; transFavBtn.classList.remove('text-primary'); return; }
+  const id = lastTranslate.src;
+  const f = isFav('translate', id);
+  transFavBtn.textContent = f ? '★ 已收藏' : '☆ 收藏';
+  transFavBtn.classList.toggle('text-primary', f);
+}
+transFavBtn.addEventListener('click', () => {
+  if(!lastTranslate) return;
+  const src = lastTranslate.src;
+  const dst = lastTranslate.dst;
+  toggleFav('translate', src, dst, src);
+  paintTransFav();
+});
+clearHistory.addEventListener('click', () => { history = []; localStorage.setItem('ncb_history','[]'); renderHistory(); });
+document.querySelectorAll('.sample-btn').forEach(b => {
+  b.addEventListener('click', () => { srcText.value = b.dataset.text; srcText.dispatchEvent(new Event('input')); });
+});
+
+// ============ 学校数据库（来自 data/schools.js） ============
+const schools = window.SCHOOLS || [];
+const schoolGrid = document.getElementById('schoolGrid');
+const schoolEmpty = document.getElementById('schoolEmpty');
+const schoolTypeFilter = document.getElementById('schoolTypeFilter');
+const schoolRegionFilter = document.getElementById('schoolRegionFilter');
+const schoolTuitionFilter = document.getElementById('schoolTuitionFilter');
+const schoolSort = document.getElementById('schoolSort');
+const schoolReset = document.getElementById('schoolReset');
+const schoolSearch = document.getElementById('schoolSearch');
+const schoolTotal = document.getElementById('schoolTotal');
+const schoolMatch = document.getElementById('schoolMatch');
+
+// 从学费文本提取数字（万日元）
+function parseTuition(tuition){
+  const m = tuition.match(/(\d+)/);
+  return m ? parseInt(m[1]) : 0;
+}
+// 从创办年份提取数字
+function parseFounded(founded){
+  const m = founded ? founded.match(/(\d+)/) : null;
+  return m ? parseInt(m[1]) : 0;
+}
+
+function renderSchools(){
+  const t = schoolTypeFilter.value;
+  const r = schoolRegionFilter.value;
+  const tf = schoolTuitionFilter.value;
+  const kw = schoolSearch.value.trim().toLowerCase();
+  let list = schools.filter(s => {
+    const matchType = t==='all' || s.type===t;
+    const matchRegion = r==='all' || s.region===r;
+    let matchTuition = true;
+    const tNum = parseTuition(s.tuition);
+    if(tf==='low') matchTuition = tNum <= 60;
+    else if(tf==='mid') matchTuition = tNum > 60 && tNum <= 110;
+    else if(tf==='high') matchTuition = tNum > 110;
+    // 关键词搜索（名称、专业、城市、强项、简介）
+    const searchText = (s.name + ' ' + s.majors.join(' ') + ' ' + s.city + ' ' + s.region + ' ' + (s.strengths||'') + ' ' + s.desc).toLowerCase();
+    const matchKw = !kw || searchText.includes(kw);
+    return matchType && matchRegion && matchTuition && matchKw;
+  });
+  // 排序
+  const sort = schoolSort.value;
+  if(sort === 'tuition-asc') list.sort((a,b) => parseTuition(a.tuition) - parseTuition(b.tuition));
+  else if(sort === 'tuition-desc') list.sort((a,b) => parseTuition(b.tuition) - parseTuition(a.tuition));
+  else if(sort === 'founded-asc') list.sort((a,b) => parseFounded(a.founded) - parseFounded(b.founded));
+  else if(sort === 'founded-desc') list.sort((a,b) => parseFounded(b.founded) - parseFounded(a.founded));
+
+  schoolTotal.textContent = schools.length;
+  schoolMatch.textContent = list.length;
+  schoolGrid.innerHTML = '';
+  if(list.length === 0){
+    schoolEmpty.classList.remove('hidden');
+    return;
+  }
+  schoolEmpty.classList.add('hidden');
+  list.forEach(s => {
+    const card = document.createElement('div');
+    card.className = 'card card-hover school-card p-5 cursor-pointer';
+    card.innerHTML = `
+      <div class="flex items-start justify-between mb-3">
+        <span class="text-3xl">${s.emoji}</span>
+        <span class="text-xs px-2 py-1 rounded-full ${s.type==='国立'?'bg-primary/10 text-primary':s.type==='公立'?'bg-blue-50 text-info':'bg-purple-50 text-purple-600'} font-semibold">${s.type}</span>
+      </div>
+      <h4 class="font-bold text-base mb-1">${s.name}</h4>
+      <p class="text-xs text-gray-500 mb-2">📍 ${s.city} · ${s.region}</p>
+      <div class="flex flex-wrap gap-1.5 mb-3">
+        ${s.majors.slice(0,3).map(m => `<span class="text-[11px] px-2 py-0.5 rounded-full bg-bg text-gray-600">${m}</span>`).join('')}
+      </div>
+      <div class="text-xs text-gray-400">${s.tuition}</div>
+      <div class="mt-3 text-xs text-primary font-medium">查看详情 →</div>`;
+    card.addEventListener('click', () => openSchoolModal(s));
+    schoolGrid.appendChild(card);
+  });
+}
+[schoolTypeFilter, schoolRegionFilter, schoolTuitionFilter, schoolSort].forEach(el => el.addEventListener('change', renderSchools));
+schoolSearch.addEventListener('input', renderSchools);
+schoolReset.addEventListener('click', () => {
+  schoolTypeFilter.value = 'all';
+  schoolRegionFilter.value = 'all';
+  schoolTuitionFilter.value = 'all';
+  schoolSort.value = 'default';
+  schoolSearch.value = '';
+  renderSchools();
+});
+
+function openSchoolModal(s){
+  document.getElementById('modalEmoji').textContent = s.emoji;
+  document.getElementById('modalName').textContent = s.name;
+  document.getElementById('modalSub').textContent = `${s.type} · ${s.city} · ${s.founded || ''}`;
+  // 收藏按钮
+  const favBtn = document.getElementById('modalFavBtn');
+  const escName = s.name.replace(/'/g,"\\'");
+  const paintFav = () => { const f = isFav('school', s.name); favBtn.textContent = f ? '★ 已收藏' : '☆ 收藏'; favBtn.classList.toggle('text-primary', f); };
+  favBtn.onclick = () => { toggleFav('school', s.name, s.name, `${s.type} · ${s.city}`); paintFav(); };
+  paintFav();
+  const infoBlock = (icon, label, val, full) => `
+    <div class="p-4 rounded-xl bg-bg/50 border border-line ${full ? 'sm:col-span-2' : ''}">
+      <div class="text-xs text-gray-400 mb-1 flex items-center gap-1">${icon} ${label}</div>
+      <div class="text-sm text-gray-700 leading-relaxed">${val || '—'}</div>
+    </div>`;
+  document.getElementById('modalBody').innerHTML = `
+    <div class="flex items-start justify-between gap-3 mb-4">
+      <p class="text-sm text-gray-600 leading-relaxed flex-1">${s.desc}</p>
+    </div>
+
+    ${s.admission ? `<div class="mb-4 p-4 rounded-xl bg-blue-50/50 border border-blue-100">
+      <div class="text-xs font-semibold text-info mb-2 flex items-center gap-1">📋 申请硬性条件</div>
+      <div class="text-sm text-gray-700 leading-relaxed whitespace-pre-line">${s.admission}</div>
+    </div>` : ''}
+
+    ${s.tips ? `<div class="mb-4 p-4 rounded-xl bg-amber-50/50 border border-amber-100">
+      <div class="text-xs font-semibold text-amber-700 mb-2 flex items-center gap-1">💡 申请建议</div>
+      <div class="text-sm text-gray-700 leading-relaxed whitespace-pre-line">${s.tips}</div>
+    </div>` : ''}
+
+    ${s.strengths ? `<div class="mb-4">
+      <div class="text-xs font-semibold text-primary mb-2 flex items-center gap-1">💪 强项学科</div>
+      <div class="flex flex-wrap gap-2">${s.strengths.split('、').map(m => `<span class="text-xs px-3 py-1.5 rounded-full bg-primary/10 text-primary">${m}</span>`).join('')}</div>
+    </div>` : ''}
+
+    ${(s.pros || s.cons) ? `<div class="grid sm:grid-cols-2 gap-3 mb-5">
+      ${s.pros ? `<div class="p-4 rounded-xl bg-green-50/60 border border-green-100 pros-box"><div class="text-xs text-green-700 font-medium mb-1.5 flex items-center gap-1">✅ 优势</div><div class="text-sm text-gray-700 leading-relaxed">${s.pros}</div></div>` : ''}
+      ${s.cons ? `<div class="p-4 rounded-xl bg-orange-50/60 border border-orange-100 cons-box"><div class="text-xs text-orange-700 font-medium mb-1.5 flex items-center gap-1">⚠️ 需注意</div><div class="text-sm text-gray-700 leading-relaxed">${s.cons}</div></div>` : ''}
+    </div>` : ''}
+
+    <div class="grid sm:grid-cols-2 gap-3 mb-5">
+      ${infoBlock('💰','学费', s.tuition)}
+      ${infoBlock('🗣️','语言要求', s.lang)}
+      ${infoBlock('📋','申请要求', s.req)}
+      ${infoBlock('🏅','知名校友', s.alumni)}
+      ${infoBlock('📅','创办年份', s.founded)}
+      ${infoBlock('👥','学生规模', s.students)}
+      ${infoBlock('🏆','排名', s.rank)}
+      ${infoBlock('📍','校区', s.campus)}
+      ${infoBlock('🏠','宿舍', s.dorm)}
+      ${infoBlock('🎖️','奖学金', s.scholarship)}
+      ${infoBlock('💼','就业情况', s.employment)}
+    </div>
+
+    <div class="mb-4">
+      <div class="text-xs text-gray-400 mb-2">📚 热门专业</div>
+      <div class="flex flex-wrap gap-2">
+        ${s.majors.map(m => `<span class="text-xs px-3 py-1.5 rounded-full term-tag">${m}</span>`).join('')}
+      </div>
+    </div>
+
+    ${s.website ? `<div class="flex items-center justify-between pt-4 border-t border-line">
+      <a href="${s.website}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary text-white text-sm font-medium hover:bg-primaryHover transition-all">
+        🔗 访问学校官网 <span class="text-xs opacity-80">↗</span>
+      </a>
+      <span class="text-xs text-gray-400">信息仅供参考，请以官网为准</span>
+    </div>` : ''}`;
+  const modal = document.getElementById('schoolModal');
+  modal.classList.remove('hidden');
+  modal.classList.add('flex');
+  document.body.style.overflow = 'hidden';
+}
+function closeSchoolModal(){
+  const modal = document.getElementById('schoolModal');
+  modal.classList.add('hidden');
+  modal.classList.remove('flex');
+  document.body.style.overflow = '';
+}
+
+// ============ 费用计算器 ============
+const costType = document.getElementById('costType');
+const costYears = document.getElementById('costYears');
+const costCity = document.getElementById('costCity');
+const costDorm = document.getElementById('costDorm');
+const costFood = document.getElementById('costFood');
+const costTransport = document.getElementById('costTransport');
+const costPhone = document.getElementById('costPhone');
+const costInsurance = document.getElementById('costInsurance');
+const costFun = document.getElementById('costFun');
+const costWork = document.getElementById('costWork');
+const costRate = document.getElementById('costRate');
+const costTotal = document.getElementById('costTotal');
+const costRmb = document.getElementById('costRmb');
+const costNet = document.getElementById('costNet');
+const costNetRmb = document.getElementById('costNetRmb');
+const costNetBox = document.getElementById('costNetBox');
+const costBreakdown = document.getElementById('costBreakdown');
+const costTips = document.getElementById('costTips');
+
+// 学费三段结构：检定料（报名费，不退）/ 入学金（仅第一年）/ 授业料（年额），单位：万日元
+const feeSched = {
+  language:  { kenntei: 2,   nyugaku: 5,    tuition: 70,   label:'语言学校' },
+  undergrad: { kenntei: 1.8, nyugaku: 28.2, tuition: 53.6, label:'学部（国公立）' },
+  grad:      { kenntei: 1.8, nyugaku: 28.2, tuition: 53.6, label:'大学院（国公立）' },
+  private:   { kenntei: 3,   nyugaku: 25,   tuition: 120,  label:'私立大学' },
+};
+// 住宿费（万日元/月）按类型与城市
+const dormCost = {
+  dorm: { tokyo: 5, osaka: 4.5, regional: 4, rural: 3.5 },
+  apartment: { tokyo: 7, osaka: 6, regional: 5, rural: 4 },
+  single: { tokyo: 9, osaka: 7.5, regional: 6, rural: 5 },
+};
+// 城市生活成本系数（用于伙食、娱乐等非住宿项）
+const cityFactor = { tokyo: 1.15, osaka: 1.05, regional: 1.0, rural: 0.9 };
+
+function clamp(v, min, max, def){
+  v = parseFloat(v);
+  if(isNaN(v)) return def;
+  return Math.min(max, Math.max(min, v));
+}
+
+function calcCost(){
+  const type = costType.value;
+  const years = clamp(costYears.value, 1, 6, 2);
+  const city = costCity.value;
+  const dorm = costDorm.value;
+  const rate = clamp(costRate.value, 3, 9, 4.8);
+  costYears.value = years;
+  costRate.value = rate;
+  const fee = feeSched[type];
+
+  // 各项月度费用（万日元）
+  const rent = dormCost[dorm][city];                    // 住宿
+  const food = clamp(costFood.value, 2, 15, 4) * cityFactor[city];
+  const transport = clamp(costTransport.value, 0, 5, 1);
+  const phone = clamp(costPhone.value, 0, 3, 0.5);
+  const insurance = clamp(costInsurance.value, 0, 3, 0.3);
+  const fun = clamp(costFun.value, 0, 10, 1.5) * cityFactor[city];
+  const work = clamp(costWork.value, 0, 15, 0);          // 打工收入（抵扣）
+
+  const monthlyLiving = rent + food + transport + phone + insurance + fun;
+  const annualLiving = monthlyLiving * 12;
+  const annualWork = work * 12;
+
+  // 三段式：一次性支出（入学时）→ 每月生活 → 分年汇总
+  const upfront = fee.kenntei + fee.nyugaku + fee.tuition;   // 入学时需准备（含首年学费）
+  const firstYear = upfront + annualLiving;                   // 第一年总支出（未抵扣打工）
+  const laterYear = fee.tuition + annualLiving;               // 后续每年
+  const total = firstYear + laterYear * (years - 1);          // N 年总计
+  const net = Math.max(0, total - annualWork * years);
+  const firstYearNet = Math.max(0, firstYear - annualWork);
+
+  const rmb = v => v * rate / 100;   // 万日元 → 万元人民币
+  costTotal.textContent = Math.round(total);
+  costRmb.textContent = rmb(total).toFixed(1);
+
+  if(work > 0){
+    costNetBox.classList.remove('hidden');
+    costNet.textContent = Math.round(net);
+    costNetRmb.textContent = rmb(net).toFixed(1);
+  } else {
+    costNetBox.classList.add('hidden');
+  }
+
+  // 明细表（三段式）
+  const row = (label, val, cls='') => `
+    <div class="flex items-center justify-between px-4 py-2 ${cls}">
+      <span class="text-gray-600">${label}</span>
+      <span class="font-medium text-gray-800">${val.toFixed(1)} 万日元 <span class="text-xs text-gray-400">≈ ${rmb(val).toFixed(1)} 万元</span></span>
+    </div>`;
+  const head = (label, val, color='text-primary') => `
+    <div class="flex items-center justify-between px-4 py-2.5 bg-bg">
+      <span class="font-semibold text-gray-700 text-sm">${label}</span>
+      <span class="font-bold ${color}">${val.toFixed(1)} 万日元</span>
+    </div>`;
+  costBreakdown.innerHTML = `
+    <div class="text-xs font-semibold text-info px-4 pt-3 pb-1">① 一次性支出（入学时，仅缴一次）</div>
+    ${row('└ 检定料（报名费，不退）', fee.kenntei)}
+    ${row('└ 入学金（仅第一年缴纳）', fee.nyugaku)}
+    ${row('└ 首年授业料', fee.tuition)}
+    ${head('入学时需准备', upfront, 'text-info')}
+    <div class="text-xs font-semibold text-info px-4 pt-3 pb-1">② 每月生活支出</div>
+    ${row('└ 房租（' + {dorm:'学校宿舍',apartment:'合租公寓',single:'独立公寓'}[dorm] + '）', rent)}
+    ${row('└ 伙食费', food)}
+    ${row('└ 交通费', transport)}
+    ${row('└ 通信费', phone)}
+    ${row('└ 保险', insurance)}
+    ${row('└ 娱乐 / 其他', fun)}
+    ${head('月支出合计', monthlyLiving, 'text-info')}
+    <div class="text-xs font-semibold text-info px-4 pt-3 pb-1">③ 分年汇总（${fee.label} · ${years} 年 · 汇率 ${rate}）</div>
+    ${row('└ 第一年支出（入学时 + 生活费）', firstYear)}
+    ${row('└ 后续每年支出', laterYear)}
+    ${work > 0 ? row('└ 年打工收入（抵扣）', -annualWork) : ''}
+    ${head(`${years} 年总计`, total)}
+    <div class="flex items-center justify-between px-4 py-2.5">
+      <span class="font-semibold text-gray-700">折合人民币（汇率 ${rate}）</span>
+      <span class="font-bold text-red-600">${rmb(total).toFixed(1)} 万元</span>
+    </div>
+    ${years > 1 ? row('└ 第一年支出（高于后续年度）', firstYear) : ''}`;
+
+  // 建议
+  const tips = [];
+  if(type === 'private') tips.push('私立大学学费较高，可优先申请学费减免（普遍可减免 30%–50%），并积极申请各类财团奖学金。');
+  if(dorm === 'single') tips.push('独立公寓除月租外，初期还需礼金、敷金、中介费约 3–6 个月租金（未计入上表一次性支出），预算紧张建议优先选学校宿舍或合租。');
+  if(city === 'tokyo') tips.push('东京房租高，可考虑住在埼玉、千叶、神奈川通勤，房租可省 30% 左右。');
+  if(city === 'rural' || city === 'regional') tips.push('地方城市生活成本低、节奏舒适，但打工机会和时薪相对较少，需提前规划。');
+  if(food > 5) tips.push('伙食费偏高，自己做饭可大幅节省（超市晚 8 点后多有折扣），每月可省 1–2 万日元。');
+  if(work === 0) tips.push('取得「资格外活动许可」后每周可打工 28 小时，时薪约 1000–1300 日元，月可赚 5–12 万日元补贴生活。');
+  if(work > 10) tips.push('打工收入较高，注意每周不超过 28 小时的法定上限，避免影响签证与学业。');
+  if(years >= 4) tips.push('长期留学建议尽早申请奖学金（MEXT、JASSO 等），并规划学费减免，可显著降低总成本。');
+  tips.push('除上表外，还需预留房租初期费用（礼金/敷金/中介约 3–6 个月租金）与 3–6 个月生活费的应急储备金。');
+  tips.push('检定料与入学金不予退还，出愿前请慎重选校；汇率请以银行实时牌价为准。');
+  costTips.innerHTML = tips.map(t => `<li class="flex gap-1.5"><span class="text-amber-500">•</span><span>${t}</span></li>`).join('');
+}
+
+// 智能建议值：按「学历层次 × 城市 × 住宿类型」三维度给出伙食/交通/通信/保险的建议值（用户仍可手动改）
+// 说明：伙食费随学历层次（语言学校学生多外食/大学院自炊多）与城市物价浮动；
+//       交通费随城市（东京通勤贵）与住宿（宿舍多在校区旁省交通）浮动；
+//       通信费/保险费相对稳定，随城市小幅浮动。
+const smartDefaults = {
+  // 城市基础系数（伙食/交通/通信/保险，单位：万日元/月）
+  cityBase: {
+    tokyo:    { food: 5.0, transport: 1.2, phone: 0.45, insurance: 0.30, fun: 1.8 },
+    osaka:    { food: 4.5, transport: 1.0, phone: 0.40, insurance: 0.30, fun: 1.5 },
+    regional: { food: 4.0, transport: 0.8, phone: 0.35, insurance: 0.25, fun: 1.2 },
+    rural:    { food: 3.5, transport: 0.6, phone: 0.35, insurance: 0.25, fun: 1.0 },
+  },
+  // 学历层次对伙食的修正（语言学校外食多，大学院自炊多）
+  typeFoodAdj: { language: 0.5, undergrad: 0.0, grad: -0.5, private: 0.2 },
+  // 住宿类型对交通的修正（宿舍近校区省交通，独立公寓可能较远）
+  dormTransportAdj: { dorm: -0.3, share: 0.0, apartment: 0.2 },
+};
+function applySmartDefaults(){
+  const city = costCity.value;
+  const type = costType.value;
+  const dorm = costDorm.value;
+  const c = smartDefaults.cityBase[city];
+  if(!c) return;
+  const foodAdj = smartDefaults.typeFoodAdj[type] ?? 0;
+  const transpAdj = smartDefaults.dormTransportAdj[dorm] ?? 0;
+  costFood.value = Math.round((c.food + foodAdj) * 10) / 10;
+  costTransport.value = Math.round((c.transport + transpAdj) * 10) / 10;
+  costPhone.value = c.phone;
+  costInsurance.value = c.insurance;
+  costFun.value = c.fun;
+  // 视觉提示：显示"已按条件自动建议"
+  const hint = document.getElementById('costHint');
+  if(hint){ hint.classList.remove('hidden'); }
+}
+// 当学历层次/城市/住宿类型改变时，自动填入建议值（用户可再手动调整）
+costCity.addEventListener('change', () => { applySmartDefaults(); calcCost(); });
+costType.addEventListener('change', () => { applySmartDefaults(); calcCost(); });
+costDorm.addEventListener('change', () => { applySmartDefaults(); calcCost(); });
+
+[costType, costYears, costCity, costDorm, costFood, costTransport, costPhone, costInsurance, costFun, costWork, costRate].forEach(el => el.addEventListener('input', calcCost));
+
+// ============ FAQ ============
+const faqs = [
+  {q:'去日本留学需要什么语言条件？', a:'语言学校通常无硬性要求；学部需 EJU 日语 + 校内考，一般建议 N2 以上；大学院文科多要求 N1，理科 N2。'},
+  {q:'留学生可以打工吗？', a:'取得「资格外活动许可」后，每周可打工 28 小时以内，长假期间每日 8 小时以内。'},
+  {q:'在留资格（COE）是什么？', a:'由日本入国管理局对拟入境者作出的在留资格认定证明书，是申请留学签证的必要材料之一，通常由学校代办。'},
+  {q:'留学一年大概花多少钱？', a:'以语言学校为例，学费约 75 万日元，生活费约 120–150 万日元/年，合计约 200 万日元上下，折合人民币约 10 万元。'},
+  {q:'需要提前多久准备？', a:'建议至少提前 12–18 个月：定校、准备语言、套磁、申请在留、签证，整体周期较长。'},
+  {q:'日本大学有奖学金吗？', a:'有，包括日本政府（MEXT）奖学金、JASSO 奖学金、各大学校内奖学金及民间财团奖学金，竞争激烈需提前申请。'},
+  {q:'国公立和私立大学怎么选？', a:'国公立学费低（约54万/年）但竞争激烈；私立学费高（约120万/年）但专业设置灵活、部分学部免EJU，可根据经济条件和专业偏好权衡。'},
+];
+const faqList = document.getElementById('faqList');
+let faqBatchIdx = 0;
+const FAQ_BATCH_SIZE = 5;
+function renderFaqs(){
+  faqList.innerHTML = '';
+  const start = faqBatchIdx % faqs.length;
+  for(let k = 0; k < Math.min(FAQ_BATCH_SIZE, faqs.length); k++){
+    const f = faqs[(start + k) % faqs.length];
+    const d = document.createElement('details');
+    d.className = 'group border border-line rounded-xl overflow-hidden bg-bg/30';
+    d.innerHTML = `<summary class="cursor-pointer px-4 py-3.5 font-medium text-sm flex justify-between items-center hover:bg-bg transition-all">${f.q}<span class="text-gray-400 group-open:rotate-90 transition-all text-lg">›</span></summary><div class="px-4 py-3.5 text-sm text-gray-600 bg-white leading-relaxed border-t border-line">${f.a}</div>`;
+    faqList.appendChild(d);
+  }
+}
+renderFaqs();
+const faqShuffleBtn = document.getElementById('faqShuffleBtn');
+if(faqShuffleBtn){
+  faqShuffleBtn.addEventListener('click', () => { faqBatchIdx += FAQ_BATCH_SIZE; renderFaqs(); });
+}
+
+// ============ 法条数据库（来自 data/laws.js） ============
+const laws = window.LAWS || [];
+const lawSearch = document.getElementById('lawSearch');
+const lawCategory = document.getElementById('lawCategory');
+const lawSearchBtn = document.getElementById('lawSearchBtn');
+const lawResult = document.getElementById('lawResult');
+const lawEmpty = document.getElementById('lawEmpty');
+const lawCount = document.getElementById('lawCount');
+const lawHotTags = document.getElementById('lawHotTags');
+
+const hotTags = ['合同','诈骗','著作权','劳动','离婚','商标','专利','管辖','税收','继承','破产','行政复议','食品安全','婚姻'];
+
+function renderHotTags(){
+  lawHotTags.innerHTML = hotTags.map(t => `<button class="hot-tag text-xs px-3 py-1.5 rounded-full bg-bg text-gray-600 border border-line hover:bg-primary/10 hover:text-primary hover:border-primary/30 transition-all" data-kw="${t}">${t}</button>`).join('');
+  lawHotTags.querySelectorAll('.hot-tag').forEach(b => {
+    b.addEventListener('click', () => { lawSearch.value = b.dataset.kw; doLawSearch(); });
+  });
+}
+
+// 法律名简称 -> 映射里的全称
+const LAW_NAME_MAP = {
+  '宪法':'中华人民共和国宪法',
+  '民法典':'中华人民共和国民法典', '刑法':'中华人民共和国刑法',
+  '劳动合同法':'中华人民共和国劳动合同法', '劳动法':'中华人民共和国劳动法',
+  '消费者权益保护法':'中华人民共和国消费者权益保护法',
+  '个人信息保护法':'中华人民共和国个人信息保护法',
+  '著作权法':'中华人民共和国著作权法', '专利法':'中华人民共和国专利法',
+  '商标法':'中华人民共和国商标法',
+  '公司法':'中华人民共和国公司法',
+  '民事诉讼法':'中华人民共和国民事诉讼法',
+  '刑事诉讼法':'中华人民共和国刑事诉讼法',
+  '行政诉讼法':'中华人民共和国行政诉讼法',
+  '行政处罚法':'中华人民共和国行政处罚法',
+  '行政复议法':'中华人民共和国行政复议法',
+  '行政许可法':'中华人民共和国行政许可法',
+  '行政强制法':'中华人民共和国行政强制法',
+  '国家赔偿法':'中华人民共和国国家赔偿法',
+  '治安管理处罚法':'中华人民共和国治安管理处罚法',
+  '食品安全法':'中华人民共和国食品安全法',
+  '产品质量法':'中华人民共和国产品质量法',
+  '电子商务法':'中华人民共和国电子商务法',
+  '反不正当竞争法':'中华人民共和国反不正当竞争法',
+  '合伙企业法':'中华人民共和国合伙企业法',
+  '企业破产法':'中华人民共和国企业破产法',
+  '票据法':'中华人民共和国票据法',
+  '个人所得税法':'中华人民共和国个人所得税法',
+  '企业所得税法':'中华人民共和国企业所得税法',
+  '税收征收管理法':'中华人民共和国税收征收管理法',
+  '劳动争议调解仲裁法':'中华人民共和国劳动争议调解仲裁法',
+  '契税法':'中华人民共和国契税法', '印花税法':'中华人民共和国印花税法',
+  '车船税法':'中华人民共和国车船税法', '房产税法':'中华人民共和国房产税法',
+  '关税法':'中华人民共和国关税法', '城市维护建设税法':'中华人民共和国城市维护建设税法',
+  '外国人入境出境管理法':'外国人入境出境管理法',
+};
+// 官方原文直达链接表：法律名 → 具体法律详情页（中国法跳国家法律法规数据库，日本法跳 e-Gov 法令検索）
+// 已知 lawId 的法律用精确详情页，其余用平台检索页（仍定位到具体法律而非首页）
+const LAW_URL_MAP = {
+  // ===== 日本法（e-Gov 法令検索）=====
+  '民法':'https://laws.e-gov.go.jp/law/129AC0000000089',
+  '刑法':'https://laws.e-gov.go.jp/law/140AC0000000045',
+  '会社法':'https://laws.e-gov.go.jp/law/417AC0000000086',
+  '民事訴訟法':'https://laws.e-gov.go.jp/law/408AC0000000109',
+  '刑事訴訟法':'https://laws.e-gov.go.jp/law/323AC0000000131',
+  '日本国憲法':'https://laws.e-gov.go.jp/law/321CONSTITUTION',
+  '労働基準法':'https://laws.e-gov.go.jp/law/322AC0000000049',
+  // ===== 中国法（中国人大网 / 国家法律法规数据库 官方全文页）=====
+  '中华人民共和国民法典':'https://flk.npc.gov.cn/detail2.html?ZmY4MDgwODE3MjlkMWVmZTAxNzI5ZDUwYjVjNTAwYmY%3D',
+  '中华人民共和国刑法':'https://flk.npc.gov.cn/detail2.html?ZmY4MDgxODE3OTZhNjM2YTAxNzk4MjJhMTk2NDBjOTI%3D',
+  '中华人民共和国公司法':'http://www.npc.gov.cn/npc/c2/c30834/202312/t20231229_433999.html',
+  '中华人民共和国劳动合同法':'http://www.npc.gov.cn/npc/c2/c183/c198/201905/t20190522_26978.html',
+  '中华人民共和国劳动法':'http://www.npc.gov.cn/npc/c2/c30834/201905/t20190521_296651.html',
+  '中华人民共和国消费者权益保护法':'http://www.npc.gov.cn/c1773/c1848/c21114/c21170/c21174/201905/t20190521_210511.html',
+  '中华人民共和国行政处罚法':'https://flk.npc.gov.cn/detail2.html?ZmY4MDgwODE3NzAzYWRkMjAxNzczNzNkZjZhNDNlMzM%3D',
+  '中华人民共和国民事诉讼法':'http://www.npc.gov.cn/npc/c2/c30834/202309/t20230901_431303.html',
+  '中华人民共和国行政诉讼法':'http://www.npc.gov.cn/npc/c2/c30834/201708/t20170801_2019292.html',
+  '中华人民共和国著作权法':'http://npc.gov.cn/c2/c12435/c12488/201905/t20190522_66009.html',
+  '中华人民共和国刑事诉讼法':'http://www.npc.gov.cn/npc/c2/c30834/201811/t20181116_2069463.html',
+  '中华人民共和国专利法':'http://www.npc.gov.cn/npc/c2/c30834/202010/t20201017_310739.html',
+  '中华人民共和国商标法':'http://www.npc.gov.cn/npc/c2/c30834/201904/t20190423_208886.html',
+  '中华人民共和国个人信息保护法':'http://www.npc.gov.cn/npc/c2/c30834/202108/t20210820_312990.html',
+  '中华人民共和国反不正当竞争法':'http://www.npc.gov.cn/npc/c2/c30834/201904/t20190423_208884.html',
+  '中华人民共和国食品安全法':'http://www.npc.gov.cn/npc/c2/c30834/202104/t20210430_311106.html',
+  '中华人民共和国治安管理处罚法':'http://www.npc.gov.cn/npc/c2/c30834/201211/t20121130_174337.html',
+  '中华人民共和国个人所得税法':'http://www.npc.gov.cn/npc/c2/c30834/201808/t20180831_2059430.html',
+  '中华人民共和国宪法':'https://flk.npc.gov.cn/xf/html/xf2.html',
+  '中华人民共和国电子商务法':'http://www.npc.gov.cn/npc/c2/c30834/201808/t20180831_2059440.html',
+  '中华人民共和国行政复议法':'http://www.npc.gov.cn/npc/c2/c30834/202309/t20230901_431304.html',
+  '中华人民共和国国家赔偿法':'http://www.npc.gov.cn/npc/c2/c30834/201008/t20100828_159358.html',
+  '中华人民共和国税收征收管理法':'http://www.npc.gov.cn/npc/c2/c30834/201504/t20150424_1889232.html',
+};
+// 构造某法条的官方原文跳转链接：优先精确详情页，否则用平台检索页（带法律名关键词）
+// 把中文条款号（如"第563条"）转为 e-Gov 锚点所需的阿拉伯数字（枝番用下划线，如"第8条の2"→"8_2"）
+function jpArtAnchor(art){
+  let n = art.replace(/^第/, '');
+  // の2 → _2
+  n = n.replace(/の(\d+)/g, '_$1');
+  // 去掉「条」
+  n = n.replace(/条/g, '');
+  // 全角数字转半角
+  n = n.replace(/[０-９]/g, ch => String.fromCharCode(ch.charCodeAt(0) - 0xFEE0));
+  return n;
+}
+function lawOfficialUrl(law, isCn, art){
+  if(isCn){
+    // 中国法：优先用中国人大网/国家法律法规数据库的「具体法律全文页」（非首页）。
+    // 说明：中国官方法规库均为整部法律全文单页、无条款级锚点，故已是最精确的官方原文。
+    // 简称→全称归一化后再查表（映射数据里简称/全称并存）
+    const fullName = LAW_NAME_MAP[law] || law;
+    if(LAW_URL_MAP[fullName]) return LAW_URL_MAP[fullName];
+    if(LAW_URL_MAP[law]) return LAW_URL_MAP[law];
+    // 兜底：国家法律法规数据库首页（无稳定检索URL，首页可自行搜索该法律）
+    return 'https://flk.npc.gov.cn/';
+  }
+  // 日本法：e-Gov 精确到具体条款的锚点链接  #Mp-At_{条号}
+  if(LAW_URL_MAP[law]){
+    const anchor = art ? '#Mp-At_' + jpArtAnchor(art) : '';
+    return LAW_URL_MAP[law] + anchor;
+  }
+  return 'https://laws.e-gov.go.jp/?keyword=' + encodeURIComponent(law);
+}
+// 根据法条精确匹配对应的条对条映射（按法律名 + 条款号）
+function findMappingsForLaw(l){
+  const m = l.cn.match(/^(.+?)\s+(第\d+条)/);
+  if(!m) return [];
+  const lawShort = m[1].replace(/（.*$/,'');
+  const art = m[2];
+  // 优先用简称→全称映射，映射库无对应时直接用简称匹配（映射数据里简称与全称并存）
+  const lawFull = LAW_NAME_MAP[lawShort] || lawShort;
+  return mappings.filter(x => x.cn.law === lawFull && x.cn.art.replace(/（.*$/,'') === art);
+}
+
+function renderLaws(list){
+  lawResult.innerHTML = '';
+  lawCount.textContent = list.length > 0 ? `共 ${list.length} 条匹配结果` : '';
+  if(list.length === 0){
+    lawEmpty.classList.remove('hidden');
+    lawEmpty.querySelector('p').textContent = '未找到匹配法条，请尝试其他关键词';
+    return;
+  }
+  lawEmpty.classList.add('hidden');
+  list.forEach(l => {
+    const card = document.createElement('div');
+    card.className = 'card card-hover p-5 fade-in';
+    const catColor = {civil:'bg-primary/10 text-primary',criminal:'bg-red-50 text-red-600',labor:'bg-blue-50 text-info',ip:'bg-purple-50 text-purple-600',consumer:'bg-orange-50 text-orange-600',commercial:'bg-cyan-50 text-cyan-600',family:'bg-pink-50 text-pink-600',procedure:'bg-gray-100 text-gray-600',constitution:'bg-indigo-50 text-indigo-600',administrative:'bg-teal-50 text-teal-600',tax:'bg-amber-50 text-amber-600',tort:'bg-rose-50 text-rose-600',inheritance:'bg-lime-50 text-lime-700'}[l.cat] || 'bg-primary/10 text-primary';
+    // 查找本条法条对应的条对条映射
+    const related = findMappingsForLaw(l);
+    const mappingHtml = related.map(m => `
+      <div class="mt-4 p-4 rounded-xl border border-primary/20 bg-primary/[0.03] cursor-pointer hover:border-primary/40 transition-all" onclick="openCompare('${m.id}')">
+        <div class="flex items-center gap-2 mb-2 flex-wrap">
+          <span class="text-xs px-2 py-0.5 rounded-full bg-primary/10 text-primary font-semibold">🔗 条对条映射</span>
+          <span class="font-semibold text-sm text-gray-800">${m.topic}</span>
+        </div>
+        <p class="text-xs text-gray-600 leading-relaxed line-clamp-2 mb-2">${m.summary}</p>
+        <div class="flex items-center gap-2 text-xs text-gray-500 flex-wrap">
+          <span>🇨🇳 ${m.cn.law} ${m.cn.art}</span>
+          <span class="text-gray-300">⇄</span>
+          <span class="jp">🇯🇵 ${m.jp.law} ${m.jp.art}</span>
+          <span class="ml-auto text-primary font-medium">查看对比详情 →</span>
+        </div>
+      </div>`).join('');
+    card.innerHTML = `
+      <div class="flex items-center gap-2 mb-4">
+        <span class="text-xs px-2.5 py-1 rounded-full font-semibold ${catColor}">${l.tag}</span>
+        <span class="font-semibold text-gray-800 text-sm sm:text-base">${l.cn} <span class="text-gray-400 mx-1">⇄</span> <span class="jp">${l.ja}</span></span>
+        <button class="ml-auto text-sm ${isFav('law', l.cn) ? 'text-primary' : 'text-gray-300 hover:text-primary'} transition-all" title="收藏" onclick="toggleFav('law','${l.cn.replace(/'/g,"\\'")}','${l.cn.replace(/'/g,"\\'")}','${l.ja.replace(/'/g,"\\'")}')">${isFav('law', l.cn) ? '★' : '☆'}</button>
+      </div>
+      <div class="grid md:grid-cols-2 gap-3">
+        <div class="p-4 rounded-xl bg-bg/40 border border-line">
+          <div class="text-xs text-gray-400 mb-2 flex items-center gap-1.5"><span class="text-base">🇨🇳</span> 中文条文</div>
+          <p class="text-sm leading-relaxed text-gray-700">${l.cnText}</p>
+        </div>
+        <div class="p-4 rounded-xl bg-bg/40 border border-line">
+          <div class="text-xs text-gray-400 mb-2 flex items-center gap-1.5"><span class="text-base">🇯🇵</span> 日本語条文</div>
+          <p class="text-sm leading-relaxed text-gray-700 jp">${l.jaText}</p>
+        </div>
+      </div>
+      ${mappingHtml}`;
+    lawResult.appendChild(card);
+  });
+}
+function doLawSearch(){
+  const kw = lawSearch.value.trim().toLowerCase();
+  const cat = lawCategory.value;
+  let list = laws.filter(l => {
+    const matchCat = cat === 'all' || l.cat === cat;
+    const matchKw = !kw || (l.cn + l.ja + l.cnText + l.jaText + l.kw).toLowerCase().includes(kw);
+    return matchCat && matchKw;
+  });
+  renderLaws(list.slice(0, 50));
+}
+lawSearchBtn.addEventListener('click', doLawSearch);
+lawSearch.addEventListener('keydown', e => { if(e.key==='Enter') doLawSearch(); });
+lawCategory.addEventListener('change', doLawSearch);
+lawSearch.addEventListener('input', e => { if(!e.target.value) renderLaws(laws); });
+
+// ============ 智能问答 ============
+const qaData = [
+  {q:'留学签证需要哪些材料？', a:'一般需要：护照、在留资格认定证明书（COE）、入学许可书、经费支付证明、照片、签证申请表等。具体以日本驻华使领馆要求为准。'},
+  {q:'日本留学可以带家属吗？', a:'持有「留学」在留资格者，符合条件的配偶和子女可申请「家族滞在」在留资格，需证明有足够经济能力。'},
+  {q:'如何在日本租房？', a:'可通过学校宿舍、不动产中介、UR 团地等渠道。通常需要保证人，初期费用约 3–6 个月租金（含礼金、敷金、中介费等）。'},
+  {q:'留学生的医疗保险？', a:'需加入国民健康保险，通常可报销 70% 医疗费用；很多学校也要求加入学生综合保险。'},
+  {q:'日本最低工资是多少？', a:'各地不同，2026 年全国加权平均约 1050 日元/小时，东京等大都市更高。打工时薪不得低于当地标准。'},
+  {q:'东京大学和京都大学怎么选？', a:'东大综合排名稍高、位于东京资源丰富；京大以自由学风和基础研究见长。理科研究可看具体教授方向，文科东大稍占优，两者都是顶尖选择。'},
+];
+const qaQuestions = document.getElementById('qaQuestions');
+const qaAnswer = document.getElementById('qaAnswer');
+const qaThread = document.getElementById('qaThread');
+const qaPlaceholder = document.getElementById('qaPlaceholder');
+const qaInput = document.getElementById('qaInput');
+const qaAskBtn = document.getElementById('qaAskBtn');
+const qaStopBtn = document.getElementById('qaStopBtn');
+let qaAbort = null;
+
+// 快捷提问：每批展示 5 条，可「换一批」轮换
+let qaBatchIdx = 0;
+const QA_BATCH_SIZE = 5;
+function renderQaQuestions(){
+  qaQuestions.innerHTML = '';
+  const start = qaBatchIdx % qaData.length;
+  for(let k = 0; k < Math.min(QA_BATCH_SIZE, qaData.length); k++){
+    const item = qaData[(start + k) % qaData.length];
+    const b = document.createElement('button');
+    b.className = 'w-full text-left px-3.5 py-3 rounded-xl border border-line hover:bg-primary/5 hover:border-primary/30 transition-all text-sm';
+    b.textContent = item.q;
+    b.addEventListener('click', () => askQuestion(item.q));
+    qaQuestions.appendChild(b);
+  }
+}
+renderQaQuestions();
+const qaShuffleBtn = document.getElementById('qaShuffleBtn');
+if(qaShuffleBtn){
+  qaShuffleBtn.addEventListener('click', () => { qaBatchIdx += QA_BATCH_SIZE; renderQaQuestions(); });
+}
+
+// 轻量结构化渲染：识别序号/分点，输出精致气泡
+function renderQaAnswer(text){
+  // 先把行内的 ①②③ / (一)(二) / 1. 2) 等分点强制拆成独立行，保证换行清晰
+  let normalized = text.replace(/(?=[①②③④⑤⑥⑦⑧⑨⑩⑪⑫⑬⑭⑮])/g, '\n');
+  normalized = normalized.replace(/(?=[（(][一二三四五六七八九十]+[)）])/g, '\n');
+  normalized = normalized.replace(/(?<=\s|^)(?=\d{1,2}[.、．)][^\d])/g, '\n');
+  const lines = normalized.split('\n');
+  let html = '';
+  let listOpen = false;
+  for(const line of lines){
+    const t = line.trim();
+    if(!t){ html += '</p><p class="qa-para">'; continue; }
+    // 分点：1. 2) ① - • 等
+    if(/^(\d+[.)、]|[①②③④⑤⑥⑦⑧⑨⑩]|[-•·])\s*/.test(t)){
+      if(!listOpen){ html += '<ul class="qa-list">'; listOpen = true; }
+      const clean = t.replace(/^(\d+[.)、]|[①②③④⑤⑥⑦⑧⑨⑩]|[-•·])\s*/, '');
+      html += `<li>${escapeHtml(clean)}</li>`;
+      continue;
+    }
+    // 小标题：以【】或：结尾的短句
+    if(/^[【\[][^】\]]+[】\]]$/.test(t) || /^[^：:]{2,10}[：:]$/.test(t)){
+      if(listOpen){ html += '</ul>'; listOpen = false; }
+      html += `<div class="qa-head">${escapeHtml(t.replace(/[：:]\s*$/,''))}</div>`;
+      continue;
+    }
+    if(listOpen){ html += '</ul>'; listOpen = false; }
+    html += `<span>${escapeHtml(t)}</span>`;
+  }
+  if(listOpen) html += '</ul>';
+  return html;
+}
+
+async function askQuestion(question){
+  if(!cloud || !llmModelId){ alert('服务尚未就绪，请稍后重试'); return; }
+  qaPlaceholder.classList.add('hidden');
+  qaStopBtn.classList.remove('hidden');
+  qaAskBtn.disabled = true;
+
+  // 追加用户问题气泡
+  const qDiv = document.createElement('div');
+  qDiv.className = 'flex justify-end';
+  qDiv.innerHTML = `<div class="max-w-[85%] px-4 py-2.5 rounded-2xl rounded-br-md bg-gradient-to-r from-primary to-primaryHover text-white text-sm shadow-sm">${escapeHtml(question)}</div>`;
+  qaThread.appendChild(qDiv);
+
+  // 追加回答气泡（流式写入）
+  const aWrap = document.createElement('div');
+  aWrap.className = 'flex justify-start';
+  const aDiv = document.createElement('div');
+  aDiv.className = 'qa-bubble max-w-[92%] px-4 py-3 rounded-2xl rounded-bl-md bg-white border border-line shadow-sm text-sm leading-relaxed text-gray-700';
+  aWrap.appendChild(aDiv);
+  qaThread.appendChild(aWrap);
+  qaAnswer.scrollTop = qaAnswer.scrollHeight;
+
+  qaAbort = new AbortController();
+  let full = '';
+  try {
+    const systemPrompt = '你是一名熟悉日本留学、签证、生活、法律和商务的专业顾问。请用简洁、准确、有条理的纯文本中文回答，可以分点说明但禁止使用任何 Markdown 格式符号（*、-、#、`、表格线），直接用换行和「1. 2. 3.」分条。回答尽量精炼，先给结论再给要点。如果问题超出你的知识范围，请诚实说明并建议咨询官方渠道。';
+    // 流式期间：只累积纯文本，避免每增量整段重渲染（原实现的性能瓶颈）
+    aDiv.textContent = '';
+    let lastPaint = 0;
+    await streamLLM([{ role: 'system', content: systemPrompt }, { role: 'user', content: question }], (delta) => {
+      full += delta;
+      // 用 rAF 节流渲染：最多每帧刷新一次，且流式期间用纯文本渲染（不跑正则切分）
+      const now = performance.now();
+      if(now - lastPaint < 50) return;
+      lastPaint = now;
+      requestAnimationFrame(() => {
+        aDiv.textContent = full;
+        qaAnswer.scrollTop = qaAnswer.scrollHeight;
+      });
+    }, qaAbort.signal);
+    full = cleanAiOutput(full);
+    aDiv.innerHTML = renderQaAnswer(full);
+    qaAnswer.scrollTop = qaAnswer.scrollHeight;
+  } catch(e){
+    if(e.name === 'AbortError'){
+      aDiv.innerHTML = full ? renderQaAnswer(cleanAiOutput(full)) : '<span class="text-gray-400">（已中断）</span>';
+    } else {
+      aDiv.innerHTML = '<span class="text-red-500">⚠️ 回答失败：' + escapeHtml(e.error?.message || e.message || '网络错误，请重试') + '</span>';
+    }
+  } finally {
+    qaStopBtn.classList.add('hidden');
+    qaAskBtn.disabled = false;
+    qaAbort = null;
+  }
+}
+qaAskBtn.addEventListener('click', () => {
+  const q = qaInput.value.trim();
+  if(!q){ qaPlaceholder.classList.remove('hidden'); qaPlaceholder.textContent = '请输入你的问题'; return; }
+  qaPlaceholder.classList.add('hidden');
+  qaInput.value = '';
+  askQuestion(q);
+});
+qaStopBtn.addEventListener('click', () => { if(qaAbort) qaAbort.abort(); });
+qaInput.addEventListener('keydown', e => { if(e.key==='Enter') qaAskBtn.click(); });
+
+// ============ 术语库（术语引擎内核） ============
+const glossary = window.GLOSSARY || [];
+const glSearch = document.getElementById('glSearch');
+const glOnlyFF = document.getElementById('glOnlyFF');
+const glOnlyFav = document.getElementById('glOnlyFav');
+const glDomains = document.getElementById('glDomains');
+const glGrid = document.getElementById('glGrid');
+const glEmpty = document.getElementById('glEmpty');
+const glCount = document.getElementById('glCount');
+const glFFCount = document.getElementById('glFFCount');
+const termPopover = document.getElementById('termPopover');
+
+const GL_DOMAIN_LABEL = { legal:'法律', study:'留学', business:'商务', life:'生活', net:'网络' };
+const GL_DOMAIN_COLOR = { legal:'bg-red-50 text-red-600', study:'bg-blue-50 text-info', business:'bg-purple-50 text-purple-600', life:'bg-green-50 text-green-700', net:'bg-orange-50 text-orange-600' };
+let glActiveDomain = 'all';
+
+// ============ 全局收藏（术语/学校/映射 统一存储） ============
+let favs = JSON.parse(localStorage.getItem('ncb_favs_v2') || '[]');
+try{
+  const oldFavs = JSON.parse(localStorage.getItem('ncb_favs') || '[]');
+  if(Array.isArray(oldFavs) && oldFavs.length){
+    oldFavs.forEach(id => {
+      if(!favs.some(f => f.type==='term' && f.id===id)){
+        const t = (window.GLOSSARY||[]).find(x => x.id===id);
+        if(t) favs.push({type:'term', id, label:t.ja, sub:t.zh});
+      }
+    });
+    localStorage.removeItem('ncb_favs');
+    localStorage.setItem('ncb_favs_v2', JSON.stringify(favs));
+  }
+}catch(e){}
+function saveFavs(){ localStorage.setItem('ncb_favs_v2', JSON.stringify(favs)); updateFavBadge(); }
+const isFav = (type,id) => favs.some(f => f.type===type && f.id===id);
+function toggleFav(type, id, label, sub){
+  if(isFav(type,id)){ favs = favs.filter(f => !(f.type===type && f.id===id)); }
+  else { favs.push({type, id, label: label||id, sub: sub||'', ts: Date.now()}); }
+  saveFavs();
+  // 局部刷新
+  if(type==='term') renderGlossary();
+  if(type==='school') renderSchools();
+  if(typeof openFavModal === 'function'){
+    const favModalEl = document.getElementById('favModal');
+    if(favModalEl && !favModalEl.classList.contains('hidden')) renderFavModal();
+  }
+  return isFav(type,id);
+}
+window.toggleFav = toggleFav;
+window.isFav = isFav;
+const FAV_TYPE_LABEL = { term:'📖 术语', school:'🏫 学校', mapping:'⚖️ 法条映射', law:'📜 法条', faq:'❓ 留学问答', translate:'🌐 翻译' };
+function updateFavBadge(){ /* 已移除右上角红色数字角标，保留空函数以兼容旧调用 */ }
+function openFavModal(){
+  document.getElementById('favModal').classList.remove('hidden');
+  document.getElementById('favModal').classList.add('flex');
+  document.body.style.overflow = 'hidden';
+  renderFavModal();
+}
+function closeFavModal(){
+  document.getElementById('favModal').classList.add('hidden');
+  document.getElementById('favModal').classList.remove('flex');
+  document.body.style.overflow = '';
+}
+window.closeFavModal = closeFavModal;
+function renderFavModal(){
+  const body = document.getElementById('favModalBody');
+  document.getElementById('favModalCount').textContent = `共 ${favs.length} 项`;
+  if(favs.length === 0){
+    body.innerHTML = '<div class="text-center py-12"><div class="text-5xl mb-3">🔖</div><p class="text-gray-500 text-sm">还没有收藏内容</p><p class="text-xs text-gray-400 mt-2">在术语库、学校库、法条映射、翻译结果中点击「收藏」即可加入</p></div>';
+    return;
+  }
+  const groups = {};
+  favs.forEach(f => { (groups[f.type] = groups[f.type] || []).push(f); });
+  const escAttr = s => String(s ?? '').replace(/\\/g, '\\\\').replace(/'/g, "\\'").replace(/"/g, '&quot;');
+  body.innerHTML = Object.keys(groups).map(type => `
+    <div class="mb-5">
+      <div class="text-xs text-gray-400 mb-2 font-medium">${FAV_TYPE_LABEL[type] || type}（${groups[type].length}）</div>
+      <div class="space-y-2">
+        ${groups[type].map(f => `
+          <div class="flex items-center justify-between p-3 rounded-xl border border-line bg-bg/40">
+            <div class="flex-1 min-w-0">
+              <div class="text-sm font-medium text-gray-800 truncate">${escapeHtml(f.label)}</div>
+              ${f.sub ? `<div class="text-xs text-gray-500 truncate mt-0.5">${escapeHtml(f.sub)}</div>` : ''}
+            </div>
+            <div class="flex gap-1.5 ml-3 shrink-0">
+              <button class="text-xs px-2.5 py-1 rounded-full bg-primary/10 text-primary hover:bg-primary/20 transition-all" onclick="jumpToFav('${escAttr(f.type)}','${escAttr(f.id)}')">查看</button>
+              <button class="text-xs px-2.5 py-1 rounded-full bg-bg text-gray-500 hover:bg-gray-200 transition-all" onclick="toggleFav('${escAttr(f.type)}','${escAttr(f.id)}');renderFavModal()">移除</button>
+            </div>
+          </div>`).join('')}
+      </div>
+    </div>`).join('');
+}
+window.jumpToFav = function(type, id){
+  closeFavModal();
+  if(type==='term'){ switchTab('glossary'); setTimeout(()=>openTerm(id),100); }
+  else if(type==='school'){ const s=(window.SCHOOLS||[]).find(x=>x.name===id); if(s){ switchTab('study'); openSchoolModal(s); } }
+  else if(type==='mapping'){ switchTab('law'); openCompare(id); }
+  else if(type==='law'){ switchTab('law'); lawSearch.value = id; doLawSearch(); }
+  else if(type==='faq'){ switchTab('study'); }
+  else if(type==='translate'){ switchTab('translate'); srcText.value = id; srcText.dispatchEvent(new Event('input')); }
+};
+document.getElementById('favBtn').addEventListener('click', openFavModal);
+document.getElementById('favClearAll').addEventListener('click', () => {
+  if(favs.length && confirm('确定清空所有收藏？')){ favs = []; saveFavs(); renderFavModal(); renderGlossary(); }
+});
+
+// 构建术语匹配索引
+const TERM_IDX = {};
+glossary.forEach(t => {
+  const aliases = new Set();
+  const add = s => { s = String(s).replace(/[⚠️\s]/g,'').split(/[\/、·→（(]/)[0].trim(); if(s.length>=2) aliases.add(s); };
+  add(t.ja); add(t.zh); if(t.kana) add(t.kana);
+  aliases.forEach(a => { if(!TERM_IDX[a]) TERM_IDX[a] = t; });
+});
+const TERM_KEYS = Object.keys(TERM_IDX).sort((a,b) => b.length - a.length);
+
+function renderGlDomains(){
+  const doms = ['all','legal','study','business','life','net'];
+  glDomains.innerHTML = doms.map(d => {
+    const label = d === 'all' ? '全部' : GL_DOMAIN_LABEL[d];
+    const active = glActiveDomain === d;
+    return `<button class="gl-domain text-xs px-3 py-1.5 rounded-full border transition-all ${active ? 'bg-primary text-white border-primary' : 'bg-white border-line text-gray-600 hover:border-primary/40'}" data-d="${d}">${label}</button>`;
+  }).join('');
+  glDomains.querySelectorAll('.gl-domain').forEach(b => b.addEventListener('click', () => { glActiveDomain = b.dataset.d; renderGlDomains(); renderGlossary(); }));
+}
+
+function renderGlossary(){
+  const kw = glSearch.value.trim().toLowerCase();
+  const onlyFF = glOnlyFF.classList.contains('active-toggle');
+  const onlyFav = glOnlyFav.classList.contains('active-toggle');
+  const ffTotal = glossary.filter(t => t.ff).length;
+  if(glFFCount) glFFCount.textContent = ffTotal;
+  const list = glossary.filter(t => {
+    const matchDom = glActiveDomain === 'all' || t.domain === glActiveDomain;
+    const matchFF = !onlyFF || t.ff;
+    const matchFav = !onlyFav || isFav(t.id);
+    const matchKw = !kw || (t.zh + t.ja + (t.kana||'') + (t.en||'') + t.brief).toLowerCase().includes(kw);
+    return matchDom && matchFF && matchFav && matchKw;
+  });
+  glCount.textContent = `共 ${list.length} 条术语`;
+  glEmpty.classList.toggle('hidden', list.length > 0);
+  glGrid.innerHTML = list.map(t => `
+    <div class="card card-hover p-5 cursor-pointer flex flex-col" onclick="openTerm('${t.id}')">
+      <div class="flex items-start justify-between mb-3">
+        <span class="text-xs px-2 py-0.5 rounded-full ${GL_DOMAIN_COLOR[t.domain] || 'bg-gray-100 text-gray-600'}">${GL_DOMAIN_LABEL[t.domain]}</span>
+        ${t.ff ? '<span class="text-xs px-2 py-0.5 rounded-full bg-red-50 text-red-600 font-semibold">⚠️ 假朋友</span>' : ''}
+      </div>
+      <h4 class="font-bold text-base mb-1">${t.ja} <span class="jp text-sm text-gray-400 font-normal">${t.kana||''}</span></h4>
+      <p class="text-sm text-gray-600 mb-1.5">${t.zh}</p>
+      <p class="text-xs text-gray-400 leading-relaxed mb-3 line-clamp-2">${t.brief}</p>
+      <div class="mt-auto flex items-center justify-between text-xs text-gray-400">
+        <span>${t.source}</span>
+        <button class="text-primary ${isFav('term',t.id) ? 'opacity-100' : 'opacity-30'}" onclick="event.stopPropagation();toggleFav('term','${t.id}','${t.ja.replace(/'/g,"\\'")}','${(t.zh||'').replace(/'/g,"\\'")}')">${isFav('term',t.id) ? '★ 已收藏' : '☆ 收藏'}</button>
+      </div>
+    </div>`).join('');
+}
+window.openTerm = function(id){
+  const t = glossary.find(x => x.id === id);
+  if(!t) return;
+  termPopover.innerHTML = `
+    <div class="flex items-center justify-between mb-3">
+      <span class="text-xs px-2 py-0.5 rounded-full ${GL_DOMAIN_COLOR[t.domain] || 'bg-gray-100 text-gray-600'}">${GL_DOMAIN_LABEL[t.domain]}</span>
+      ${t.ff ? '<span class="text-xs px-2 py-0.5 rounded-full bg-red-50 text-red-600 font-semibold">⚠️ 同形异义</span>' : ''}
+    </div>
+    <h4 class="font-bold text-lg mb-1">${t.ja} <span class="jp text-sm text-gray-400 font-normal">${t.kana||''}</span></h4>
+    <p class="text-sm text-gray-600 mb-3">${t.zh}</p>
+    ${t.ff ? `<div class="ff-alert p-3 rounded-lg mb-3 text-sm text-red-700 leading-relaxed"><b>⚠️ 假朋友告警：</b>中日字形相同但含义不同，误判代价极高。</div>` : ''}
+    <div class="space-y-3 text-sm">
+      <div><div class="text-xs text-gray-400 mb-1">📖 制度语境</div><p class="text-gray-700 leading-relaxed">${t.context}</p></div>
+      <div><div class="text-xs text-gray-400 mb-1">🇨🇳 中国对应</div><p class="text-gray-700 leading-relaxed">${t.cnEq}</p></div>
+      ${t.example ? `<div class="p-3 rounded-lg bg-bg/60"><div class="text-xs text-gray-400 mb-1">💬 例句</div><p class="text-gray-700 jp mb-1">${t.example.ja}</p><p class="text-gray-500 text-xs">${t.example.zh}</p></div>` : ''}
+      <div class="text-xs text-gray-400 pt-1 border-t border-line">出处：${t.source} · 更新 ${t.updated}</div>
+      <div class="flex gap-2 pt-1">
+        <button class="flex-1 px-3 py-2 rounded-lg bg-primary text-white text-sm font-medium" onclick="toggleFav('term','${t.id}','${t.ja.replace(/'/g,"\\'")}','${(t.zh||'').replace(/'/g,"\\'")}');openTerm('${t.id}')">${isFav('term',t.id) ? '★ 已收藏' : '☆ 收藏'}</button>
+        <button class="px-3 py-2 rounded-lg bg-bg text-gray-600 text-sm" onclick="document.getElementById('termPopover').classList.add('hidden')">关闭</button>
+      </div>
+    </div>`;
+  termPopover.classList.remove('hidden');
+  termPopover.style.position = 'fixed';
+  termPopover.style.left = '50%';
+  termPopover.style.top = '50%';
+  termPopover.style.transform = 'translate(-50%,-50%)';
+};
+glSearch.addEventListener('input', renderGlossary);
+[glOnlyFF, glOnlyFav].forEach(b => b.addEventListener('click', () => { b.classList.toggle('active-toggle'); b.classList.toggle('bg-primary'); b.classList.toggle('text-white'); b.classList.toggle('border-primary'); renderGlossary(); }));
+
+// ============ 法条条对条映射对比 ============
+const mappings = window.LAW_MAPPINGS || [];
+const compareModal = document.getElementById('compareModal');
+const compareTitle = document.getElementById('compareTitle');
+const compareBadge = document.getElementById('compareBadge');
+const compareBody = document.getElementById('compareBody');
+const compareExport = document.getElementById('compareExport');
+let currentMapping = null;
+
+window.openCompare = function(id){
+  const m = mappings.find(x => x.id === id);
+  if(!m) return;
+  currentMapping = m;
+  compareTitle.textContent = m.topic;
+  const verified = m.confidence === 'verified';
+  compareBadge.innerHTML = `🇨🇳 ${m.cn.law} ${m.cn.art} <span class="text-gray-300">⇄</span> 🇯🇵 ${m.jp.law} ${m.jp.art}`;
+  compareExport.disabled = false;
+  compareExport.classList.remove('opacity-40', 'cursor-not-allowed');
+  compareExport.title = '';
+  // 收藏按钮
+  const cfav = document.getElementById('compareFav');
+  const paintCFav = () => { const f = isFav('mapping', m.id); cfav.textContent = f ? '★ 已收藏' : '☆ 收藏'; cfav.classList.toggle('text-primary', f); };
+  cfav.onclick = () => { toggleFav('mapping', m.id, m.topic, `${m.cn.art} ⇄ ${m.jp.art}`); paintCFav(); };
+  paintCFav();
+  compareBody.innerHTML = `
+    <div class="mb-5 p-4 rounded-xl bg-bg/40 border border-line">
+      <div class="text-xs font-semibold text-gray-500 mb-2 flex items-center gap-1.5">📋 映射说明</div>
+      <p class="text-sm text-gray-700 leading-relaxed">${m.summary}</p>
+    </div>
+    <div class="grid md:grid-cols-2 gap-4 mb-5">
+      <div class="p-4 rounded-xl bg-bg/40 border border-line flex flex-col">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-[11px] px-2 py-0.5 rounded-full bg-red-50 text-red-600 font-bold">中国法</span>
+          <span class="text-[11px] text-gray-400">国家法律法规数据库</span>
+        </div>
+        <div class="text-xs text-gray-500 mb-1 font-medium">${m.cn.law} · <span class="text-primary font-semibold">${m.cn.art}</span></div>
+        <p class="text-sm leading-relaxed text-gray-700 flex-1">${m.cn.text}</p>
+        <a href="${lawOfficialUrl(m.cn.law, true, m.cn.art)}" target="_blank" rel="noopener" class="mt-3 inline-flex items-center gap-1 text-xs text-info hover:underline">📚 查看「${m.cn.law} ${m.cn.art}」官方原文 ↗</a>
+      </div>
+      <div class="p-4 rounded-xl bg-bg/40 border border-line flex flex-col">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-[11px] px-2 py-0.5 rounded-full bg-blue-50 text-info font-bold">日本法</span>
+          <span class="text-[11px] text-gray-400">e-Gov 法令検索</span>
+        </div>
+        <div class="text-xs text-gray-500 mb-1 font-medium">${m.jp.law} · <span class="text-primary font-semibold">${m.jp.art}</span></div>
+        <p class="text-sm leading-relaxed text-gray-700 jp flex-1">${m.jp.text}</p>
+        <a href="${lawOfficialUrl(m.jp.law, false, m.jp.art)}" target="_blank" rel="noopener" class="mt-3 inline-flex items-center gap-1 text-xs text-info hover:underline">📚 「${m.jp.law} ${m.jp.art}」法令原文を見る ↗</a>
+      </div>
+    </div>
+    <div>
+      <div class="text-xs font-semibold text-gray-500 mb-2 flex items-center gap-1.5">🔍 差异点（${m.diffs.length} 项）</div>
+      <div class="space-y-2">
+        ${m.diffs.map(d => `<div class="p-3 rounded-lg bg-bg/50 border border-line flex gap-2.5"><span class="text-xs px-2 py-0.5 rounded-full bg-primary/10 text-primary font-medium shrink-0 h-fit">${d.type}</span><p class="text-sm text-gray-700 leading-relaxed">${d.desc}</p></div>`).join('')}
+      </div>
+    </div>
+    ${m.terms.length ? `<div class="mt-5"><div class="text-xs font-semibold text-gray-500 mb-2 flex items-center gap-1.5">📖 本条涉及的术语对照（在术语库模块也可检索）</div><div class="grid sm:grid-cols-2 gap-3">${m.terms.map(id => renderTermCardInline(id)).join('')}</div></div>` : ''}
+  `;
+  compareModal.classList.remove('hidden');
+  compareModal.classList.add('flex');
+  document.body.style.overflow = 'hidden';
+};
+// 内嵌术语卡片（用于法条对比的术语对照区）
+window.renderTermCardInline = function(id){
+  const t = glossary.find(x => x.id === id);
+  if(!t) return '';
+  return `
+    <div class="p-4 rounded-xl bg-bg/40 border border-line cursor-pointer hover:border-primary/40 transition-all" onclick="openTerm('${t.id}')">
+      <div class="flex items-start justify-between mb-2">
+        <span class="text-xs px-2 py-0.5 rounded-full ${GL_DOMAIN_COLOR[t.domain] || 'bg-gray-100 text-gray-600'}">${GL_DOMAIN_LABEL[t.domain]}</span>
+        ${t.ff ? '<span class="text-xs px-2 py-0.5 rounded-full bg-red-50 text-red-600 font-semibold">⚠️ 假朋友</span>' : ''}
+      </div>
+      <h5 class="font-bold text-sm mb-0.5">${t.ja} <span class="jp text-xs text-gray-400 font-normal">${t.kana||''}</span></h5>
+      <p class="text-xs text-gray-600 mb-1.5">${t.zh}</p>
+      <p class="text-xs text-gray-500 leading-relaxed line-clamp-3">${t.context}</p>
+      <div class="mt-2 flex items-center justify-between text-[11px] text-gray-400">
+        <span>${t.source}</span>
+        <span class="text-primary">查看详情 →</span>
+      </div>
+    </div>`;
+};
+window.closeCompareModal = function(){
+  compareModal.classList.add('hidden');
+  compareModal.classList.remove('flex');
+  document.body.style.overflow = '';
+};
+compareExport.addEventListener('click', () => {
+  if(!currentMapping) return;
+  const m = currentMapping;
+  const lines = [];
+  lines.push('════════════════════════════════════');
+  lines.push('  中日条对条对照表');
+  lines.push('════════════════════════════════════');
+  lines.push('');
+  lines.push('【主题】' + m.topic);
+  lines.push('');
+  lines.push('【中国法条】' + m.cn.law + ' ' + m.cn.art);
+  lines.push('  ' + m.cn.text);
+  lines.push('');
+  lines.push('【日本法条】' + m.jp.law + ' ' + m.jp.art);
+  lines.push('  ' + m.jp.text);
+  lines.push('');
+  lines.push('【差异摘要】');
+  lines.push('  ' + m.summary);
+  lines.push('');
+  lines.push('【核心差异点】');
+  m.diffs.forEach((d, i) => {
+    lines.push('  ' + (i + 1) + '. ' + d.type + '：' + d.desc);
+  });
+  lines.push('');
+  lines.push('────────────────────────────────────');
+  lines.push('来源：Todoki 中日法条对照 · 仅供学习参考');
+  const txt = lines.join('\n');
+  copyToClipboard(txt, () => { showToast('复制成功'); }, () => { showToast('复制失败，请重试'); });
+});
+
+// ============ 留学时间轴规划器 ============
+const studyFaq = window.STUDY_FAQ || [];
+const timelineTpl = window.TIMELINE_TPL || {};
+
+// 知识库问答渲染
+let studyFaqBatchIdx = 0;
+function renderStudyFaq(){
+  const list = document.getElementById('studyFaqList');
+  const input = document.getElementById('studyFaqInput');
+  const cats = document.getElementById('studyFaqCats');
+  if(!list) return;
+  const allCats = ['全部','选校申请','签证在留','费用奖学金','生活打工','升学考试','就业移民'];
+  cats.innerHTML = allCats.map(c => `<button class="study-faq-cat text-xs px-3 py-1.5 rounded-full border border-line bg-white text-gray-600 hover:border-primary/40 transition-all" data-c="${c}">${c}</button>`).join('');
+  cats.querySelectorAll('.study-faq-cat').forEach(b => b.addEventListener('click', () => {
+    cats.querySelectorAll('.study-faq-cat').forEach(x => { x.classList.remove('bg-primary','text-white','border-primary'); });
+    b.classList.add('bg-primary','text-white','border-primary');
+    studyFaqBatchIdx = 0;
+    renderStudyFaqList();
+  }));
+  renderStudyFaqList();
+  function renderStudyFaqList(){
+    const kw = input.value.trim().toLowerCase();
+    const activeCat = cats.querySelector('.study-faq-cat.bg-primary')?.dataset.c || '全部';
+    const items = studyFaq.filter(f => {
+      const matchCat = activeCat === '全部' || f.cat === activeCat;
+      const matchKw = !kw || (f.q + f.a + f.keywords.join(' ')).toLowerCase().includes(kw);
+      return matchCat && matchKw;
+    });
+    // 批次轮换：每批 5 条，超出滚动
+    const start = studyFaqBatchIdx % Math.max(1, items.length);
+    const batch = [];
+    for(let k = 0; k < Math.min(5, items.length); k++){
+      batch.push(items[(start + k) % items.length]);
+    }
+    list.innerHTML = batch.map(f => `
+      <details class="group border border-line rounded-xl overflow-hidden bg-bg/30">
+        <summary class="cursor-pointer px-4 py-3.5 font-medium text-sm flex justify-between items-center hover:bg-bg transition-all">
+          <span class="pr-2">${f.q}</span>
+          <span class="flex items-center gap-1 shrink-0">
+            <button class="text-sm ${isFav('faq',f.id) ? 'text-primary' : 'text-gray-300 hover:text-primary'} transition-all" title="收藏" onclick="event.preventDefault();event.stopPropagation();toggleFav('faq','${f.id}','${f.q.replace(/'/g,"\\'")}','${f.cat}')">${isFav('faq',f.id) ? '★' : '☆'}</button>
+            <span class="text-gray-400 group-open:rotate-90 transition-all text-lg">›</span>
+          </span>
+        </summary>
+        <div class="px-4 py-3.5 text-sm text-gray-600 bg-white leading-relaxed border-t border-line">${f.a.replace(/\n/g,'<br>')}</div>
+        <div class="px-4 py-2.5 text-xs text-gray-400 bg-bg/40 border-t border-line flex items-center justify-between"><span>📚 出处：${f.source}</span><span>更新 ${f.updated}</span></div>
+      </details>`).join('');
+  }
+  const shuffleBtn = document.getElementById('studyFaqShuffleBtn');
+  if(shuffleBtn) shuffleBtn.addEventListener('click', () => { studyFaqBatchIdx += 5; renderStudyFaqList(); });
+}
+
+// 时间轴生成
+function generateTimeline(){
+  const intake = document.getElementById('tlIntake').value;
+  const year = parseInt(document.getElementById('tlYear').value);
+  const tpl = timelineTpl[intake] || [];
+  const result = document.getElementById('tlResult');
+  const now = new Date();
+  result.innerHTML = `
+    <div class="card p-5">
+      <div class="flex items-center justify-between mb-4">
+        <h4 class="font-bold text-base">📅 ${year} 年 ${intake} 月入学时间轴</h4>
+        <span class="text-xs text-gray-400">按入学季倒推 ${tpl.length} 个关键节点 · 点击节点展开详情</span>
+      </div>
+      <div class="relative pl-6 space-y-0">
+        ${tpl.map((node, i) => {
+          const targetDate = new Date(year, parseInt(intake)-1, 1);
+          targetDate.setMonth(targetDate.getMonth() + node.offset);
+          const expired = targetDate < now;
+          return `
+          <div class="relative pb-5 ${i === tpl.length-1 ? '' : 'border-l-2 border-line'} pl-5">
+            <span class="absolute -left-[9px] top-1 w-4 h-4 rounded-full ${node.critical ? 'bg-primary' : 'bg-gray-300'} ${expired ? 'opacity-40' : ''}"></span>
+            <div class="flex items-center gap-2 flex-wrap">
+              <span class="text-xs px-2 py-0.5 rounded-full ${node.phase==='准备期'?'bg-blue-50 text-info':node.phase==='套磁期'?'bg-purple-50 text-purple-600':node.phase==='材料期'?'bg-orange-50 text-orange-600':node.phase==='考试期'?'bg-red-50 text-red-600':node.phase==='录取期'?'bg-green-50 text-green-700':node.phase==='签证期'?'bg-cyan-50 text-cyan-600':'bg-gray-100 text-gray-600'}">${node.phase}</span>
+              <span class="text-xs text-gray-400">${targetDate.getFullYear()}-${String(targetDate.getMonth()+1).padStart(2,'0')}</span>
+              ${node.critical ? '<span class="text-xs text-primary font-semibold">★ 关键节点</span>' : ''}
+              ${expired ? '<span class="text-xs text-gray-400 bg-gray-100 px-2 py-0.5 rounded-full">已过期</span>' : ''}
+            </div>
+            <div class="font-semibold text-sm mt-1 ${expired ? 'text-gray-400' : 'text-gray-800'}">${node.title}</div>
+            <p class="text-xs text-gray-500 mt-0.5 leading-relaxed ${expired ? 'line-through opacity-60' : ''}">${node.desc}</p>
+            ${node.detail || node.link ? `
+            <details class="group mt-2 rounded-lg bg-bg/50 border border-line overflow-hidden">
+              <summary class="cursor-pointer flex items-center justify-between px-3 py-2 text-xs text-primary font-medium hover:bg-bg transition-all">
+                <span>📖 查看详情</span>
+                <span class="text-gray-400 group-open:rotate-90 transition-all">›</span>
+              </summary>
+              <div class="px-3 py-2.5 border-t border-line">
+                ${node.detail ? `<p class="text-xs text-gray-600 leading-relaxed">${node.detail}</p>` : ''}
+                ${node.link ? `<a href="${node.link}" target="_blank" rel="noopener noreferrer" class="mt-2 inline-flex items-center gap-1 text-xs text-info hover:underline">🔗 跳转官方说明 ↗</a>` : ''}
+              </div>
+            </details>` : ''}
+          </div>`;
+        }).join('')}
+      </div>
+      <button id="tlExport" class="mt-4 px-4 py-2 rounded-full bg-bg text-sm text-gray-600 hover:bg-gray-200 transition-all">导出 CheckList</button>
+    </div>`;
+  document.getElementById('tlExport')?.addEventListener('click', () => {
+    const text = `【${year} 年 ${intake} 月入学时间轴 CheckList】\n\n` + tpl.map(n => {
+      const d = new Date(year, parseInt(intake)-1, 1); d.setMonth(d.getMonth()+n.offset);
+      return `[${n.phase}] ${n.title}（${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}）${n.critical?' ★':''}\n  ${n.desc}`;
+    }).join('\n');
+    copyToClipboard(text, () => alert('已复制 CheckList 到剪贴板'));
+  });
+}
+
+// ============ 命令面板（Ctrl+K 全局搜索） ============
+const cmdOverlay = document.getElementById('cmdOverlay');
+const cmdInput = document.getElementById('cmdInput');
+const cmdResults = document.getElementById('cmdResults');
+let cmdActive = -1;
+
+function openCmd(){
+  cmdOverlay.classList.remove('hidden');
+  cmdOverlay.classList.add('flex');
+  cmdInput.value = '';
+  renderCmd('');
+  setTimeout(() => cmdInput.focus(), 50);
+  document.body.style.overflow = 'hidden';
+}
+function closeCmd(){
+  cmdOverlay.classList.add('hidden');
+  cmdOverlay.classList.remove('flex');
+  document.body.style.overflow = '';
+}
+window.closeCmd = closeCmd;
+
+function renderCmd(q){
+  q = (q || '').trim().toLowerCase();
+  const results = [];
+  if(!q){
+    // 默认展示模块入口
+    results.push({type:'模块', label:'🌐 中日互译', action:()=>switchTab('translate')});
+    results.push({type:'模块', label:'🎓 留学建议', action:()=>switchTab('study')});
+    results.push({type:'模块', label:'⚖️ 法条对比', action:()=>switchTab('law')});
+    results.push({type:'模块', label:'📖 术语库', action:()=>switchTab('glossary')});
+    results.push({type:'模块', label:'💬 智能问答', action:()=>switchTab('qa')});
+  } else {
+    glossary.forEach(t => {
+      if((t.zh+t.ja+(t.kana||'')+(t.brief||'')).toLowerCase().includes(q)) results.push({type:'术语', label:`${t.ja} — ${t.zh}`, action:()=>{ switchTab('glossary'); setTimeout(()=>openTerm(t.id),100); }});
+    });
+    mappings.forEach(m => {
+      if((m.topic+m.cn.law+m.jp.law).toLowerCase().includes(q)) results.push({type:'法条', label:`⚖️ ${m.topic}`, action:()=>{ switchTab('law'); openCompare(m.id); }});
+    });
+    (window.SCHOOLS||[]).forEach(s => {
+      if((s.name+s.city+(s.majors||[]).join(' ')).toLowerCase().includes(q)) results.push({type:'学校', label:`🏫 ${s.name}（${s.city}）`, action:()=>{ switchTab('study'); openSchoolModal(s); }});
+    });
+    (window.STUDY_FAQ||[]).forEach(f => {
+      if((f.q+f.a).toLowerCase().includes(q)) results.push({type:'问答', label:`❓ ${f.q}`, action:()=>{ switchTab('study'); }});
+    });
+  }
+  cmdActive = -1;
+  if(results.length === 0){
+    cmdResults.innerHTML = '<div class="px-5 py-8 text-center text-sm text-gray-400">未找到相关结果</div>';
+    return;
+  }
+  cmdResults.innerHTML = results.slice(0,20).map((r, i) => `
+    <div class="cmd-item px-5 py-2.5 flex items-center gap-2.5 text-sm" data-i="${i}">
+      <span class="text-xs text-gray-400 w-12 shrink-0">${r.type}</span>
+      <span class="text-gray-700 flex-1">${r.label}</span>
+      <span class="text-xs text-gray-300">↵</span>
+    </div>`).join('');
+  cmdResults.querySelectorAll('.cmd-item').forEach(el => {
+    el.addEventListener('click', () => { const r = results[+el.dataset.i]; closeCmd(); r.action(); });
+    el.addEventListener('mouseenter', () => { cmdActive = +el.dataset.i; updateCmdActive(); });
+  });
+  function updateCmdActive(){
+    cmdResults.querySelectorAll('.cmd-item').forEach(el => el.classList.toggle('active', +el.dataset.i === cmdActive));
+  }
+}
+cmdInput.addEventListener('input', () => renderCmd(cmdInput.value));
+cmdInput.addEventListener('keydown', e => {
+  const items = cmdResults.querySelectorAll('.cmd-item');
+  if(e.key === 'ArrowDown'){ e.preventDefault(); if(items.length){ cmdActive = (cmdActive+1)%items.length; items.forEach(el => el.classList.toggle('active', +el.dataset.i===cmdActive)); } }
+  else if(e.key === 'ArrowUp'){ e.preventDefault(); if(items.length){ cmdActive = (cmdActive-1+items.length)%items.length; items.forEach(el => el.classList.toggle('active', +el.dataset.i===cmdActive)); } }
+  else if(e.key === 'Enter'){ const a = items[cmdActive>=0?cmdActive:0]; if(a) a.click(); }
+  else if(e.key === 'Escape'){ closeCmd(); }
+});
+document.getElementById('cmdTrigger').addEventListener('click', openCmd);
+document.addEventListener('keydown', e => { if((e.ctrlKey||e.metaKey) && e.key.toLowerCase()==='k'){ e.preventDefault(); openCmd(); } });
+
+// ============ 深色主题切换 ============
+const themeBtn = document.getElementById('themeBtn');
+function applyTheme(dark){
+  document.documentElement.classList.toggle('dark', dark);
+  localStorage.setItem('ncb-theme', dark ? 'dark' : 'light');
+  themeBtn.textContent = dark ? '☀️' : '🌙';
+}
+themeBtn.addEventListener('click', () => applyTheme(!document.documentElement.classList.contains('dark')));
+applyTheme(document.documentElement.classList.contains('dark'));
+
+// ============ 术语高亮（翻译输出增强） ============
+// 把 ①②③ / 1. / - ・ 等分点拆成独立行，保证换行清晰（去 AI 味、排版规整）
+function splitPoints(text){
+  if(!text) return [];
+  // 先按已有换行拆，再对每个片段内部按分点符号二次切分
+  const segs = [];
+  text.split(/\n+/).forEach(line => {
+    const t = line.trim();
+    if(!t) return;
+    // 在 ① ② ③ … / (一)(二) / 一、二、 / (1)(2) / 1. 2) 等分点符号前插入切分
+    const pieces = t.split(/(?=[①②③④⑤⑥⑦⑧⑨⑩⑪⑫⑬⑭⑮]|[(（][一二三四五六七八九十\d]+[)）]|[一二三四五六七八九十]+[、.．]|\d+[.)、．])/).map(x => x.trim()).filter(Boolean);
+    if(pieces.length > 1){
+      pieces.forEach(p => segs.push(p));
+    } else {
+      segs.push(t);
+    }
+  });
+  // 清理每个分点开头的编号符号（圈码、中文数字、括号数字、阿拉伯数字等）
+  return segs.map(x => x
+    .replace(/^[①②③④⑤⑥⑦⑧⑨⑩⑪⑫⑬⑭⑮][\s.、．:：]*/, '')
+    .replace(/^[(（][一二三四五六七八九十\d]+[)）][\s.、．:：]*/, '')
+    .replace(/^[一二三四五六七八九十]+[、.．][\s]*/, '')
+    .replace(/^\d+[.)、．][\s]*/, '')
+    .replace(/^[・•·▪●►-]+\s*/, '')
+    .trim()
+  ).filter(Boolean);
+}
+// 把页面静态 HTML 里挤在一段文字中的 ①②③… 分点（如申请流程时间线详情）自动拆成带换行的列表
+function formatInlinePoints(){
+  document.querySelectorAll('details p').forEach(p => {
+    const t = p.textContent || '';
+    // 仅处理含 ① 这种圈码分点的段落，且本身未换行
+    if(!/[①②③④⑤⑥⑦⑧⑨⑩]/.test(t)) return;
+    const items = splitPoints(t);
+    if(items.length > 1){
+      p.innerHTML = `<ul class="mt-1 space-y-1">${items.map(it => `<li class="flex items-start gap-1.5"><span class="mt-[5px] w-1 h-1 rounded-full bg-primary/40 shrink-0"></span><span>${escapeHtml(it)}</span></li>`).join('')}</ul>`;
+    }
+  });
+}
+function highlightTerms(text){
+  // 先转义，换行转 <br>；并把 ①②③ / (一)(二) / 1. 2) 等分点强制换行，避免挤成一团
+  let out = escapeHtml(text).replace(/\n/g, '<br>');
+  // 分点符号前补换行（兼容中文圈码、括号序号、阿拉伯数字序号）
+  out = out.replace(/(?=[①②③④⑤⑥⑦⑧⑨⑩⑪⑫⑬⑭⑮])/g, '<br>');
+  out = out.replace(/(?=[（(][一二三四五六七八九十]+[)）])/g, '<br>');
+  out = out.replace(/(?<=\s|>)(?=\d{1,2}[.、．)][^\d])/g, '<br>');
+  // 按词长降序匹配，避免短词截断长词
+  const keys = TERM_KEYS.slice().sort((a,b) => b.length - a.length);
+  keys.forEach(k => {
+    const t = TERM_IDX[k];
+    if(!t) return;
+    const re = new RegExp('(' + k.replace(/[.*+?^${}()|[\]\\]/g,'\\$&') + ')', 'g');
+    out = out.replace(re, `<span class="term-highlight" onclick="openTerm('${t.id}')" title="点击查看「${t.ja}」的制度含义">$1</span>`);
+  });
+  return out;
+}
+
+// 翻译结果渲染：直接翻译只输出译文（术语高亮），不解析翻译说明
+function renderTranslateResult(full){
+  if(!full) return '';
+  // 直接翻译：只输出译文（术语高亮），不解析翻译说明
+  return `<div class="rounded-lg px-3 py-2.5 bg-white border border-line/60 text-sm leading-7 jp text-gray-800">${highlightTerms(full)}</div>`;
+}
+
+// 润色结果结构化渲染：拆分「优化版」与「要点」两个区块，优化版做术语高亮，要点用中文列表
+function renderPolishResult(full){
+  if(!full) return '';
+  // 兼容两种输出格式：
+  // 1) 旧格式：①【优化版】… ②【要点】…
+  // 2) 新格式：优化后的正文 + 空行 + 简短中文说明
+  let optimized = full, notes = '';
+  const m1 = full.match(/[①1][\s.、．:：]*【?优化版】?[\s:：]*([\s\S]*?)(?=[②2][\s.、．:：]*【?(?:修正)?(?:ポイント|要点)?】?|$)/);
+  const m2 = full.match(/[②2][\s.、．:：]*【?(?:修正)?(?:ポイント|要点)?】?[\s:：]*([\s\S]*)/);
+  if(m1 && m2){
+    optimized = m1[1].trim();
+    notes = m2[1].trim();
+  } else {
+    const parts = full.split(/\n\s*\n/);
+    if(parts.length >= 2){
+      optimized = parts[0].trim();
+      notes = parts.slice(1).join('\n').trim();
+    }
+  }
+  optimized = optimized.replace(/^[①②③④⑤⑥⑦⑧⑨⑩\s.、．:：]+/,'').trim();
+
+  // 说明部分：拆成要点列表
+  const noteItems = notes ? splitPoints(notes) : [];
+  let notesHtml = '';
+  if(noteItems.length){
+    notesHtml = `
+      <div class="mt-2 rounded-xl border border-amber-200/70 bg-amber-50/40 overflow-hidden">
+        <div class="flex items-center gap-2 px-3.5 pt-2.5 pb-1.5">
+          <span class="text-sm font-bold text-amber-700">💡 修改说明</span>
+        </div>
+        <ul class="px-3.5 pb-2.5 space-y-1.5">${noteItems.map((it, idx) => `<li class="flex items-start gap-2 text-sm text-gray-700 leading-relaxed"><span class="mt-1 w-4 h-4 rounded-full bg-amber-400/90 text-white text-[11px] font-bold flex items-center justify-center shrink-0">${idx + 1}</span><span class="flex-1">${escapeHtml(it)}</span></li>`).join('')}</ul>
+      </div>`;
+  } else if(notes){
+    notesHtml = `
+      <div class="mt-2 rounded-xl border border-amber-200/70 bg-amber-50/40 overflow-hidden">
+        <div class="flex items-center gap-2 px-3.5 pt-2.5 pb-1"><span class="text-sm font-bold text-amber-700">💡 修改说明</span></div>
+        <p class="px-3.5 pb-2.5 text-sm text-gray-700 leading-relaxed">${escapeHtml(notes)}</p>
+      </div>`;
+  }
+  const optimizedHtml = optimized ? `
+    <div class="rounded-xl border-2 border-primary/15 bg-white shadow-sm overflow-hidden">
+      <div class="flex items-center justify-between px-3.5 py-2 bg-primary/5 border-b border-primary/10">
+        <span class="text-sm font-bold text-primary">✨ 优化后</span>
+      </div>
+      <div class="px-3.5 py-3 text-sm leading-7 jp text-gray-800">${highlightTerms(optimized)}</div>
+    </div>` : '';
+  return optimizedHtml + notesHtml;
+}
+
+// 词典结果结构化渲染：把【释义】【对应】【词性】【例句】拆成精致的词条卡片
+function renderDictResult(word, full){
+  if(!full) return '';
+  const seg = {};
+  // 按【xxx】标记切分
+  const parts = full.split(/【([^】]+)】/);
+  for(let i=1; i<parts.length; i+=2){
+    const key = parts[i].trim();
+    const val = (parts[i+1] || '').trim();
+    if(key && val) seg[key] = val;
+  }
+  // 兼容：若没有【】标记，则整体作为释义
+  const meaning = seg['释义'] || seg['释義'] || '';
+  const jaWord = seg['对应'] || seg['對應'] || '';
+  const pos = seg['词性'] || seg['詞性'] || '';
+  const example = seg['例句'] || '';
+  let body = '';
+  if(meaning){
+    body += `<div class="dict-sec"><div class="dict-label">📖 释义</div><p class="text-sm text-gray-700 leading-relaxed">${escapeHtml(meaning)}</p></div>`;
+  }
+  if(jaWord){
+    body += `<div class="dict-sec"><div class="dict-label">🇯🇵 日语对应</div><p class="text-sm jp text-gray-700 leading-relaxed">${escapeHtml(jaWord)}</p></div>`;
+  }
+  if(pos){
+    body += `<div class="dict-sec"><div class="dict-label">🏷️ 词性</div><p class="text-sm text-gray-700">${escapeHtml(pos)}</p></div>`;
+  }
+  if(example){
+    body += `<div class="dict-sec"><div class="dict-label">💬 例句</div><div class="p-3 rounded-lg bg-bg/60"><p class="text-sm jp text-gray-700 leading-relaxed">${escapeHtml(example)}</p></div></div>`;
+  }
+  if(!body){
+    // 无标记时整段展示，但做换行
+    body = `<div class="text-sm text-gray-700 leading-relaxed whitespace-pre-line">${escapeHtml(full)}</div>`;
+  }
+  return `<div class="dict-card"><div class="flex items-center gap-2 mb-3 pb-2 border-b border-line"><span class="text-xl">📚</span><span class="text-base font-bold text-gray-800">${escapeHtml(word)}</span></div>${body}</div>`;
+}
+
+// ============ 时间轴年份初始化与事件 ============
+(function initTimeline(){
+  const tlYear = document.getElementById('tlYear');
+  const tlGenBtn = document.getElementById('tlGenBtn');
+  const tlIntake = document.getElementById('tlIntake');
+  if(!tlYear) return;
+  const cur = new Date().getFullYear();
+  for(let y = cur; y <= cur + 4; y++){
+    const opt = document.createElement('option');
+    opt.value = y; opt.textContent = y + ' 年';
+    if(y === cur + 1) opt.selected = true;
+    tlYear.appendChild(opt);
+  }
+  tlGenBtn.addEventListener('click', generateTimeline);
+  tlIntake.addEventListener('change', generateTimeline);
+  tlYear.addEventListener('change', generateTimeline);
+})();
+
+// 留学知识库搜索
+(function(){
+  const input = document.getElementById('studyFaqInput');
+  if(input) input.addEventListener('input', () => {
+    const list = document.getElementById('studyFaqList');
+    const cats = document.getElementById('studyFaqCats');
+    const kw = input.value.trim().toLowerCase();
+    const activeCat = cats?.querySelector('.study-faq-cat.bg-primary')?.dataset.c || '全部';
+    const items = studyFaq.filter(f => {
+      const matchCat = activeCat === '全部' || f.cat === activeCat;
+      const matchKw = !kw || (f.q + f.a + f.keywords.join(' ')).toLowerCase().includes(kw);
+      return matchCat && matchKw;
+    });
+    list.innerHTML = items.map(f => `
+      <details class="group border border-line rounded-xl overflow-hidden bg-bg/30">
+        <summary class="cursor-pointer px-4 py-3.5 font-medium text-sm flex justify-between items-center hover:bg-bg transition-all">
+          <span class="pr-2">${f.q}</span>
+          <span class="flex items-center gap-1 shrink-0">
+            <button class="text-sm ${isFav('faq',f.id) ? 'text-primary' : 'text-gray-300 hover:text-primary'} transition-all" title="收藏" onclick="event.preventDefault();event.stopPropagation();toggleFav('faq','${f.id}','${f.q.replace(/'/g,"\\'")}','${f.cat}')">${isFav('faq',f.id) ? '★' : '☆'}</button>
+            <span class="text-gray-400 group-open:rotate-90 transition-all text-lg">›</span>
+          </span>
+        </summary>
+        <div class="px-4 py-3.5 text-sm text-gray-600 bg-white leading-relaxed border-t border-line">${f.a.replace(/\n/g,'<br>')}</div>
+        <div class="px-4 py-2.5 text-xs text-gray-400 bg-bg/40 border-t border-line flex items-center justify-between"><span>📚 出处：${f.source}</span><span>更新 ${f.updated}</span></div>
+      </details>`).join('');
+  });
+})();
+
+// ============ 初始化 ============
+initCloud();
+renderHistory();
+applySmartDefaults(); // 首次加载即按前置条件自动填入生活费用建议值
+calcCost();
+renderSchools();
+renderGlDomains();
+renderGlossary();
+updateFavBadge();
+renderLaws(laws);
+renderHotTags();
+renderStudyFaq();
+updateSubUI();
+formatInlinePoints();
+
+// ============ 法条背诵记忆 ============
+(function(){
+  const MEM_KEY = 'todoki_mem_v2';
+  // 记忆状态：items[lawId] = { status:'new'|'known'|'review'|'tooEasy', remember:number, forget:number }
+  let memState = { items:{}, streakDays:0, lastDate:'' };
+  try { memState = Object.assign(memState, JSON.parse(localStorage.getItem(MEM_KEY) || '{}')); } catch(e){}
+
+  let memQueue = [];        // 本轮题目队列
+  let memIdx = 0;           // 当前位置
+  let memMode = 'flash';    // flash / choice / fill
+  let memCount = 20;        // 每次记忆数量（默认20）
+  let memKnownCount = 0;
+  let memReviewCount = 0;
+  let memMissed = [];       // 本轮答错/不会的法条（供复习检测）
+  let memLastAction = null; // 上一题的动作（供撤销）
+
+  const CAT_LABEL = {civil:'民法',criminal:'刑法',labor:'劳动法',ip:'知产',consumer:'消费者法',commercial:'商法',family:'婚姻家庭',procedure:'程序',constitution:'宪法',administrative:'行政法',tax:'税法',tort:'侵权',inheritance:'继承'};
+
+  // 获取某法条的智能状态对象（兼容旧版字符串状态）
+  function getMemItem(id){
+    let it = memState.items[id];
+    if(it === undefined || it === null){
+      it = { status:'new', remember:0, forget:0 };
+      memState.items[id] = it;
+    } else if(typeof it === 'string'){
+      // 旧版迁移：known/review 字符串 → 对象
+      it = { status: it, remember: it === 'known' ? 1 : 0, forget: it === 'review' ? 1 : 0 };
+      memState.items[id] = it;
+    }
+    return it;
+  }
+
+  function memSave(){
+    try { localStorage.setItem(MEM_KEY, JSON.stringify(memState)); } catch(e){}
+  }
+  // 更新连续打卡
+  function memTouchStreak(){
+    const today = new Date().toDateString();
+    if(memState.lastDate === today) return;
+    const yest = new Date(Date.now() - 86400000).toDateString();
+    memState.streakDays = (memState.lastDate === yest) ? memState.streakDays + 1 : 1;
+    memState.lastDate = today;
+    memSave();
+  }
+  function refreshMemStats(){
+    const known = Object.values(memState.items).filter(v => (v && v.status) === 'known').length;
+    const review = Object.values(memState.items).filter(v => (v && v.status) === 'review').length;
+    document.getElementById('memKnown').textContent = known;
+    document.getElementById('memReview').textContent = review;
+    document.getElementById('memStreak').textContent = memState.streakDays;
+  }
+  // 智能加权抽题：根据 remember/forget 次数调整出现频率
+  //   tooEasy → 权重 0（永不出现）
+  //   review  → 权重高（不熟的更多出现）
+  //   known   → 权重低（已记住的偶尔出现）
+  //   new     → 权重中等
+  function lawWeight(l){
+    const it = getMemItem(l.cn);
+    if(it.status === 'tooEasy') return 0;
+    const f = it.forget || 0, r = it.remember || 0;
+    if(it.status === 'review') return Math.min(10, 5 + f);      // 不熟：5 + 忘记次数，最多10
+    if(it.status === 'known') return Math.max(1, 3 - r);        // 记住：3 - 记住次数，最低1（偶尔抽查）
+    return 3;                                                   // 新法条：中等
+  }
+  function weightedSample(pool, n){
+    // 按权重随机抽取（不重复）
+    const result = [];
+    const remaining = pool.slice();
+    while(result.length < n && remaining.length > 0){
+      const totalW = remaining.reduce((s, l) => s + lawWeight(l), 0);
+      if(totalW <= 0) break;
+      let r = Math.random() * totalW;
+      let idx = 0;
+      for(let i = 0; i < remaining.length; i++){
+        r -= lawWeight(remaining[i]);
+        if(r <= 0){ idx = i; break; }
+      }
+      result.push(remaining[idx]);
+      remaining.splice(idx, 1);
+    }
+    return result;
+  }
+  // 构建题库
+  function buildMemQueue(){
+    const cat = document.getElementById('memCategory').value;
+    const skipKnown = document.getElementById('memSkipKnown').checked;
+    let pool = laws.filter(l => cat === 'all' || l.cat === cat);
+    // 排除「太简单」（永不出现）；可选排除「已掌握」
+    pool = pool.filter(l => {
+      const it = getMemItem(l.cn);
+      if(it.status === 'tooEasy') return false;
+      if(skipKnown && it.status === 'known') return false;
+      return true;
+    });
+    // 智能加权抽样（按 remember/forget 调整频率），不足 memCount 则全取
+    return weightedSample(pool, memCount);
+  }
+
+  function openMemModal(){
+    document.getElementById('memModal').classList.remove('hidden');
+    document.getElementById('memModal').classList.add('flex');
+    document.body.style.overflow = 'hidden';
+    refreshMemStats();
+    showMemSetup();
+  }
+  function closeMemModal(){
+    document.getElementById('memModal').classList.add('hidden');
+    document.getElementById('memModal').classList.remove('flex');
+    document.body.style.overflow = '';
+  }
+  function showMemSetup(){
+    document.getElementById('memSetup').classList.remove('hidden');
+    document.getElementById('memPlay').classList.add('hidden');
+    document.getElementById('memDone').classList.add('hidden');
+  }
+  window.openMemModal = openMemModal;
+  window.closeMemModal = closeMemModal;
+
+  // 题型选择
+  document.querySelectorAll('.mem-mode-btn').forEach(b => {
+    b.addEventListener('click', () => {
+      document.querySelectorAll('.mem-mode-btn').forEach(x => x.classList.remove('active'));
+      b.classList.add('active');
+      memMode = b.dataset.mode;
+    });
+  });
+
+  // 每次记忆数量选择
+  document.querySelectorAll('.mem-count-btn').forEach(b => {
+    b.addEventListener('click', () => {
+      document.querySelectorAll('.mem-count-btn').forEach(x => x.classList.remove('active'));
+      b.classList.add('active');
+      memCount = parseInt(b.dataset.n, 10);
+    });
+  });
+
+  document.getElementById('memStartBtn').addEventListener('click', () => {
+    memQueue = buildMemQueue();
+    if(memQueue.length === 0){
+      alert('该分类暂无可用法条（可能已全部掌握），可点击下方「一键重学」从头再来');
+      return;
+    }
+    memIdx = 0;
+    memKnownCount = 0;
+    memReviewCount = 0;
+    memMissed = [];
+    memLastAction = null;
+    memTouchStreak();
+    hideMemDetail();
+    document.getElementById('memFlashUndo').classList.add('hidden');
+    document.getElementById('memSetup').classList.add('hidden');
+    document.getElementById('memPlay').classList.remove('hidden');
+    document.getElementById('memDone').classList.add('hidden');
+    const modeLabel = {flash:'🃏 闪卡翻面', choice:'✅ 四选一', fill:'✍️ 要点填空'}[memMode];
+    document.getElementById('memModeLabel').textContent = modeLabel;
+    showMemQuestion();
+  });
+
+  function showMemQuestion(){
+    const l = memQueue[memIdx];
+    // 进度
+    const total = memQueue.length;
+    document.getElementById('memProgress').style.width = ((memIdx) / total * 100) + '%';
+    document.getElementById('memCounter').textContent = `${memIdx + 1} / ${total}`;
+
+    // 各模式渲染
+    document.getElementById('memFlash').classList.toggle('hidden', memMode !== 'flash');
+    document.getElementById('memChoice').classList.toggle('hidden', memMode !== 'choice');
+    document.getElementById('memFill').classList.toggle('hidden', memMode !== 'fill');
+
+    if(memMode === 'flash'){
+      const card = document.getElementById('memFlashCard');
+      card.classList.remove('flipped');
+      document.getElementById('memFlashQ').innerHTML = `<div class="text-xs text-gray-500 mb-2">${CAT_LABEL[l.cat] || l.tag} · ${l.cn}</div><div class="text-sm leading-relaxed">${escapeHtml(l.cnText)}</div>`;
+      document.getElementById('memFlashA').innerHTML = `<div class="text-xs text-gray-500 mb-2">${l.ja}</div><div class="text-sm leading-relaxed">${escapeHtml(l.jaText)}</div>`;
+    } else if(memMode === 'choice'){
+      document.getElementById('memChoiceQ').innerHTML = `<div class="text-xs text-gray-500 mb-2">${CAT_LABEL[l.cat] || l.tag} · ${l.cn}</div><div class="text-sm leading-relaxed">${escapeHtml(l.cnText)}</div>`;
+      // 生成4个选项：1正确 + 3干扰
+      const correct = l.ja;
+      const wrongPool = laws.filter(x => x !== l).sort(() => Math.random() - 0.5).slice(0, 3).map(x => x.ja);
+      const opts = [correct, ...wrongPool].sort(() => Math.random() - 0.5);
+      document.getElementById('memChoiceOpts').innerHTML = opts.map(o => `<button class="mem-opt text-sm" data-correct="${o === correct}">${escapeHtml(o)}</button>`).join('');
+      document.querySelectorAll('#memChoiceOpts .mem-opt').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const isCorrect = btn.dataset.correct === 'true';
+          document.querySelectorAll('#memChoiceOpts .mem-opt').forEach(b => { b.disabled = true; if(b.dataset.correct === 'true') b.classList.add('correct'); });
+          if(!isCorrect) btn.classList.add('wrong');
+          markMemResult(l, isCorrect ? 'known' : 'review');
+        });
+      });
+    } else { // fill
+      document.getElementById('memFillQ').innerHTML = `<div class="text-xs text-gray-500 mb-2">${CAT_LABEL[l.cat] || l.tag} · ${l.cn}</div><div class="text-sm leading-relaxed">${escapeHtml(l.cnText)}</div><div class="text-xs text-gray-400 mt-2">提示：回忆对应的日文法条名（如「民法 第415条」）</div>`;
+      document.getElementById('memFillInput').value = '';
+      document.getElementById('memFillResult').classList.add('hidden');
+      // 移除旧监听，重新绑定
+      const sub = document.getElementById('memFillSubmit');
+      sub.onclick = () => {
+        const ans = document.getElementById('memFillInput').value.trim();
+        if(!ans) return;
+        const correct = l.ja;
+        const ok = ans.replace(/\s/g,'') === correct.replace(/\s/g,'');
+        const res = document.getElementById('memFillResult');
+        res.classList.remove('hidden');
+        res.innerHTML = ok
+          ? `<div class="px-3 py-2 rounded-lg bg-green-50 text-green-700 text-sm">✅ 正确！<span class="jp">${escapeHtml(correct)}</span></div>`
+          : `<div class="px-3 py-2 rounded-lg bg-red-50 text-red-600 text-sm">❌ 正确答案：<span class="jp">${escapeHtml(correct)}</span></div>`;
+        markMemResult(l, ok ? 'known' : 'review');
+      };
+    }
+  }
+  window.flipMemCard = function(){
+    document.getElementById('memFlashCard').classList.toggle('flipped');
+  };
+
+  function markMemResult(l, result){
+    // result: 'known' | 'review' | 'tooEasy'
+    const it = getMemItem(l.cn);
+    if(result === 'review'){ it.forget = (it.forget || 0) + 1; it.status = 'review'; memReviewCount++; memMissed.push(l); }
+    else if(result === 'known'){ it.remember = (it.remember || 0) + 1; it.status = 'known'; memKnownCount++; }
+    else if(result === 'tooEasy'){ it.remember = (it.remember || 0) + 1; it.status = 'tooEasy'; memKnownCount++; }
+    memLastAction = { law: l, result: result };
+    memSave();
+    refreshMemStats();
+    showMemDetail(l, result);
+  }
+
+  // 答题后展示法条详情（无论对错/太简单都展示，供自查记忆）
+  function showMemDetail(l, result){
+    const panel = document.getElementById('memDetail');
+    const tag = document.getElementById('memDetailTag');
+    panel.classList.remove('hidden');
+    if(result === 'review'){
+      tag.textContent = '😔 不熟';
+      tag.className = 'text-[11px] px-2 py-0.5 rounded-full bg-amber-100 text-amber-700';
+    } else if(result === 'known'){
+      tag.textContent = '😊 认识';
+      tag.className = 'text-[11px] px-2 py-0.5 rounded-full bg-green-100 text-green-700';
+    } else {
+      tag.textContent = '🎉 太简单';
+      tag.className = 'text-[11px] px-2 py-0.5 rounded-full bg-sky-100 text-sky-700';
+    }
+    document.getElementById('memDetailCn').textContent = l.cn;
+    document.getElementById('memDetailCnText').textContent = l.cnText;
+    document.getElementById('memDetailJa').textContent = l.ja;
+    document.getElementById('memDetailJaText').textContent = l.jaText;
+  }
+  function hideMemDetail(){
+    document.getElementById('memDetail').classList.add('hidden');
+  }
+
+  function nextMem(){
+    memIdx++;
+    hideMemDetail();
+    document.getElementById('memFlashUndo').classList.add('hidden');
+    if(memIdx >= memQueue.length){
+      // 完成
+      document.getElementById('memPlay').classList.add('hidden');
+      document.getElementById('memDone').classList.remove('hidden');
+      document.getElementById('memDoneSummary').textContent = `本轮共 ${memQueue.length} 题 · 认识 ${memKnownCount} · 需复习 ${memReviewCount}。`;
+      document.getElementById('memProgress').style.width = '100%';
+      // 展示本轮不会的法条列表 + 复习按钮
+      const reviewBtn = document.getElementById('memReviewBtn');
+      const reviewList = document.getElementById('memReviewList');
+      if(memMissed.length > 0){
+        reviewBtn.classList.remove('hidden');
+        reviewList.classList.remove('hidden');
+        reviewList.innerHTML = '<div class="px-4 py-2.5 text-xs font-semibold text-amber-600 bg-amber-50 border-b border-amber-100">🔁 本轮需复习的法条（' + memMissed.length + '）</div>' + memMissed.map(l => `<div class="px-4 py-2.5 text-sm border-b border-line last:border-0 flex items-start gap-2"><span class="text-gray-400 shrink-0">•</span><span><span class="font-medium text-gray-700">${escapeHtml(l.cn)}</span><span class="text-gray-400 mx-1">⇄</span><span class="jp text-gray-600">${escapeHtml(l.ja)}</span></span></div>`).join('');
+      } else {
+        reviewBtn.classList.add('hidden');
+        reviewList.classList.add('hidden');
+        reviewList.innerHTML = '';
+      }
+      return;
+    }
+    showMemQuestion();
+  }
+
+  document.getElementById('memNextBtn').addEventListener('click', nextMem);
+  document.getElementById('memFlashAgain').addEventListener('click', () => { markMemResult(memQueue[memIdx], 'review'); showUndoBtn(); });
+  document.getElementById('memFlashKnown').addEventListener('click', () => { markMemResult(memQueue[memIdx], 'known'); showUndoBtn(); });
+  document.getElementById('memFlashEasy').addEventListener('click', () => { markMemResult(memQueue[memIdx], 'tooEasy'); showUndoBtn(); });
+  // 撤销上一题
+  function showUndoBtn(){
+    document.getElementById('memFlashUndo').classList.remove('hidden');
+  }
+  document.getElementById('memFlashUndo').addEventListener('click', () => {
+    if(!memLastAction) return;
+    const { law, result } = memLastAction;
+    const it = getMemItem(law.cn);
+    if(result === 'review'){ it.forget = Math.max(0, (it.forget||0) - 1); memReviewCount--; memMissed.pop(); }
+    else { it.remember = Math.max(0, (it.remember||0) - 1); memKnownCount--; }
+    // 撤销后回退到 new 状态（若无历史）
+    if(it.remember === 0 && it.forget === 0) it.status = 'new';
+    memLastAction = null;
+    memSave();
+    refreshMemStats();
+    hideMemDetail();
+    document.getElementById('memFlashUndo').classList.add('hidden');
+  });
+  document.getElementById('memFillInput').addEventListener('keydown', e => { if(e.key === 'Enter') document.getElementById('memFillSubmit').click(); });
+  document.getElementById('memQuitBtn').addEventListener('click', showMemSetup);
+  document.getElementById('memRestartBtn').addEventListener('click', () => { document.getElementById('memStartBtn').click(); });
+  // 复习本轮不会的法条
+  document.getElementById('memReviewBtn').addEventListener('click', () => {
+    if(memMissed.length === 0){ alert('本轮没有需要复习的法条'); return; }
+    memQueue = memMissed.slice();
+    memMissed = [];
+    memIdx = 0;
+    memKnownCount = 0;
+    memReviewCount = 0;
+    document.getElementById('memDone').classList.add('hidden');
+    document.getElementById('memPlay').classList.remove('hidden');
+    showMemQuestion();
+  });
+  // 复习历史（之前轮次）不会的法条
+  document.  getElementById('memReviewOldBtn').addEventListener('click', () => {
+    const cat = document.getElementById('memCategory').value;
+    const pool = laws.filter(l => (cat === 'all' || l.cat === cat) && getMemItem(l.cn).status === 'review');
+    if(pool.length === 0){ alert('暂无历史不会的法条，先去背诵吧'); return; }
+    for(let i = pool.length - 1; i > 0; i--){ const j = Math.floor(Math.random()*(i+1)); [pool[i], pool[j]] = [pool[j], pool[i]]; }
+    memQueue = pool.slice(0, memCount);
+    memMissed = [];
+    memIdx = 0;
+    memKnownCount = 0;
+    memReviewCount = 0;
+    memLastAction = null;
+    memTouchStreak();
+    document.getElementById('memSetup').classList.add('hidden');
+    document.getElementById('memDone').classList.add('hidden');
+    document.getElementById('memPlay').classList.remove('hidden');
+    const modeLabel = {flash:'🃏 闪卡翻面', choice:'✅ 四选一', fill:'✍️ 要点填空'}[memMode];
+    document.getElementById('memModeLabel').textContent = modeLabel;
+    showMemQuestion();
+  });
+
+  // 一键重学：清空当前分类全部法条的学习状态，从头再来
+  document.getElementById('memResetBtn').addEventListener('click', () => {
+    const cat = document.getElementById('memCategory').value;
+    const catLabel = cat === 'all' ? '全部' : (CAT_LABEL[cat] || cat);
+    if(!confirm(`确定清空「${catLabel}」分类的全部学习记录，从头开始吗？`)) return;
+    const catPool = laws.filter(l => cat === 'all' || l.cat === cat);
+    catPool.forEach(l => { delete memState.items[l.cn]; });
+    memSave();
+    refreshMemStats();
+    // 自动开始新的一轮
+    document.getElementById('memStartBtn').click();
+  });
+})();
+</script>
+</body>
+</html>
